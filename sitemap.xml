@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://armsp.github.io/covidviz/world/time%20series/2020/05/23/Graphs.html</loc>
-<lastmod>2020-05-23T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>https://armsp.github.io/covidviz/world/time%20series/2020/05/25/Responsive.html</loc>
-<lastmod>2020-05-25T00:00:00-05:00</lastmod>
+<loc>https://armsp.github.io/covidviz/2020/05/28/Altair-Intro.html</loc>
+<lastmod>2020-05-28T00:00:00-05:00</lastmod>
 </url>
 <url>
 <loc>https://armsp.github.io/covidviz/about/</loc>

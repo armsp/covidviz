@@ -341,7 +341,7 @@ img.emoji { display: inline !important; vertical-align: baseline !important; }
 
 .page-content { -webkit-font-smoothing: antialiased !important; text-rendering: optimizeLegibility !important; font-family: "Segoe UI", SegoeUI, Roboto, "Segoe WP", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif !important; }
 
-.post-content p, .post-content li { font-size: 20px; color: #515151; }
+.post-content p, .post-content li { font-size: 18px; color: #515151; }
 
 .post-link { font-weight: normal; }
 
@@ -430,7 +430,20 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 @media only screen and (max-width: 900px) { /* for mobile phone and tablet devices */
   .output_wrapper { overflow: scroll; } }
 
+.output_wrapper { margin: 0 -200px; width: calc(100% + 400px); }
+
+.output_wrapper { margin: 0 -200px; width: calc(100% + 400px); display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; }
+
+/* a dark, off-black for the bg */
+/* an off-white for the text */
+/* for the border-top separators */
+/* such as the site title in the header, visited */
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
+.logos { list-style: none; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; margin: 0 auto; align-items: center; }
+
+.logos li::marker { flex: 0; }
+
+.logos li { padding: 10px; flex-basis: 15%; }
 
 /*# sourceMappingURL=style.css.map */
