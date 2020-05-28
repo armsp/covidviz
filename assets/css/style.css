@@ -434,10 +434,6 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 
 .output_wrapper { margin: 0 -200px; width: calc(100% + 400px); display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; }
 
-/* a dark, off-black for the bg */
-/* an off-white for the text */
-/* for the border-top separators */
-/* such as the site title in the header, visited */
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
 .logos { list-style: none; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; margin: 0 auto; align-items: center; }
@@ -445,5 +441,17 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 .logos li::marker { flex: 0; }
 
 .logos li { padding: 10px; flex-basis: 15%; }
+
+.site-title { font-family: 'Bungee Shade', cursive; font-size: 2rem; }
+
+.post-title { font-family: 'Bungee Inline', cursive; }
+
+.page-link { font-family: 'Bungee', cursive; font-size: 16px; }
+
+.home #posts { font-family: 'Bungee', cursive; }
+
+.post-link { font-family: 'Bungee', cursive; }
+
+center iframe { width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
