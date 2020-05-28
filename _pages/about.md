@@ -15,4 +15,4 @@ If you want me to try a specific visualization, do let me know by raising an iss
 
 My website - [www.shantamraj.com](https://www.shantamraj.com)
 
-I am working on a project that you should definitely check out - [COVID-19 Stories](https://www.storiescovid.in)
+I am working on a project that you should definitely check out - [COVID-19 Stories](https://storiescovid.in)
