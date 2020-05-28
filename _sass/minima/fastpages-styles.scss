@@ -29,7 +29,7 @@ img.emoji{
 
 // make non-headings slightly lighter
 .post-content p, .post-content li {
-   font-size: 20px;
+   font-size: 18px;
    color: #515151;
 }
 
@@ -251,3 +251,95 @@ table {
     overflow: scroll;
   }
 }
+
+// .output_wrapper {
+//   // display: flex; /* or inline-flex */
+//   // flex-direction: row;
+//   // flex-wrap: wrap;
+//   position: absolute;
+//   margin: 0 auto;
+// }
+// .output {
+//   // display: flex;
+//   // flex-grow: 1; /* default 0 */
+//   max-width: 100%;
+//   position: absolute;
+//   // width: 50%;
+//   /* height: 400px; */
+//   /* max-height: 100%; */
+// }
+// .output_area {
+//   // display: flex;
+//   // flex-grow: 1; /* default 0 */
+//   max-width: 100%;
+//   position: absolute;
+//   // width: 680px;
+//   // margin: 0 auto;
+//   /* height: 400px; */
+//   /* max-height: 100%; */
+// }
+// .output_html {
+//   // display: flex;
+//   // flex-grow: 1; /* default 0 */
+//   // max-width: 100%;
+//   // width: 680px;
+//   position: absolute;
+//   // left: 0;
+//   margin: 0 auto;
+//   /* height: 400px; */
+//   /* max-height: 100%; */
+// }
+// canvas {
+//   // width: auto !important;
+//   padding-left: 0;
+//   padding-right: 0;
+//   margin-left: auto;
+//   margin-right: auto;
+//   display: block;
+//   max-width: 100%;
+//   // width: 800px;
+// }
+/////////////////////////////////////////////WORKS///////////////////////
+.output_wrapper {
+  margin: 0 -200px;
+  width: calc(100% + 400px);
+
+}
+// .output{
+//   display: table;
+//   // margin: 0 -200px;
+//   // display: inline-block;
+//   margin: 0 auto;
+//   width: fit-content;
+// }
+/////////////////////////////////////////////Till HERE For ABOVE///////////////////////
+
+// .output_area{
+//   // margin: 0 -200px;
+//   // display: inline-block;
+//   margin: 0 auto;
+//   width: fit-content;
+// }
+// .output_html{
+//   // margin: 0 -200px;
+//   // display: inline-block;
+//   display: table;
+//   margin: 0 auto;
+//   // width: fit-content;
+// }
+
+/////////////////////////////////////////////////////WORKS AS WELL//////////////////
+.output_wrapper{
+  margin: 0 -200px;
+  width: calc(100% + 400px);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+/////////////////////////////////////////////////////ONLY THIS BLOCK NEEDED//////////////////
+$background-color: #1d1d1d; /* a dark, off-black for the bg */
+$text-color: #e6e6e6; /* an off-white for the text */
+$grey-color-light: #565656; /* for the border-top separators */
+$grey-color-dark: #adadad; /* such as the site title in the header, visited */

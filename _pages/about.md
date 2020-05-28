@@ -3,11 +3,16 @@ layout: page
 title: About Me
 permalink: /about/
 ---
+Hi :wave:  
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
+My name is **Shantam**. This blog will contain my attempts to replicate/emulate the visualizations at large media houses, related to COVID-19 pandemic, using open source data & tools.
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+I am a driven **python** developer and **data scientist**. I have worked with **Machine Learning** and **Big Data** too. Did I tell you I am a published **poet** too?  
 
+I am available for **consulting**, **collaborations**, **part time** or **full time** jobs. Let me know if you want to talk.
 
+If you want me to try a specific visualization, do let me know by raising an issue in the [GitHub Repository](https://github.com/armsp/covidviz).
 
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+My website - [www.shantamraj.com](www.shantamraj.com)
+
+I am working on a project that you should definitely check out - [COVID-19 Stories](www.storiescovid.in)

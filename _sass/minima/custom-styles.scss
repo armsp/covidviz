@@ -9,3 +9,52 @@
 
 // If you want to turn off dark background for syntax highlighting, comment or delete the below line.
 // @import "minima/fastpages-dracula-highlight"; 
+// @import "minima/custom-code-colors";
+// @import "minima/darker";
+// @import "minima/base";
+// @import "minima/buttons";   
+// @import "minima/code";   
+// @import "minima/content";   
+// @import "minima/labels";   
+// @import "minima/layout";   
+// @import "minima/navigation";   
+// @import "minima/overrides";   
+// @import "minima/search";   
+// @import "minima/tables";   
+// @import "minima/typography";   
+// @import "minima/color_schemes/dark";   
+
+.logos {
+    list-style: none;
+    // padding-left: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+    // max-width: 740px;
+}
+.logos li::marker {
+    flex: 0;
+    // flex-basis: 5%;
+    // flex-shrink: 1;
+    // flex: 1 1 auto;
+    // display: block;
+    // width: 10%;
+    // height: 10%;
+}
+// .logos li img{
+//     width: 10%;
+//     height: auto;
+// }
+.logos li {
+    padding: 10px;
+    // flex: 0;
+    flex-basis: 15%;
+    // flex-shrink: 1;
+    // flex: 1 1 auto;
+    // display: block;
+    // width: 10%;
+    // height: 10%;
+}
