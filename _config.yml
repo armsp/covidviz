@@ -6,8 +6,8 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: COVID-19 Viz like New York Times
-description: Making professional looking charts the likes of New York Times using Python
+title: COVID-19 Viz
+description: Making professional looking charts the likes of big media houses like NYT, Guardian and others using Python
 github_username: armsp
 # you can comment the below line out if your repo name is not different than your baseurl
 github_repo: "covidviz"
