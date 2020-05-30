@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Covid Cases &amp; Deaths Graph for U.S | COVID-19 Viz</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Covid Cases &amp; Deaths Graph for U.S" />
+<meta name="author" content="Shantam Raj" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Making a vertically concatenated layered chart. The layered chart comprises a bar chart of new cases, a line and area chart of a week’s average of COVID-19 cases and deaths in the U.S for the vertical charts respectively." />
+<meta property="og:description" content="Making a vertically concatenated layered chart. The layered chart comprises a bar chart of new cases, a line and area chart of a week’s average of COVID-19 cases and deaths in the U.S for the vertical charts respectively." />
+<link rel="canonical" href="https://armsp.github.io/covidviz/2020/05/30/Covid-Cases-&-Deaths-in-US.html" />
+<meta property="og:url" content="https://armsp.github.io/covidviz/2020/05/30/Covid-Cases-&-Deaths-in-US.html" />
+<meta property="og:site_name" content="COVID-19 Viz" />
+<meta property="og:image" content="https://armsp.github.io/covidviz/images/line_area_bar2.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-30T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Shantam Raj"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://armsp.github.io/covidviz/2020/05/30/Covid-Cases-&-Deaths-in-US.html"},"description":"Making a vertically concatenated layered chart. The layered chart comprises a bar chart of new cases, a line and area chart of a week’s average of COVID-19 cases and deaths in the U.S for the vertical charts respectively.","@type":"BlogPosting","url":"https://armsp.github.io/covidviz/2020/05/30/Covid-Cases-&-Deaths-in-US.html","headline":"Covid Cases &amp; Deaths Graph for U.S","dateModified":"2020-05-30T00:00:00-05:00","datePublished":"2020-05-30T00:00:00-05:00","image":"https://armsp.github.io/covidviz/images/line_area_bar2.png","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/covidviz/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://armsp.github.io/covidviz/feed.xml" title="COVID-19 Viz" /><link rel="shortcut icon" type="image/x-icon" href="/covidviz/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Covid Cases &amp; Deaths Graph for U.S | COVID-19 Viz</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Covid Cases &amp; Deaths Graph for U.S" />
+<meta name="author" content="Shantam Raj" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Making a vertically concatenated layered chart. The layered chart comprises a bar chart of new cases, a line and area chart of a week’s average of COVID-19 cases and deaths in the U.S for the vertical charts respectively." />
+<meta property="og:description" content="Making a vertically concatenated layered chart. The layered chart comprises a bar chart of new cases, a line and area chart of a week’s average of COVID-19 cases and deaths in the U.S for the vertical charts respectively." />
+<link rel="canonical" href="https://armsp.github.io/covidviz/2020/05/30/Covid-Cases-&-Deaths-in-US.html" />
+<meta property="og:url" content="https://armsp.github.io/covidviz/2020/05/30/Covid-Cases-&-Deaths-in-US.html" />
+<meta property="og:site_name" content="COVID-19 Viz" />
+<meta property="og:image" content="https://armsp.github.io/covidviz/images/line_area_bar2.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-30T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Shantam Raj"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://armsp.github.io/covidviz/2020/05/30/Covid-Cases-&-Deaths-in-US.html"},"description":"Making a vertically concatenated layered chart. The layered chart comprises a bar chart of new cases, a line and area chart of a week’s average of COVID-19 cases and deaths in the U.S for the vertical charts respectively.","@type":"BlogPosting","url":"https://armsp.github.io/covidviz/2020/05/30/Covid-Cases-&-Deaths-in-US.html","headline":"Covid Cases &amp; Deaths Graph for U.S","dateModified":"2020-05-30T00:00:00-05:00","datePublished":"2020-05-30T00:00:00-05:00","image":"https://armsp.github.io/covidviz/images/line_area_bar2.png","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://armsp.github.io/covidviz/feed.xml" title="COVID-19 Viz" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+<!-- My additions -->
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet"> </head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/covidviz/">COVID-19 Viz</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/covidviz/about/">About Me</a><a class="page-link" href="/covidviz/search/">Search</a><a class="page-link" href="/covidviz/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Covid Cases &amp; Deaths Graph for U.S</h1><p class="page-description">Making a vertically concatenated layered chart. The layered chart comprises a bar chart of new cases, a line and area chart of a week's average of COVID-19 cases and deaths in the U.S  for the vertical charts respectively.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-30T00:00:00-05:00" itemprop="datePublished">
+        May 30, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Shantam Raj</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/armsp/covidviz/blob/master/_notebooks/2020-05-30-Covid Cases & Deaths in US.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/covidviz/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-05-30-Covid Cases & Deaths in US.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The graph that we will learn to make today is from the NYT article on <a href="https://www.nytimes.com/interactive/2020/us/coronavirus-us-cases.html#cases">Coronavirus in the U.S</a></p>
+<p><img src="/covidviz/images/copied_from_nb/images/line_area_bar2.png" alt="us cases and deaths" /></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/nytimes/covid-19-data/master/us.csv&quot;</span>
+<span class="n">usdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">set_embed_options</span><span class="p">(</span><span class="n">actions</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">usdf</span><span class="p">[</span><span class="s1">&#39;new_deaths&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">usdf</span><span class="p">[</span><span class="s1">&#39;deaths&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<span class="n">usdf</span><span class="p">[</span><span class="s1">&#39;new_cases&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">usdf</span><span class="p">[</span><span class="s1">&#39;cases&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+
+<span class="c1"># Bar Chart</span>
+<span class="n">bar</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:T&#39;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;new_deaths:Q&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Area Chart</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">fillOpacity</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
+    <span class="n">rolling_average</span><span class="o">=</span><span class="s1">&#39;mean(new_deaths)&#39;</span><span class="p">,</span>
+    <span class="n">frame</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># NYT uses [-6,0] for their average NOT [-7,0]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;rolling_average:Q&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Line Chart</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span> <span class="s2">&quot;strokeWidth&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
+
+<span class="c1"># Chart of deaths</span>
+<span class="n">deaths</span> <span class="o">=</span> <span class="p">(</span><span class="n">bar</span><span class="o">+</span><span class="n">area</span><span class="o">+</span><span class="n">line</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Deaths&quot;</span><span class="p">)</span>
+
+<span class="c1"># Bar Chart</span>
+<span class="n">bar2</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:T&#39;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;new_cases:Q&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Area Chart</span>
+<span class="n">area2</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">fillOpacity</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
+    <span class="n">rolling_average</span><span class="o">=</span><span class="s1">&#39;mean(new_cases)&#39;</span><span class="p">,</span>
+    <span class="n">frame</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># NYT uses [-6,0] for their average NOT [-7,0]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;rolling_average:Q&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Line Chart</span>
+<span class="n">line2</span> <span class="o">=</span> <span class="n">area2</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span> <span class="s2">&quot;strokeWidth&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
+
+<span class="n">cases</span> <span class="o">=</span> <span class="p">(</span><span class="n">bar2</span><span class="o">+</span><span class="n">area2</span><span class="o">+</span><span class="n">line2</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Cases&quot;</span><span class="p">)</span>
+
+<span class="c1"># Vertically concatenate the charts</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span><span class="n">cases</span><span class="p">,</span> <span class="n">deaths</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">usdf</span><span class="p">)</span><span class="o">.</span><span class="n">configure_axis</span><span class="p">(</span>
+    <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span>
+    <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-b316f64120674890811b95cffa081105"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-b316f64120674890811b95cffa081105") {
+      outputDiv = document.getElementById("altair-viz-b316f64120674890811b95cffa081105");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "strokeWidth": 0}, "axis": {"grid": false, "title": null}}, "vconcat": [{"layer": [{"mark": {"type": "bar", "color": "red", "opacity": 0.2, "size": 5}, "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "new_cases"}}}, {"mark": {"type": "area", "fill": "red", "fillOpacity": 0.15}, "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "rolling_average"}}, "transform": [{"window": [{"op": "mean", "field": "new_cases", "as": "rolling_average"}], "frame": [-6, 0]}]}, {"mark": {"type": "line", "color": "red", "opacity": 0.7, "strokeWidth": 3}, "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "rolling_average"}}, "transform": [{"window": [{"op": "mean", "field": "new_cases", "as": "rolling_average"}], "frame": [-6, 0]}]}], "title": "Cases", "width": 800}, {"layer": [{"mark": {"type": "bar", "color": "gray", "opacity": 0.2, "size": 5}, "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "new_deaths"}}}, {"mark": {"type": "area", "fill": "gray", "fillOpacity": 0.15}, "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "rolling_average"}}, "transform": [{"window": [{"op": "mean", "field": "new_deaths", "as": "rolling_average"}], "frame": [-6, 0]}]}, {"mark": {"type": "line", "color": "black", "opacity": 0.7, "strokeWidth": 3}, "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "rolling_average"}}, "transform": [{"window": [{"op": "mean", "field": "new_deaths", "as": "rolling_average"}], "frame": [-6, 0]}]}], "title": "Deaths", "width": 800}], "data": {"name": "data-c6a596b5e98c12a8788e5c11d2bbaf43"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-c6a596b5e98c12a8788e5c11d2bbaf43": [{"date": "2020-01-21", "cases": 1, "deaths": 0, "new_deaths": null, "new_cases": null}, {"date": "2020-01-22", "cases": 1, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-01-23", "cases": 1, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-01-24", "cases": 2, "deaths": 0, "new_deaths": 0.0, "new_cases": 1.0}, {"date": "2020-01-25", "cases": 3, "deaths": 0, "new_deaths": 0.0, "new_cases": 1.0}, {"date": "2020-01-26", "cases": 5, "deaths": 0, "new_deaths": 0.0, "new_cases": 2.0}, {"date": "2020-01-27", "cases": 5, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-01-28", "cases": 5, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-01-29", "cases": 5, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-01-30", "cases": 6, "deaths": 0, "new_deaths": 0.0, "new_cases": 1.0}, {"date": "2020-01-31", "cases": 7, "deaths": 0, "new_deaths": 0.0, "new_cases": 1.0}, {"date": "2020-02-01", "cases": 8, "deaths": 0, "new_deaths": 0.0, "new_cases": 1.0}, {"date": "2020-02-02", "cases": 11, "deaths": 0, "new_deaths": 0.0, "new_cases": 3.0}, {"date": "2020-02-03", "cases": 11, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-02-04", "cases": 11, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-02-05", "cases": 12, "deaths": 0, "new_deaths": 0.0, "new_cases": 1.0}, {"date": "2020-02-06", "cases": 12, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-02-07", "cases": 12, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-02-08", "cases": 12, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-02-09", "cases": 12, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-02-10", "cases": 13, "deaths": 0, "new_deaths": 0.0, "new_cases": 1.0}, {"date": "2020-02-11", "cases": 13, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-02-12", "cases": 14, "deaths": 0, "new_deaths": 0.0, "new_cases": 1.0}, {"date": "2020-02-13", "cases": 15, "deaths": 0, "new_deaths": 0.0, "new_cases": 1.0}, {"date": "2020-02-14", "cases": 15, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-02-15", "cases": 15, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-02-16", "cases": 15, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-02-17", "cases": 25, "deaths": 0, "new_deaths": 0.0, "new_cases": 10.0}, {"date": "2020-02-18", "cases": 25, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-02-19", "cases": 25, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-02-20", "cases": 27, "deaths": 0, "new_deaths": 0.0, "new_cases": 2.0}, {"date": "2020-02-21", "cases": 30, "deaths": 0, "new_deaths": 0.0, "new_cases": 3.0}, {"date": "2020-02-22", "cases": 30, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-02-23", "cases": 30, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-02-24", "cases": 43, "deaths": 0, "new_deaths": 0.0, "new_cases": 13.0}, {"date": "2020-02-25", "cases": 45, "deaths": 0, "new_deaths": 0.0, "new_cases": 2.0}, {"date": "2020-02-26", "cases": 60, "deaths": 0, "new_deaths": 0.0, "new_cases": 15.0}, {"date": "2020-02-27", "cases": 60, "deaths": 0, "new_deaths": 0.0, "new_cases": 0.0}, {"date": "2020-02-28", "cases": 65, "deaths": 0, "new_deaths": 0.0, "new_cases": 5.0}, {"date": "2020-02-29", "cases": 70, "deaths": 1, "new_deaths": 1.0, "new_cases": 5.0}, {"date": "2020-03-01", "cases": 88, "deaths": 3, "new_deaths": 2.0, "new_cases": 18.0}, {"date": "2020-03-02", "cases": 104, "deaths": 6, "new_deaths": 3.0, "new_cases": 16.0}, {"date": "2020-03-03", "cases": 125, "deaths": 10, "new_deaths": 4.0, "new_cases": 21.0}, {"date": "2020-03-04", "cases": 161, "deaths": 12, "new_deaths": 2.0, "new_cases": 36.0}, {"date": "2020-03-05", "cases": 228, "deaths": 12, "new_deaths": 0.0, "new_cases": 67.0}, {"date": "2020-03-06", "cases": 311, "deaths": 15, "new_deaths": 3.0, "new_cases": 83.0}, {"date": "2020-03-07", "cases": 428, "deaths": 19, "new_deaths": 4.0, "new_cases": 117.0}, {"date": "2020-03-08", "cases": 547, "deaths": 22, "new_deaths": 3.0, "new_cases": 119.0}, {"date": "2020-03-09", "cases": 748, "deaths": 26, "new_deaths": 4.0, "new_cases": 201.0}, {"date": "2020-03-10", "cases": 1018, "deaths": 31, "new_deaths": 5.0, "new_cases": 270.0}, {"date": "2020-03-11", "cases": 1263, "deaths": 37, "new_deaths": 6.0, "new_cases": 245.0}, {"date": "2020-03-12", "cases": 1668, "deaths": 43, "new_deaths": 6.0, "new_cases": 405.0}, {"date": "2020-03-13", "cases": 2224, "deaths": 50, "new_deaths": 7.0, "new_cases": 556.0}, {"date": "2020-03-14", "cases": 2898, "deaths": 60, "new_deaths": 10.0, "new_cases": 674.0}, {"date": "2020-03-15", "cases": 3600, "deaths": 68, "new_deaths": 8.0, "new_cases": 702.0}, {"date": "2020-03-16", "cases": 4507, "deaths": 91, "new_deaths": 23.0, "new_cases": 907.0}, {"date": "2020-03-17", "cases": 5906, "deaths": 117, "new_deaths": 26.0, "new_cases": 1399.0}, {"date": "2020-03-18", "cases": 8350, "deaths": 162, "new_deaths": 45.0, "new_cases": 2444.0}, {"date": "2020-03-19", "cases": 12393, "deaths": 212, "new_deaths": 50.0, "new_cases": 4043.0}, {"date": "2020-03-20", "cases": 18001, "deaths": 275, "new_deaths": 63.0, "new_cases": 5608.0}, {"date": "2020-03-21", "cases": 24526, "deaths": 358, "new_deaths": 83.0, "new_cases": 6525.0}, {"date": "2020-03-22", "cases": 33063, "deaths": 455, "new_deaths": 97.0, "new_cases": 8537.0}, {"date": "2020-03-23", "cases": 43500, "deaths": 574, "new_deaths": 119.0, "new_cases": 10437.0}, {"date": "2020-03-24", "cases": 53924, "deaths": 769, "new_deaths": 195.0, "new_cases": 10424.0}, {"date": "2020-03-25", "cases": 68530, "deaths": 1039, "new_deaths": 270.0, "new_cases": 14606.0}, {"date": "2020-03-26", "cases": 85558, "deaths": 1345, "new_deaths": 306.0, "new_cases": 17028.0}, {"date": "2020-03-27", "cases": 102829, "deaths": 1758, "new_deaths": 413.0, "new_cases": 17271.0}, {"date": "2020-03-28", "cases": 123723, "deaths": 2287, "new_deaths": 529.0, "new_cases": 20894.0}, {"date": "2020-03-29", "cases": 142397, "deaths": 2702, "new_deaths": 415.0, "new_cases": 18674.0}, {"date": "2020-03-30", "cases": 163863, "deaths": 3356, "new_deaths": 654.0, "new_cases": 21466.0}, {"date": "2020-03-31", "cases": 188413, "deaths": 4290, "new_deaths": 934.0, "new_cases": 24550.0}, {"date": "2020-04-01", "cases": 215161, "deaths": 5315, "new_deaths": 1025.0, "new_cases": 26748.0}, {"date": "2020-04-02", "cases": 244619, "deaths": 6542, "new_deaths": 1227.0, "new_cases": 29458.0}, {"date": "2020-04-03", "cases": 277262, "deaths": 7902, "new_deaths": 1360.0, "new_cases": 32643.0}, {"date": "2020-04-04", "cases": 312498, "deaths": 9466, "new_deaths": 1564.0, "new_cases": 35236.0}, {"date": "2020-04-05", "cases": 337959, "deaths": 10828, "new_deaths": 1362.0, "new_cases": 25461.0}, {"date": "2020-04-06", "cases": 367568, "deaths": 12330, "new_deaths": 1502.0, "new_cases": 29609.0}, {"date": "2020-04-07", "cases": 399352, "deaths": 14579, "new_deaths": 2249.0, "new_cases": 31784.0}, {"date": "2020-04-08", "cases": 431169, "deaths": 16673, "new_deaths": 2094.0, "new_cases": 31817.0}, {"date": "2020-04-09", "cases": 465859, "deaths": 18772, "new_deaths": 2099.0, "new_cases": 34690.0}, {"date": "2020-04-10", "cases": 499325, "deaths": 21028, "new_deaths": 2256.0, "new_cases": 33466.0}, {"date": "2020-04-11", "cases": 531042, "deaths": 23105, "new_deaths": 2077.0, "new_cases": 31717.0}, {"date": "2020-04-12", "cases": 558182, "deaths": 24785, "new_deaths": 1680.0, "new_cases": 27140.0}, {"date": "2020-04-13", "cases": 583940, "deaths": 26547, "new_deaths": 1762.0, "new_cases": 25758.0}, {"date": "2020-04-14", "cases": 610615, "deaths": 29246, "new_deaths": 2699.0, "new_cases": 26675.0}, {"date": "2020-04-15", "cases": 640637, "deaths": 31994, "new_deaths": 2748.0, "new_cases": 30022.0}, {"date": "2020-04-16", "cases": 672243, "deaths": 34264, "new_deaths": 2270.0, "new_cases": 31606.0}, {"date": "2020-04-17", "cases": 703740, "deaths": 36626, "new_deaths": 2362.0, "new_cases": 31497.0}, {"date": "2020-04-18", "cases": 732121, "deaths": 38571, "new_deaths": 1945.0, "new_cases": 28381.0}, {"date": "2020-04-19", "cases": 757475, "deaths": 40089, "new_deaths": 1518.0, "new_cases": 25354.0}, {"date": "2020-04-20", "cases": 784761, "deaths": 41919, "new_deaths": 1830.0, "new_cases": 27286.0}, {"date": "2020-04-21", "cases": 810249, "deaths": 44587, "new_deaths": 2668.0, "new_cases": 25488.0}, {"date": "2020-04-22", "cases": 839017, "deaths": 46955, "new_deaths": 2368.0, "new_cases": 28768.0}, {"date": "2020-04-23", "cases": 872805, "deaths": 49123, "new_deaths": 2168.0, "new_cases": 33788.0}, {"date": "2020-04-24", "cases": 909530, "deaths": 51250, "new_deaths": 2127.0, "new_cases": 36725.0}, {"date": "2020-04-25", "cases": 943802, "deaths": 53210, "new_deaths": 1960.0, "new_cases": 34272.0}, {"date": "2020-04-26", "cases": 970409, "deaths": 54465, "new_deaths": 1255.0, "new_cases": 26607.0}, {"date": "2020-04-27", "cases": 993747, "deaths": 56022, "new_deaths": 1557.0, "new_cases": 23338.0}, {"date": "2020-04-28", "cases": 1018399, "deaths": 58416, "new_deaths": 2394.0, "new_cases": 24652.0}, {"date": "2020-04-29", "cases": 1045102, "deaths": 60930, "new_deaths": 2514.0, "new_cases": 26703.0}, {"date": "2020-04-30", "cases": 1075517, "deaths": 63140, "new_deaths": 2210.0, "new_cases": 30415.0}, {"date": "2020-05-01", "cases": 1109476, "deaths": 64902, "new_deaths": 1762.0, "new_cases": 33959.0}, {"date": "2020-05-02", "cases": 1138944, "deaths": 66485, "new_deaths": 1583.0, "new_cases": 29468.0}, {"date": "2020-05-03", "cases": 1165013, "deaths": 67816, "new_deaths": 1331.0, "new_cases": 26069.0}, {"date": "2020-05-04", "cases": 1186965, "deaths": 68905, "new_deaths": 1089.0, "new_cases": 21952.0}, {"date": "2020-05-05", "cases": 1210669, "deaths": 71139, "new_deaths": 2234.0, "new_cases": 23704.0}, {"date": "2020-05-06", "cases": 1235174, "deaths": 73847, "new_deaths": 2708.0, "new_cases": 24505.0}, {"date": "2020-05-07", "cases": 1263668, "deaths": 75805, "new_deaths": 1958.0, "new_cases": 28494.0}, {"date": "2020-05-08", "cases": 1291329, "deaths": 77380, "new_deaths": 1575.0, "new_cases": 27661.0}, {"date": "2020-05-09", "cases": 1316167, "deaths": 78834, "new_deaths": 1454.0, "new_cases": 24838.0}, {"date": "2020-05-10", "cases": 1336478, "deaths": 79765, "new_deaths": 931.0, "new_cases": 20311.0}, {"date": "2020-05-11", "cases": 1354096, "deaths": 80747, "new_deaths": 982.0, "new_cases": 17618.0}, {"date": "2020-05-12", "cases": 1376388, "deaths": 82400, "new_deaths": 1653.0, "new_cases": 22292.0}, {"date": "2020-05-13", "cases": 1397520, "deaths": 84168, "new_deaths": 1768.0, "new_cases": 21132.0}, {"date": "2020-05-14", "cases": 1424474, "deaths": 85906, "new_deaths": 1738.0, "new_cases": 26954.0}, {"date": "2020-05-15", "cases": 1450700, "deaths": 87499, "new_deaths": 1593.0, "new_cases": 26226.0}, {"date": "2020-05-16", "cases": 1474351, "deaths": 88724, "new_deaths": 1225.0, "new_cases": 23651.0}, {"date": "2020-05-17", "cases": 1493350, "deaths": 89568, "new_deaths": 844.0, "new_cases": 18999.0}, {"date": "2020-05-18", "cases": 1515177, "deaths": 90414, "new_deaths": 846.0, "new_cases": 21827.0}, {"date": "2020-05-19", "cases": 1536129, "deaths": 91934, "new_deaths": 1520.0, "new_cases": 20952.0}, {"date": "2020-05-20", "cases": 1559003, "deaths": 93406, "new_deaths": 1472.0, "new_cases": 22874.0}, {"date": "2020-05-21", "cases": 1584826, "deaths": 94721, "new_deaths": 1315.0, "new_cases": 25823.0}, {"date": "2020-05-22", "cases": 1608710, "deaths": 96010, "new_deaths": 1289.0, "new_cases": 23884.0}, {"date": "2020-05-23", "cases": 1630912, "deaths": 97060, "new_deaths": 1050.0, "new_cases": 22202.0}, {"date": "2020-05-24", "cases": 1651004, "deaths": 97680, "new_deaths": 620.0, "new_cases": 20092.0}, {"date": "2020-05-25", "cases": 1670101, "deaths": 98190, "new_deaths": 510.0, "new_cases": 19097.0}, {"date": "2020-05-26", "cases": 1688958, "deaths": 98937, "new_deaths": 747.0, "new_cases": 18857.0}, {"date": "2020-05-27", "cases": 1707719, "deaths": 100422, "new_deaths": 1485.0, "new_cases": 18761.0}, {"date": "2020-05-28", "cases": 1730190, "deaths": 101626, "new_deaths": 1204.0, "new_cases": 22471.0}]}}, {"actions": false, "mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Possible-other-ways-to-do-this--">Possible other ways to do this -<a class="anchor-link" href="#Possible-other-ways-to-do-this--"> </a></h2><ul>
+<li>Repeat Chart</li>
+<li>Facet Chart
+<a href="https://altair-viz.github.io/user_guide/compound_charts.html">https://altair-viz.github.io/user_guide/compound_charts.html</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="armsp/covidviz"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/covidviz/2020/05/30/Covid-Cases-&-Deaths-in-US.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/covidviz/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/covidviz/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/covidviz/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Making professional looking charts the likes of big media houses like NYT, Guardian and others using Python</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/armsp" title="armsp"><svg class="svg-icon grey"><use xlink:href="/covidviz/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/RajShantam" title="RajShantam"><svg class="svg-icon grey"><use xlink:href="/covidviz/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
