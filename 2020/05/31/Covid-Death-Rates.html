@@ -254,13 +254,13 @@ We will also make a new source data that contains the starting date of the stay 
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<details class="description" open="">
+<details class="description">
       <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
         <p><div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># collapse-show</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># collapse</span>
 <span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">nydf</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">fillOpacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">interpolate</span><span class="o">=</span><span class="s1">&#39;step-after&#39;</span><span class="p">,)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;deaths_perday:Q&#39;</span><span class="p">,</span>
@@ -410,13 +410,13 @@ We will also make a new source data that contains the starting date of the stay 
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<details class="description" open="">
+<details class="description">
       <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
         <p><div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># collapse-show</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># collapse</span>
 <span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">michdf</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">fillOpacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">interpolate</span><span class="o">=</span><span class="s1">&#39;step-after&#39;</span><span class="p">,)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;deaths_perday:Q&#39;</span><span class="p">,</span>
@@ -527,13 +527,13 @@ We will also make a new source data that contains the starting date of the stay 
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<details class="description" open="">
+<details class="description">
       <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
         <p><div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># collapse-show</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># collapse</span>
 <span class="n">nydf</span> <span class="o">=</span> <span class="n">usdf</span><span class="p">[(</span><span class="n">usdf</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;New York&quot;</span><span class="p">)]</span>
 <span class="n">nydf</span><span class="p">[</span><span class="s1">&#39;deaths_perday&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nydf</span><span class="p">[</span><span class="s1">&#39;deaths&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
 
