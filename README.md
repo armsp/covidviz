@@ -12,4 +12,4 @@ This a blog where I attempt to emulate the visualizations published by large med
 
 All visualizations are done using Python and Altair using publicly available datasets.
 
-![Screenshot]({{site.baseurl}}/images/COVID-19 Viz.png)
+![Screenshot](covidviz/images/COVID-19 Viz.png)
