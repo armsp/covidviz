@@ -6,10 +6,21 @@
 
 # COVID-19 Viz
 
-https://armsp.github.io/covidviz/
+https://armsp.github.io/covidviz/  
+This a blog where I attempt to emulate the visualizations published by large media houses like The NYT, The Guardian, The Washington Post and others, related to COVID-19.
+If you like my work, do send in a tip to help me -
 
-This a blog where I attempt to emulate the visualizations published by large media houses like The NYT, The Guardian, Thw Washington Post and others, related to COVID-19.
+| Ko-Fi (5 $) | PayPal |
+| :---: | :---: |
+| <a href='https://ko-fi.com/D1D41SHIS' target='_blank'><img height='40' src='https://cdn.ko-fi.com/cdn/kofi4.png?v=2' alt='Buy Me a Coffee at ko-fi.com' /></a> | <a href="https://paypal.me/shantamraj" target="_blank"><img height='40' src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_150x38.png" alt="PayPal" /></a>|
 
 All visualizations are done using Python and Altair using publicly available datasets.
 
 ![Screenshot](/images/COVID-19_Viz.png)
+
+### Viz from Organizations
+- [x] New York Times
+- [] The Guardian
+- [] The Washington Post
+- [] Nat Geo
+- [] The Economist
