@@ -430,6 +430,8 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 @media only screen and (max-width: 900px) { /* for mobile phone and tablet devices */
   .output_wrapper { overflow: scroll; } }
 
+.svg-icon.orange { width: 30px; height: 23px; }
+
 .output_wrapper { margin: 0 -200px; width: calc(100% + 400px); }
 
 .output_wrapper { margin: 0 -200px; width: calc(100% + 400px); display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; }
