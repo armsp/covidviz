@@ -427,14 +427,11 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 
 .output_text.output_execute_result pre { white-space: pre-wrap; }
 
-@media only screen and (max-width: 900px) { /* for mobile phone and tablet devices */
-  .output_wrapper { overflow: scroll; } }
-
 .svg-icon.orange { width: 30px; height: 23px; }
 
 .output_wrapper { margin: 0 -200px; width: calc(100% + 400px); }
 
-.output_wrapper { margin: 0 -200px; width: calc(100% + 400px); display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; }
+.output_wrapper { margin: 0 -200px; width: calc(100% + 400px); display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; overflow: scroll; }
 
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
@@ -455,5 +452,7 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 .post-link { font-family: 'Bungee', cursive; }
 
 center iframe { width: 100%; }
+
+.dataframe { margin-left: auto; margin-right: auto; width: 1000px; }
 
 /*# sourceMappingURL=style.css.map */
