@@ -244,13 +244,13 @@ table {
 }
 
 
-// Handling large charts on mobile devices
-@media only screen and (max-width: 900px) {
-  /* for mobile phone and tablet devices */
-  .output_wrapper{
-    overflow: scroll;
-  }
-}
+// // Handling large charts on mobile devices
+// @media only screen and (max-width: 900px) {
+//   /* for mobile phone and tablet devices */
+//   .output_wrapper{
+//     overflow: scroll;
+//   }
+// }
 
 .svg-icon.orange{
   width: 30px;
@@ -341,5 +341,6 @@ table {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  overflow: scroll;
 }
 /////////////////////////////////////////////////////ONLY THIS BLOCK NEEDED//////////////////
