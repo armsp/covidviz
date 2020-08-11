@@ -341,6 +341,6 @@ table {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  overflow: scroll;
+  // overflow: scroll; //It adds those bad rectangular scroll stuff that doesn't actually scroll
 }
 /////////////////////////////////////////////////////ONLY THIS BLOCK NEEDED//////////////////
