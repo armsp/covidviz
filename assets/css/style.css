@@ -431,7 +431,7 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 
 .output_wrapper { margin: 0 -200px; width: calc(100% + 400px); }
 
-.output_wrapper { margin: 0 -200px; width: calc(100% + 400px); display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; overflow: scroll; }
+.output_wrapper { margin: 0 -200px; width: calc(100% + 400px); display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; }
 
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
@@ -453,6 +453,6 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 
 center iframe { width: 100%; }
 
-.dataframe { margin-left: auto; margin-right: auto; width: 1000px; }
+.dataframe { margin-left: auto; margin-right: auto; max-width: 1000px; }
 
 /*# sourceMappingURL=style.css.map */
