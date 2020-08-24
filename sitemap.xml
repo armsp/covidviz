@@ -49,6 +49,10 @@
 <lastmod>2020-07-01T00:00:00-05:00</lastmod>
 </url>
 <url>
+<loc>https://armsp.github.io/covidviz/nyt,/spending/2020/07/15/Spending.html</loc>
+<lastmod>2020-07-15T00:00:00-05:00</lastmod>
+</url>
+<url>
 <loc>https://armsp.github.io/covidviz/interactive/2020/08/10/US_failed.html</loc>
 <lastmod>2020-08-10T00:00:00-05:00</lastmod>
 </url>
@@ -71,5 +75,8 @@
 </url>
 <url>
 <loc>https://armsp.github.io/covidviz/categories/</loc>
+</url>
+<url>
+<loc>https://armsp.github.io/covidviz/page2/</loc>
 </url>
 </urlset>
