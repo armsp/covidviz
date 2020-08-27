@@ -443,13 +443,13 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 
 .site-title { font-family: 'Bungee Shade', cursive; font-size: 2rem; }
 
-.post-title { font-family: 'PT Sans', sans-serif; }
+.post-title { font-family: 'Roboto Condensed', sans-serif; }
 
 .page-link { font-family: 'Bungee', cursive; font-size: 16px; }
 
 .home #posts { font-family: 'Bungee', cursive; }
 
-.post-link { font-family: 'Lilita One', cursive; }
+.post-link { font-family: 'Roboto Condensed', sans-serif; }
 
 center iframe { width: 100%; }
 
