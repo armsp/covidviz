@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Deaths above or below normal | COVID-19 Viz</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Deaths above or below normal" />
+<meta name="author" content="Shantam Raj" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Making a layered chart comprising an bar chart of weekly excess deaths, a tick chart of weekly COVID-19 deaths and a rectangle chart highlighting the timeperiod when the pandemic tore through the states and cities." />
+<meta property="og:description" content="Making a layered chart comprising an bar chart of weekly excess deaths, a tick chart of weekly COVID-19 deaths and a rectangle chart highlighting the timeperiod when the pandemic tore through the states and cities." />
+<link rel="canonical" href="https://armsp.github.io/covidviz/nyt/2020/06/04/Above-Below-Normal.html" />
+<meta property="og:url" content="https://armsp.github.io/covidviz/nyt/2020/06/04/Above-Below-Normal.html" />
+<meta property="og:site_name" content="COVID-19 Viz" />
+<meta property="og:image" content="https://armsp.github.io/covidviz/images/above_below_normal.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-04T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Shantam Raj"},"description":"Making a layered chart comprising an bar chart of weekly excess deaths, a tick chart of weekly COVID-19 deaths and a rectangle chart highlighting the timeperiod when the pandemic tore through the states and cities.","@type":"BlogPosting","headline":"Deaths above or below normal","dateModified":"2020-06-04T00:00:00-05:00","datePublished":"2020-06-04T00:00:00-05:00","url":"https://armsp.github.io/covidviz/nyt/2020/06/04/Above-Below-Normal.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://armsp.github.io/covidviz/nyt/2020/06/04/Above-Below-Normal.html"},"image":"https://armsp.github.io/covidviz/images/above_below_normal.png","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/covidviz/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://armsp.github.io/covidviz/feed.xml" title="COVID-19 Viz" /><link rel="shortcut icon" type="image/x-icon" href="/covidviz/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Deaths above or below normal | COVID-19 Viz</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Deaths above or below normal" />
+<meta name="author" content="Shantam Raj" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Making a layered chart comprising an bar chart of weekly excess deaths, a tick chart of weekly COVID-19 deaths and a rectangle chart highlighting the timeperiod when the pandemic tore through the states and cities." />
+<meta property="og:description" content="Making a layered chart comprising an bar chart of weekly excess deaths, a tick chart of weekly COVID-19 deaths and a rectangle chart highlighting the timeperiod when the pandemic tore through the states and cities." />
+<link rel="canonical" href="https://armsp.github.io/covidviz/nyt/2020/06/04/Above-Below-Normal.html" />
+<meta property="og:url" content="https://armsp.github.io/covidviz/nyt/2020/06/04/Above-Below-Normal.html" />
+<meta property="og:site_name" content="COVID-19 Viz" />
+<meta property="og:image" content="https://armsp.github.io/covidviz/images/above_below_normal.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-04T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Shantam Raj"},"description":"Making a layered chart comprising an bar chart of weekly excess deaths, a tick chart of weekly COVID-19 deaths and a rectangle chart highlighting the timeperiod when the pandemic tore through the states and cities.","@type":"BlogPosting","headline":"Deaths above or below normal","dateModified":"2020-06-04T00:00:00-05:00","datePublished":"2020-06-04T00:00:00-05:00","url":"https://armsp.github.io/covidviz/nyt/2020/06/04/Above-Below-Normal.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://armsp.github.io/covidviz/nyt/2020/06/04/Above-Below-Normal.html"},"image":"https://armsp.github.io/covidviz/images/above_below_normal.png","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://armsp.github.io/covidviz/feed.xml" title="COVID-19 Viz" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+<!-- My additions -->
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet"> </head><body><header class="site-header">
+
+  <div class="wrapper">
+<a class="site-title" rel="author" href="/covidviz/">COVID-19 Viz</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+<a class="page-link" href="/covidviz/about/">About Me</a><a class="page-link" href="/covidviz/search/">Search</a><a class="page-link" href="/covidviz/categories/">Tags</a>
+</div>
+      </nav>
+</div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Deaths above or below normal</h1>
+<p class="page-description">Making a layered chart comprising an bar chart of weekly excess deaths, a tick chart of weekly COVID-19 deaths and a rectangle chart highlighting the timeperiod when the pandemic tore through the states and cities.</p>
+<p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-04T00:00:00-05:00" itemprop="datePublished">
+        Jun 4, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Shantam Raj</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i> 
+      
+        <a class="category-tags-link" href="/covidviz/categories/#NYT">NYT</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/armsp/covidviz/blob/master/_notebooks/2020-06-04-Above%20Below%20Normal.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/covidviz/assets/badges/colab.svg" alt="Open In Colab">
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-06-04-Above Below Normal.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We will make charts from the NYT article on <a href="https://www.nytimes.com/interactive/2020/05/05/us/coronavirus-death-toll-us.html">What Is the Real Coronavirus Death Toll in Each State?</a></p>
+<p>The charts look like the following -<br>
+<img src="/covidviz/images/copied_from_nb/images/above_below_normal.png" alt="deaths above or below normal"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Whats the purpose of this visualization?</strong></p>
+<blockquote>
+<p>Comparing recent totals of deaths from all causes can provide a more complete picture of the pandemic’s impact than tracking only deaths of people with confirmed diagnoses. Epidemiologists refer to fatalities in the gap between the observed and normal numbers of deaths as “excess deaths.”</p>
+<p>Indeed, in nearly every state with an unusual number of deaths in recent weeks, that number is higher than the state’s reported number of deaths from Covid-19. On our charts, we have marked the number of official coronavirus deaths with red lines, so you can see how they match up with the total number of excess deaths.</p>
+<p>Measuring excess deaths is crude because it does not capture all the details of how people died. But many epidemiologists believe it is the best way to measure the impact of the virus in real time. It shows how the virus is altering normal patterns of mortality where it strikes and undermines arguments that it is merely killing vulnerable people who would have died anyway.</p>
+<p>Public health researchers use such methods to measure the impact of catastrophic events when official measures of mortality are flawed.</p>
+<p>Measuring excess deaths does not tell us precisely how each person died. It is likely that most of the excess deaths in this period are because of the coronavirus itself, given the dangerousness of the virus and the well-documented problems with testing. But it is also possible that deaths from other causes have risen too, as hospitals have become stressed and people have been scared to seek care for ailments that are typically survivable. Some causes of death may be declining, as people stay inside more, drive less and limit their contact with others.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We will use 2 datasets to generate our chart -</p>
+<ol>
+<li>The excess deaths dataset from NYT</li>
+<li>The COVID-19 deaths dataset also from NYT</li>
+</ol>
+<p>Luckily both are in the same GitHub repository - <a href="https://github.com/nytimes/covid-19-data">NYT Covid-19 Data</a>
+However we need to do some significant preprocessing to arrive at the results. It took me a good amount of time to figure out the whole graph and once I had done it it just made so much sense <img class="emoji" title=":relieved:" alt=":relieved:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f60c.png" height="20" width="20"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The way these graphs are made is as follows -</p>
+<ol>
+<li>First we chart the excess deaths. Excess deaths is calculated as the difference b/w all cause mortality data with expected deaths. These data are available <a href="https://www.cdc.gov/nchs/nvss/vsrr/covid19/index.htm">from CDC</a>.</li>
+<li>NYT publishes the excess deaths data for NYC, so for starters we will use that before moving on to the other states.</li>
+<li>Then we need to get the covid-19 related deaths from NYC which we can get from the NYT dataset or JHU CSSE dataset.</li>
+<li>The challenge is actually combining the above.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="How-do-we-combine-the-above-data?">How do we combine the above data?<a class="anchor-link" href="#How-do-we-combine-the-above-data?"> </a>
+</h4>
+<p>The excess deaths data is weekly. With the starting and ending dates given (7 days duration), so what we are gonna do is we have to transform the COVID-19 deaths data in the same weekly format.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+
+<span class="n">excess_uri</span> <span class="o">=</span> <span class="s1">'https://raw.githubusercontent.com/nytimes/covid-19-data/master/excess-deaths/deaths.csv'</span>
+<span class="n">county_uri</span> <span class="o">=</span> <span class="s1">'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv'</span>
+
+<span class="n">ex_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">excess_uri</span><span class="p">)</span>
+<span class="n">co_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">county_uri</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Extracting data for NYC for year 2020 -</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description" open="">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># collapse_show</span>
+<span class="n">ex_nyc</span> <span class="o">=</span> <span class="n">ex_df</span><span class="p">[(</span><span class="n">ex_df</span><span class="p">[</span><span class="s1">'placename'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'New York City'</span><span class="p">)]</span>
+<span class="n">ex_nyc</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span> <span class="o">=</span> <span class="n">ex_nyc</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">ex_nyc</span> <span class="o">=</span> <span class="n">ex_nyc</span><span class="p">[</span><span class="n">ex_nyc</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2020</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Testing the chart -</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description" open="">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># collapse_show</span>
+<span class="n">excess_deaths_chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">ex_nyc</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">'week:N'</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">'excess_deaths:Q'</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">excess_deaths</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">'orange'</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">'steelblue'</span><span class="p">))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Step</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">excess_deaths_chart</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-fe05b9593ee4438db4bd15e0dfdc53a3"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-fe05b9593ee4438db4bd15e0dfdc53a3") {
+      outputDiv = document.getElementById("altair-viz-fe05b9593ee4438db4bd15e0dfdc53a3");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-1c0c7636be2c3021a9ac05f457ba1f48"}, "mark": {"type": "bar", "width": 5}, "encoding": {"color": {"condition": {"value": "orange", "test": "(datum.excess_deaths > 0)"}, "value": "steelblue"}, "x": {"type": "nominal", "field": "week"}, "y": {"type": "quantitative", "field": "excess_deaths"}}, "height": 500, "width": {"step": 10}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-1c0c7636be2c3021a9ac05f457ba1f48": [{"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-01-05", "end_date": "2020-01-11", "year": 2020, "month": 1, "week": 2.0, "deaths": 1086, "expected_deaths": 1194.0, "excess_deaths": -108.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-01-12", "end_date": "2020-01-18", "year": 2020, "month": 1, "week": 3.0, "deaths": 1130, "expected_deaths": 1145.0, "excess_deaths": -15.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-01-19", "end_date": "2020-01-25", "year": 2020, "month": 1, "week": 4.0, "deaths": 1164, "expected_deaths": 1191.0, "excess_deaths": -27.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-01-26", "end_date": "2020-02-01", "year": 2020, "month": 2, "week": 5.0, "deaths": 1145, "expected_deaths": 1137.0, "excess_deaths": 8.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-02-02", "end_date": "2020-02-08", "year": 2020, "month": 2, "week": 6.0, "deaths": 1139, "expected_deaths": 1199.0, "excess_deaths": -60.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-02-09", "end_date": "2020-02-15", "year": 2020, "month": 2, "week": 7.0, "deaths": 1119, "expected_deaths": 1123.0, "excess_deaths": -4.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-02-16", "end_date": "2020-02-22", "year": 2020, "month": 2, "week": 8.0, "deaths": 1055, "expected_deaths": 1069.0, "excess_deaths": -14.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-02-23", "end_date": "2020-02-29", "year": 2020, "month": 2, "week": 9.0, "deaths": 1095, "expected_deaths": 1059.0, "excess_deaths": 36.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-01", "end_date": "2020-03-07", "year": 2020, "month": 3, "week": 10.0, "deaths": 1083, "expected_deaths": 1075.0, "excess_deaths": 8.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-08", "end_date": "2020-03-14", "year": 2020, "month": 3, "week": 11.0, "deaths": 1120, "expected_deaths": 1078.0, "excess_deaths": 42.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-15", "end_date": "2020-03-21", "year": 2020, "month": 3, "week": 12.0, "deaths": 1384, "expected_deaths": 1031.0, "excess_deaths": 353.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-22", "end_date": "2020-03-28", "year": 2020, "month": 3, "week": 13.0, "deaths": 2744, "expected_deaths": 1027.0, "excess_deaths": 1717.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-29", "end_date": "2020-04-04", "year": 2020, "month": 4, "week": 14.0, "deaths": 6080, "expected_deaths": 1023.0, "excess_deaths": 5057.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-04-05", "end_date": "2020-04-11", "year": 2020, "month": 4, "week": 15.0, "deaths": 7741, "expected_deaths": 1066.0, "excess_deaths": 6675.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-04-12", "end_date": "2020-04-18", "year": 2020, "month": 4, "week": 16.0, "deaths": 5747, "expected_deaths": 1011.0, "excess_deaths": 4736.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-04-19", "end_date": "2020-04-25", "year": 2020, "month": 4, "week": 17.0, "deaths": 3872, "expected_deaths": 978.0, "excess_deaths": 2894.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-04-26", "end_date": "2020-05-02", "year": 2020, "month": 5, "week": 18.0, "deaths": 2440, "expected_deaths": 999.0, "excess_deaths": 1441.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-05-03", "end_date": "2020-05-09", "year": 2020, "month": 5, "week": 19.0, "deaths": 2286, "expected_deaths": 985.0, "excess_deaths": 1301.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-05-10", "end_date": "2020-05-16", "year": 2020, "month": 5, "week": 20.0, "deaths": 1656, "expected_deaths": 1022.0, "excess_deaths": 634.0, "baseline": "2017-2019 weekly average"}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This was the easy part and we can see that we are following the trends properly by comparing it with the NYT chart -<br>
+<img src="/covidviz/images/copied_from_nb/images/nyc_above_below_normal.png" alt=""></p>
+<p>There are some differences, which I think is due to the fact that the dataset provided by NYT is actually slightly different than the data they have used to plot. Also there is actually more data used in the article than there is in the GitHub repo. So to make the charts look completely similar we will have to dig in the CDC dataset - which we will ignore for now.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we will transform the COVID-19 deaths data to weekly deaths data</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ny_co_df</span> <span class="o">=</span> <span class="n">co_df</span><span class="p">[</span><span class="n">co_df</span><span class="p">[</span><span class="s1">'county'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'New York City'</span><span class="p">]</span>
+<span class="n">ny_co_df</span> <span class="o">=</span> <span class="n">ny_co_df</span><span class="p">[(</span><span class="n">ny_co_df</span><span class="p">[</span><span class="s1">'date'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s1">'2020-03-06'</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ny_co_df</span><span class="p">[</span><span class="s1">'date'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="s1">'2020-05-17'</span><span class="p">)]</span>
+<span class="n">ny_co_df</span><span class="p">[</span><span class="s1">'death_per_day'</span><span class="p">]</span> <span class="o">=</span> <span class="n">ny_co_df</span><span class="p">[</span><span class="s1">'deaths'</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<span class="n">ny_co_df</span> <span class="o">=</span> <span class="n">ny_co_df</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="n">weekly_cov_death</span> <span class="o">=</span> <span class="n">ny_co_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ny_co_df</span><span class="p">))</span><span class="o">//</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">weekly_cov_death</span><span class="p">[</span><span class="s1">'week'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's plot it to see if we get the trends right -</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># collapse</span>
+<span class="n">covid_tick_deaths</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">weekly_cov_death</span><span class="p">)</span><span class="o">.</span><span class="n">mark_tick</span><span class="p">(</span><span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">'week:N'</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">'death_per_day:Q'</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">excess_deaths_chart</span> <span class="o">+</span> <span class="n">covid_tick_deaths</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-dbc8bdf0faeb4d379a578f32cfaf0acc"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-dbc8bdf0faeb4d379a578f32cfaf0acc") {
+      outputDiv = document.getElementById("altair-viz-dbc8bdf0faeb4d379a578f32cfaf0acc");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"data": {"name": "data-1c0c7636be2c3021a9ac05f457ba1f48"}, "mark": {"type": "bar", "width": 5}, "encoding": {"color": {"condition": {"value": "orange", "test": "(datum.excess_deaths > 0)"}, "value": "steelblue"}, "x": {"type": "nominal", "field": "week"}, "y": {"type": "quantitative", "field": "excess_deaths"}}, "height": 500, "width": {"step": 10}}, {"data": {"name": "data-481968143d9f65841257de91eb280235"}, "mark": {"type": "tick", "color": "red", "thickness": 2}, "encoding": {"x": {"type": "nominal", "field": "week"}, "y": {"type": "quantitative", "field": "death_per_day"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-1c0c7636be2c3021a9ac05f457ba1f48": [{"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-01-05", "end_date": "2020-01-11", "year": 2020, "month": 1, "week": 2.0, "deaths": 1086, "expected_deaths": 1194.0, "excess_deaths": -108.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-01-12", "end_date": "2020-01-18", "year": 2020, "month": 1, "week": 3.0, "deaths": 1130, "expected_deaths": 1145.0, "excess_deaths": -15.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-01-19", "end_date": "2020-01-25", "year": 2020, "month": 1, "week": 4.0, "deaths": 1164, "expected_deaths": 1191.0, "excess_deaths": -27.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-01-26", "end_date": "2020-02-01", "year": 2020, "month": 2, "week": 5.0, "deaths": 1145, "expected_deaths": 1137.0, "excess_deaths": 8.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-02-02", "end_date": "2020-02-08", "year": 2020, "month": 2, "week": 6.0, "deaths": 1139, "expected_deaths": 1199.0, "excess_deaths": -60.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-02-09", "end_date": "2020-02-15", "year": 2020, "month": 2, "week": 7.0, "deaths": 1119, "expected_deaths": 1123.0, "excess_deaths": -4.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-02-16", "end_date": "2020-02-22", "year": 2020, "month": 2, "week": 8.0, "deaths": 1055, "expected_deaths": 1069.0, "excess_deaths": -14.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-02-23", "end_date": "2020-02-29", "year": 2020, "month": 2, "week": 9.0, "deaths": 1095, "expected_deaths": 1059.0, "excess_deaths": 36.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-01", "end_date": "2020-03-07", "year": 2020, "month": 3, "week": 10.0, "deaths": 1083, "expected_deaths": 1075.0, "excess_deaths": 8.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-08", "end_date": "2020-03-14", "year": 2020, "month": 3, "week": 11.0, "deaths": 1120, "expected_deaths": 1078.0, "excess_deaths": 42.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-15", "end_date": "2020-03-21", "year": 2020, "month": 3, "week": 12.0, "deaths": 1384, "expected_deaths": 1031.0, "excess_deaths": 353.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-22", "end_date": "2020-03-28", "year": 2020, "month": 3, "week": 13.0, "deaths": 2744, "expected_deaths": 1027.0, "excess_deaths": 1717.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-29", "end_date": "2020-04-04", "year": 2020, "month": 4, "week": 14.0, "deaths": 6080, "expected_deaths": 1023.0, "excess_deaths": 5057.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-04-05", "end_date": "2020-04-11", "year": 2020, "month": 4, "week": 15.0, "deaths": 7741, "expected_deaths": 1066.0, "excess_deaths": 6675.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-04-12", "end_date": "2020-04-18", "year": 2020, "month": 4, "week": 16.0, "deaths": 5747, "expected_deaths": 1011.0, "excess_deaths": 4736.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-04-19", "end_date": "2020-04-25", "year": 2020, "month": 4, "week": 17.0, "deaths": 3872, "expected_deaths": 978.0, "excess_deaths": 2894.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-04-26", "end_date": "2020-05-02", "year": 2020, "month": 5, "week": 18.0, "deaths": 2440, "expected_deaths": 999.0, "excess_deaths": 1441.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-05-03", "end_date": "2020-05-09", "year": 2020, "month": 5, "week": 19.0, "deaths": 2286, "expected_deaths": 985.0, "excess_deaths": 1301.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-05-10", "end_date": "2020-05-16", "year": 2020, "month": 5, "week": 20.0, "deaths": 1656, "expected_deaths": 1022.0, "excess_deaths": 634.0, "baseline": "2017-2019 weekly average"}], "data-481968143d9f65841257de91eb280235": [{"fips": 0.0, "cases": 643, "deaths": 1, "death_per_day": 1.0, "week": 11}, {"fips": 0.0, "cases": 15906, "deaths": 208, "death_per_day": 74.0, "week": 12}, {"fips": 0.0, "cases": 136008, "deaths": 2654, "death_per_day": 750.0, "week": 13}, {"fips": 0.0, "cases": 338405, "deaths": 13537, "death_per_day": 2396.0, "week": 14}, {"fips": 0.0, "cases": 589119, "deaths": 44539, "death_per_day": 5513.0, "week": 15}, {"fips": 0.0, "cases": 843608, "deaths": 78770, "death_per_day": 3677.0, "week": 16}, {"fips": 0.0, "cases": 1034844, "deaths": 104439, "death_per_day": 3735.0, "week": 17}, {"fips": 0.0, "cases": 1191385, "deaths": 121871, "death_per_day": 1875.0, "week": 18}, {"fips": 0.0, "cases": 1288323, "deaths": 132418, "death_per_day": 1303.0, "week": 19}, {"fips": 0.0, "cases": 1349532, "deaths": 138497, "death_per_day": 747.0, "week": 20}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This looks correct. Let's beautify a little -</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># collapse</span>
+<span class="n">excess_deaths_chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">ex_nyc</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">'week:N'</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">'excess_deaths:Q'</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">excess_deaths</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">'#ffab00'</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">'#8FB8BB'</span><span class="p">))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Step</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">excess_deaths_chart</span> <span class="o">+</span> <span class="n">covid_tick_deaths</span><span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span><span class="n">strokeWidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">configure_axis</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-55a1f91a9abb4f10be4767de31d9788a"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-55a1f91a9abb4f10be4767de31d9788a") {
+      outputDiv = document.getElementById("altair-viz-55a1f91a9abb4f10be4767de31d9788a");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "strokeWidth": 0}, "axis": {"grid": false}}, "layer": [{"data": {"name": "data-1c0c7636be2c3021a9ac05f457ba1f48"}, "mark": {"type": "bar", "width": 9}, "encoding": {"color": {"condition": {"value": "#ffab00", "test": "(datum.excess_deaths > 0)"}, "value": "#8FB8BB"}, "x": {"type": "nominal", "field": "week"}, "y": {"type": "quantitative", "field": "excess_deaths"}}, "height": 500, "width": {"step": 10}}, {"data": {"name": "data-481968143d9f65841257de91eb280235"}, "mark": {"type": "tick", "color": "red", "thickness": 2}, "encoding": {"x": {"type": "nominal", "field": "week"}, "y": {"type": "quantitative", "field": "death_per_day"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-1c0c7636be2c3021a9ac05f457ba1f48": [{"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-01-05", "end_date": "2020-01-11", "year": 2020, "month": 1, "week": 2.0, "deaths": 1086, "expected_deaths": 1194.0, "excess_deaths": -108.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-01-12", "end_date": "2020-01-18", "year": 2020, "month": 1, "week": 3.0, "deaths": 1130, "expected_deaths": 1145.0, "excess_deaths": -15.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-01-19", "end_date": "2020-01-25", "year": 2020, "month": 1, "week": 4.0, "deaths": 1164, "expected_deaths": 1191.0, "excess_deaths": -27.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-01-26", "end_date": "2020-02-01", "year": 2020, "month": 2, "week": 5.0, "deaths": 1145, "expected_deaths": 1137.0, "excess_deaths": 8.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-02-02", "end_date": "2020-02-08", "year": 2020, "month": 2, "week": 6.0, "deaths": 1139, "expected_deaths": 1199.0, "excess_deaths": -60.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-02-09", "end_date": "2020-02-15", "year": 2020, "month": 2, "week": 7.0, "deaths": 1119, "expected_deaths": 1123.0, "excess_deaths": -4.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-02-16", "end_date": "2020-02-22", "year": 2020, "month": 2, "week": 8.0, "deaths": 1055, "expected_deaths": 1069.0, "excess_deaths": -14.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-02-23", "end_date": "2020-02-29", "year": 2020, "month": 2, "week": 9.0, "deaths": 1095, "expected_deaths": 1059.0, "excess_deaths": 36.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-01", "end_date": "2020-03-07", "year": 2020, "month": 3, "week": 10.0, "deaths": 1083, "expected_deaths": 1075.0, "excess_deaths": 8.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-08", "end_date": "2020-03-14", "year": 2020, "month": 3, "week": 11.0, "deaths": 1120, "expected_deaths": 1078.0, "excess_deaths": 42.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-15", "end_date": "2020-03-21", "year": 2020, "month": 3, "week": 12.0, "deaths": 1384, "expected_deaths": 1031.0, "excess_deaths": 353.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-22", "end_date": "2020-03-28", "year": 2020, "month": 3, "week": 13.0, "deaths": 2744, "expected_deaths": 1027.0, "excess_deaths": 1717.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-29", "end_date": "2020-04-04", "year": 2020, "month": 4, "week": 14.0, "deaths": 6080, "expected_deaths": 1023.0, "excess_deaths": 5057.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-04-05", "end_date": "2020-04-11", "year": 2020, "month": 4, "week": 15.0, "deaths": 7741, "expected_deaths": 1066.0, "excess_deaths": 6675.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-04-12", "end_date": "2020-04-18", "year": 2020, "month": 4, "week": 16.0, "deaths": 5747, "expected_deaths": 1011.0, "excess_deaths": 4736.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-04-19", "end_date": "2020-04-25", "year": 2020, "month": 4, "week": 17.0, "deaths": 3872, "expected_deaths": 978.0, "excess_deaths": 2894.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-04-26", "end_date": "2020-05-02", "year": 2020, "month": 5, "week": 18.0, "deaths": 2440, "expected_deaths": 999.0, "excess_deaths": 1441.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-05-03", "end_date": "2020-05-09", "year": 2020, "month": 5, "week": 19.0, "deaths": 2286, "expected_deaths": 985.0, "excess_deaths": 1301.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-05-10", "end_date": "2020-05-16", "year": 2020, "month": 5, "week": 20.0, "deaths": 1656, "expected_deaths": 1022.0, "excess_deaths": 634.0, "baseline": "2017-2019 weekly average"}], "data-481968143d9f65841257de91eb280235": [{"fips": 0.0, "cases": 643, "deaths": 1, "death_per_day": 1.0, "week": 11}, {"fips": 0.0, "cases": 15906, "deaths": 208, "death_per_day": 74.0, "week": 12}, {"fips": 0.0, "cases": 136008, "deaths": 2654, "death_per_day": 750.0, "week": 13}, {"fips": 0.0, "cases": 338405, "deaths": 13537, "death_per_day": 2396.0, "week": 14}, {"fips": 0.0, "cases": 589119, "deaths": 44539, "death_per_day": 5513.0, "week": 15}, {"fips": 0.0, "cases": 843608, "deaths": 78770, "death_per_day": 3677.0, "week": 16}, {"fips": 0.0, "cases": 1034844, "deaths": 104439, "death_per_day": 3735.0, "week": 17}, {"fips": 0.0, "cases": 1191385, "deaths": 121871, "death_per_day": 1875.0, "week": 18}, {"fips": 0.0, "cases": 1288323, "deaths": 132418, "death_per_day": 1303.0, "week": 19}, {"fips": 0.0, "cases": 1349532, "deaths": 138497, "death_per_day": 747.0, "week": 20}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lets add a rectangle from March to May to complete our chart</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># collapse</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="s1">'start'</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">:</span> <span class="mi">20</span><span class="p">}])</span>
+<span class="n">rect</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">'#eee'</span><span class="p">,</span> <span class="n">xOffset</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">x2Offset</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">'start:N'</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="s1">'end:N'</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">rect</span> <span class="o">+</span> <span class="n">excess_deaths_chart</span> <span class="o">+</span> <span class="n">covid_tick_deaths</span><span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span><span class="n">strokeWidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">configure_axis</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-1825e52899f04c61bfb8048ee04c2bca"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-1825e52899f04c61bfb8048ee04c2bca") {
+      outputDiv = document.getElementById("altair-viz-1825e52899f04c61bfb8048ee04c2bca");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "strokeWidth": 0}, "axis": {"grid": false}}, "layer": [{"data": {"name": "data-122be3f8b90c774c1c00dbc31799ed9f"}, "mark": {"type": "rect", "fill": "#eee", "opacity": 1, "x2Offset": 5, "xOffset": 5}, "encoding": {"x": {"type": "nominal", "field": "start"}, "x2": {"field": "end"}}}, {"data": {"name": "data-1c0c7636be2c3021a9ac05f457ba1f48"}, "mark": {"type": "bar", "width": 9}, "encoding": {"color": {"condition": {"value": "#ffab00", "test": "(datum.excess_deaths > 0)"}, "value": "#8FB8BB"}, "x": {"type": "nominal", "field": "week"}, "y": {"type": "quantitative", "field": "excess_deaths"}}, "height": 500, "width": {"step": 10}}, {"data": {"name": "data-481968143d9f65841257de91eb280235"}, "mark": {"type": "tick", "color": "red", "thickness": 2}, "encoding": {"x": {"type": "nominal", "field": "week"}, "y": {"type": "quantitative", "field": "death_per_day"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-122be3f8b90c774c1c00dbc31799ed9f": [{"start": 11, "end": 20}], "data-1c0c7636be2c3021a9ac05f457ba1f48": [{"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-01-05", "end_date": "2020-01-11", "year": 2020, "month": 1, "week": 2.0, "deaths": 1086, "expected_deaths": 1194.0, "excess_deaths": -108.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-01-12", "end_date": "2020-01-18", "year": 2020, "month": 1, "week": 3.0, "deaths": 1130, "expected_deaths": 1145.0, "excess_deaths": -15.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-01-19", "end_date": "2020-01-25", "year": 2020, "month": 1, "week": 4.0, "deaths": 1164, "expected_deaths": 1191.0, "excess_deaths": -27.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-01-26", "end_date": "2020-02-01", "year": 2020, "month": 2, "week": 5.0, "deaths": 1145, "expected_deaths": 1137.0, "excess_deaths": 8.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-02-02", "end_date": "2020-02-08", "year": 2020, "month": 2, "week": 6.0, "deaths": 1139, "expected_deaths": 1199.0, "excess_deaths": -60.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-02-09", "end_date": "2020-02-15", "year": 2020, "month": 2, "week": 7.0, "deaths": 1119, "expected_deaths": 1123.0, "excess_deaths": -4.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-02-16", "end_date": "2020-02-22", "year": 2020, "month": 2, "week": 8.0, "deaths": 1055, "expected_deaths": 1069.0, "excess_deaths": -14.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-02-23", "end_date": "2020-02-29", "year": 2020, "month": 2, "week": 9.0, "deaths": 1095, "expected_deaths": 1059.0, "excess_deaths": 36.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-01", "end_date": "2020-03-07", "year": 2020, "month": 3, "week": 10.0, "deaths": 1083, "expected_deaths": 1075.0, "excess_deaths": 8.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-08", "end_date": "2020-03-14", "year": 2020, "month": 3, "week": 11.0, "deaths": 1120, "expected_deaths": 1078.0, "excess_deaths": 42.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-15", "end_date": "2020-03-21", "year": 2020, "month": 3, "week": 12.0, "deaths": 1384, "expected_deaths": 1031.0, "excess_deaths": 353.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-22", "end_date": "2020-03-28", "year": 2020, "month": 3, "week": 13.0, "deaths": 2744, "expected_deaths": 1027.0, "excess_deaths": 1717.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-03-29", "end_date": "2020-04-04", "year": 2020, "month": 4, "week": 14.0, "deaths": 6080, "expected_deaths": 1023.0, "excess_deaths": 5057.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-04-05", "end_date": "2020-04-11", "year": 2020, "month": 4, "week": 15.0, "deaths": 7741, "expected_deaths": 1066.0, "excess_deaths": 6675.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-04-12", "end_date": "2020-04-18", "year": 2020, "month": 4, "week": 16.0, "deaths": 5747, "expected_deaths": 1011.0, "excess_deaths": 4736.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-04-19", "end_date": "2020-04-25", "year": 2020, "month": 4, "week": 17.0, "deaths": 3872, "expected_deaths": 978.0, "excess_deaths": 2894.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-04-26", "end_date": "2020-05-02", "year": 2020, "month": 5, "week": 18.0, "deaths": 2440, "expected_deaths": 999.0, "excess_deaths": 1441.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-05-03", "end_date": "2020-05-09", "year": 2020, "month": 5, "week": 19.0, "deaths": 2286, "expected_deaths": 985.0, "excess_deaths": 1301.0, "baseline": "2017-2019 weekly average"}, {"country": "United States", "placename": "New York City", "frequency": "weekly", "start_date": "2020-05-10", "end_date": "2020-05-16", "year": 2020, "month": 5, "week": 20.0, "deaths": 1656, "expected_deaths": 1022.0, "excess_deaths": 634.0, "baseline": "2017-2019 weekly average"}], "data-481968143d9f65841257de91eb280235": [{"fips": 0.0, "cases": 643, "deaths": 1, "death_per_day": 1.0, "week": 11}, {"fips": 0.0, "cases": 15906, "deaths": 208, "death_per_day": 74.0, "week": 12}, {"fips": 0.0, "cases": 136008, "deaths": 2654, "death_per_day": 750.0, "week": 13}, {"fips": 0.0, "cases": 338405, "deaths": 13537, "death_per_day": 2396.0, "week": 14}, {"fips": 0.0, "cases": 589119, "deaths": 44539, "death_per_day": 5513.0, "week": 15}, {"fips": 0.0, "cases": 843608, "deaths": 78770, "death_per_day": 3677.0, "week": 16}, {"fips": 0.0, "cases": 1034844, "deaths": 104439, "death_per_day": 3735.0, "week": 17}, {"fips": 0.0, "cases": 1191385, "deaths": 121871, "death_per_day": 1875.0, "week": 18}, {"fips": 0.0, "cases": 1288323, "deaths": 132418, "death_per_day": 1303.0, "week": 19}, {"fips": 0.0, "cases": 1349532, "deaths": 138497, "death_per_day": 747.0, "week": 20}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can see that it captures the trend extremely well and the datapoints are almost exactly the same.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="TODO">TODO<a class="anchor-link" href="#TODO"> </a>
+</h4>
+<p>The rest of the states using the CDC Data</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div>
+<!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js" repo="armsp/covidviz" issue-term="title" label="blogpost-comment" theme="github-light" crossorigin="anonymous" async>
+</script><a class="u-url" href="/covidviz/nyt/2020/06/04/Above-Below-Normal.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/covidviz/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/covidviz/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/covidviz/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Making professional looking charts the likes of big media houses like NYT, Guardian and others using Python</p>
+      </div>
+    </div>
+
+    <div class="social-links">
+<ul class="social-media-list">
+<li><a rel="me" href="https://github.com/armsp" title="armsp"><svg class="svg-icon grey"><use xlink:href="/covidviz/assets/minima-social-icons.svg#github"></use></svg></a></li>
+<li><a rel="me" href="https://twitter.com/RajShantam" title="RajShantam"><svg class="svg-icon grey"><use xlink:href="/covidviz/assets/minima-social-icons.svg#twitter"></use></svg></a></li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

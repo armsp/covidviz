@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>US’s failure to control the virus | COVID-19 Viz</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="US’s failure to control the virus" />
+<meta name="author" content="Shantam Raj" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Interactive layered plot of wealthy countrie’s daily deaths per million" />
+<meta property="og:description" content="Interactive layered plot of wealthy countrie’s daily deaths per million" />
+<link rel="canonical" href="https://armsp.github.io/covidviz/interactive,/nyt/2020/08/10/US_failed.html" />
+<meta property="og:url" content="https://armsp.github.io/covidviz/interactive,/nyt/2020/08/10/US_failed.html" />
+<meta property="og:site_name" content="COVID-19 Viz" />
+<meta property="og:image" content="https://armsp.github.io/covidviz/images/daily_deaths.gif" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-10T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Shantam Raj"},"description":"Interactive layered plot of wealthy countrie’s daily deaths per million","@type":"BlogPosting","headline":"US’s failure to control the virus","dateModified":"2020-08-10T00:00:00-05:00","datePublished":"2020-08-10T00:00:00-05:00","url":"https://armsp.github.io/covidviz/interactive,/nyt/2020/08/10/US_failed.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://armsp.github.io/covidviz/interactive,/nyt/2020/08/10/US_failed.html"},"image":"https://armsp.github.io/covidviz/images/daily_deaths.gif","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/covidviz/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://armsp.github.io/covidviz/feed.xml" title="COVID-19 Viz" /><link rel="shortcut icon" type="image/x-icon" href="/covidviz/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>US’s failure to control the virus | COVID-19 Viz</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="US’s failure to control the virus" />
+<meta name="author" content="Shantam Raj" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Interactive layered plot of wealthy countrie’s daily deaths per million" />
+<meta property="og:description" content="Interactive layered plot of wealthy countrie’s daily deaths per million" />
+<link rel="canonical" href="https://armsp.github.io/covidviz/interactive,/nyt/2020/08/10/US_failed.html" />
+<meta property="og:url" content="https://armsp.github.io/covidviz/interactive,/nyt/2020/08/10/US_failed.html" />
+<meta property="og:site_name" content="COVID-19 Viz" />
+<meta property="og:image" content="https://armsp.github.io/covidviz/images/daily_deaths.gif" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-10T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Shantam Raj"},"description":"Interactive layered plot of wealthy countrie’s daily deaths per million","@type":"BlogPosting","headline":"US’s failure to control the virus","dateModified":"2020-08-10T00:00:00-05:00","datePublished":"2020-08-10T00:00:00-05:00","url":"https://armsp.github.io/covidviz/interactive,/nyt/2020/08/10/US_failed.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://armsp.github.io/covidviz/interactive,/nyt/2020/08/10/US_failed.html"},"image":"https://armsp.github.io/covidviz/images/daily_deaths.gif","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://armsp.github.io/covidviz/feed.xml" title="COVID-19 Viz" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+<!-- My additions -->
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet"> </head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/covidviz/">COVID-19 Viz</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/covidviz/about/">About Me</a><a class="page-link" href="/covidviz/search/">Search</a><a class="page-link" href="/covidviz/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">US&#39;s failure to control the virus</h1><p class="page-description">Interactive layered plot of wealthy countrie's daily deaths per million</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-08-10T00:00:00-05:00" itemprop="datePublished">
+        Aug 10, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Shantam Raj</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/covidviz/categories/#interactive,">interactive,</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/covidviz/categories/#NYT">NYT</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/armsp/covidviz/blob/master/_notebooks/2020-08-10-US_failed.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/covidviz/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-08-10-US_failed.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Today we will make the first chart from the article <a href="https://www.nytimes.com/2020/08/06/us/coronavirus-us.html">The unique US failure to control the virus</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/covidviz/images/copied_from_nb/images/daily_deaths.gif" alt="" /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/covidviz/images/copied_from_nb/images/percent_pos_tests.gif" alt="" /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/covidviz/images/copied_from_nb/images/reopened_w_cases.gif" alt="" /></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">population_uri</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/UID_ISO_FIPS_LookUp_Table.csv?raw=true&#39;</span>
+<span class="n">deaths_ts_uri</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv?raw=true&#39;</span>
+<span class="n">gdp_current_us_dollars</span> <span class="o">=</span> <span class="s1">&#39;https://gist.githubusercontent.com/armsp/58b43f28b4bf880f3874db80630dec44/raw/959a34a1797b0e3fdc860a6ef0057c62ee898dd7/gdp.csv&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">deaths_ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">deaths_ts_uri</span><span class="p">)</span>
+<span class="n">deaths_ts</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Province/State</th>
+      <th>Country/Region</th>
+      <th>Lat</th>
+      <th>Long</th>
+      <th>1/22/20</th>
+      <th>1/23/20</th>
+      <th>1/24/20</th>
+      <th>1/25/20</th>
+      <th>1/26/20</th>
+      <th>1/27/20</th>
+      <th>...</th>
+      <th>7/31/20</th>
+      <th>8/1/20</th>
+      <th>8/2/20</th>
+      <th>8/3/20</th>
+      <th>8/4/20</th>
+      <th>8/5/20</th>
+      <th>8/6/20</th>
+      <th>8/7/20</th>
+      <th>8/8/20</th>
+      <th>8/9/20</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>Afghanistan</td>
+      <td>33.93911</td>
+      <td>67.709953</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1272</td>
+      <td>1283</td>
+      <td>1284</td>
+      <td>1288</td>
+      <td>1288</td>
+      <td>1294</td>
+      <td>1298</td>
+      <td>1307</td>
+      <td>1312</td>
+      <td>1312</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>Albania</td>
+      <td>41.15330</td>
+      <td>20.168300</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>157</td>
+      <td>161</td>
+      <td>166</td>
+      <td>172</td>
+      <td>176</td>
+      <td>182</td>
+      <td>188</td>
+      <td>189</td>
+      <td>193</td>
+      <td>199</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>Algeria</td>
+      <td>28.03390</td>
+      <td>1.659600</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1210</td>
+      <td>1223</td>
+      <td>1231</td>
+      <td>1239</td>
+      <td>1248</td>
+      <td>1261</td>
+      <td>1273</td>
+      <td>1282</td>
+      <td>1293</td>
+      <td>1302</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>Andorra</td>
+      <td>42.50630</td>
+      <td>1.521800</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>52</td>
+      <td>52</td>
+      <td>52</td>
+      <td>52</td>
+      <td>52</td>
+      <td>52</td>
+      <td>52</td>
+      <td>52</td>
+      <td>52</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>Angola</td>
+      <td>-11.20270</td>
+      <td>17.873900</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>52</td>
+      <td>54</td>
+      <td>55</td>
+      <td>58</td>
+      <td>59</td>
+      <td>62</td>
+      <td>64</td>
+      <td>67</td>
+      <td>70</td>
+      <td>75</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 205 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gdp_us</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">gdp_current_us_dollars</span><span class="p">)</span>
+<span class="n">gdp_us</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Series Name</th>
+      <th>Series Code</th>
+      <th>Country Name</th>
+      <th>Country Code</th>
+      <th>2019 [YR2019]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>GDP per capita (current US$)</td>
+      <td>NY.GDP.PCAP.CD</td>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>502.115486913067</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>GDP per capita (current US$)</td>
+      <td>NY.GDP.PCAP.CD</td>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>5352.85741103671</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>GDP per capita (current US$)</td>
+      <td>NY.GDP.PCAP.CD</td>
+      <td>Algeria</td>
+      <td>DZA</td>
+      <td>3948.34327892571</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GDP per capita (current US$)</td>
+      <td>NY.GDP.PCAP.CD</td>
+      <td>American Samoa</td>
+      <td>ASM</td>
+      <td>..</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>GDP per capita (current US$)</td>
+      <td>NY.GDP.PCAP.CD</td>
+      <td>Andorra</td>
+      <td>AND</td>
+      <td>40886.3911648431</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">population</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">population_uri</span><span class="p">)</span>
+<span class="n">population</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>UID</th>
+      <th>iso2</th>
+      <th>iso3</th>
+      <th>code3</th>
+      <th>FIPS</th>
+      <th>Admin2</th>
+      <th>Province_State</th>
+      <th>Country_Region</th>
+      <th>Lat</th>
+      <th>Long_</th>
+      <th>Combined_Key</th>
+      <th>Population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>AF</td>
+      <td>AFG</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Afghanistan</td>
+      <td>33.93911</td>
+      <td>67.709953</td>
+      <td>Afghanistan</td>
+      <td>38928341.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8</td>
+      <td>AL</td>
+      <td>ALB</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Albania</td>
+      <td>41.15330</td>
+      <td>20.168300</td>
+      <td>Albania</td>
+      <td>2877800.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>12</td>
+      <td>DZ</td>
+      <td>DZA</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Algeria</td>
+      <td>28.03390</td>
+      <td>1.659600</td>
+      <td>Algeria</td>
+      <td>43851043.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>20</td>
+      <td>AD</td>
+      <td>AND</td>
+      <td>20.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Andorra</td>
+      <td>42.50630</td>
+      <td>1.521800</td>
+      <td>Andorra</td>
+      <td>77265.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>24</td>
+      <td>AO</td>
+      <td>AGO</td>
+      <td>24.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Angola</td>
+      <td>-11.20270</td>
+      <td>17.873900</td>
+      <td>Angola</td>
+      <td>32866268.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+
+<span class="k">def</span> <span class="nf">log_step</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;timing or logging etc&quot;&quot;&quot;</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;After function </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> ran, shape of dataframe is - </span><span class="si">{</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, execution time is - </span><span class="si">{</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">output</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@log_step</span>
+<span class="k">def</span> <span class="nf">start_pipeline</span><span class="p">(</span><span class="n">dataf</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">dataf</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="nd">@log_step</span>
+<span class="k">def</span> <span class="nf">remove_cols</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="o">*</span><span class="n">arg</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1">#print(list(arg))</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">dataf</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">arg</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span> 
+
+<span class="nd">@log_step</span>
+<span class="k">def</span> <span class="nf">remove_null</span><span class="p">(</span><span class="n">dataf</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">dataf</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">rename_cols</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="o">*</span><span class="n">arg</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Rename column names of raw dataframes to something digestable and that looks better in visualization and does not have spaces in between cause altair does not like that&quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">dataf</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="nd">@log_step</span>
+<span class="k">def</span> <span class="nf">filter_rows</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="n">which</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">which</span> <span class="o">==</span> <span class="s1">&#39;gdp&#39;</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">dataf</span><span class="p">[</span><span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;current_us&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;..&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">elif</span> <span class="n">which</span> <span class="o">==</span> <span class="s1">&#39;pop&#39;</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">dataf</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;Province_State&#39;</span><span class="p">])]</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span> <span class="nf">set_dtypes</span><span class="p">(</span><span class="n">dataf</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;set the datatypes of columns&quot;&quot;&quot;</span>
+    <span class="c1"># can use data.assign(col = lambda d: pd.to_datetime(d[&#39;col&#39;])) or col = pd.to_datetime(d[&#39;col&#39;])</span>
+    <span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;current_us&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;current_us&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dataf</span>
+
+<span class="c1"># def remove_outliers(dataf):</span>
+<span class="c1">#     &quot;&quot;&quot;remove outliers&quot;&quot;&quot;</span>
+<span class="c1">#     return dataf</span>
+
+<span class="c1"># def add_features(dataf):</span>
+<span class="c1">#     return dataf</span>
+
+<span class="nd">@log_step</span>
+<span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">dataf</span><span class="p">):</span>
+    <span class="n">agg_deaths</span> <span class="o">=</span> <span class="n">dataf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">agg_deaths</span> <span class="o">=</span> <span class="n">agg_deaths</span><span class="p">[</span><span class="n">agg_deaths</span><span class="p">[</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">pop_w_gdp</span><span class="p">[</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">])]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">agg_deaths</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;Date&#39;</span><span class="p">})</span>
+
+    <span class="c1">#convert cumulative deaths to daily deaths per million</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">col</span> <span class="o">!=</span> <span class="s1">&#39;Date&#39;</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">/</span><span class="nb">int</span><span class="p">(</span><span class="n">countries_population</span><span class="p">[</span><span class="n">countries_population</span><span class="p">[</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">col</span><span class="p">][</span><span class="s1">&#39;Population&#39;</span><span class="p">]))</span><span class="o">*</span><span class="mi">1000000</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gdp</span> <span class="o">=</span> <span class="p">(</span><span class="n">gdp_us</span>
+       <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">start_pipeline</span><span class="p">)</span>
+       <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">remove_null</span><span class="p">)</span>
+       <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">remove_cols</span><span class="p">,</span> <span class="o">*</span><span class="p">[</span><span class="s1">&#39;Series Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Series Code&#39;</span><span class="p">])</span>
+       <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">rename_cols</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;2019 [YR2019]&#39;</span><span class="p">:</span> <span class="s1">&#39;current_us&#39;</span><span class="p">})</span>
+       <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">filter_rows</span><span class="p">,</span> <span class="s1">&#39;gdp&#39;</span><span class="p">)</span>
+       <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">set_dtypes</span><span class="p">))</span>
+
+<span class="n">countries_population</span> <span class="o">=</span> <span class="p">(</span><span class="n">population</span>
+       <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">start_pipeline</span><span class="p">)</span>
+       <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">filter_rows</span><span class="p">,</span> <span class="s1">&#39;pop&#39;</span><span class="p">)</span>
+       <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">remove_cols</span><span class="p">,</span> <span class="o">*</span><span class="p">[</span><span class="s1">&#39;UID&#39;</span><span class="p">,</span> <span class="s1">&#39;iso2&#39;</span><span class="p">,</span> <span class="s1">&#39;code3&#39;</span><span class="p">,</span> <span class="s1">&#39;FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;Admin2&#39;</span><span class="p">,</span> <span class="s1">&#39;Province_State&#39;</span><span class="p">,</span> <span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Long_&#39;</span><span class="p">,</span> <span class="s1">&#39;Combined_Key&#39;</span><span class="p">])</span>
+       <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">rename_cols</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;iso3&#39;</span><span class="p">:</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Country_Region&#39;</span><span class="p">:</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">}))</span>
+
+<span class="c1"># Combining population with GDP</span>
+<span class="n">pop_w_gdp</span> <span class="o">=</span> <span class="n">countries_population</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">gdp</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Country Code&#39;</span><span class="p">)</span>
+
+<span class="c1"># Filter for only wealthy countries i.e GDP &gt; 25000 USD and population &gt; 10 million</span>
+<span class="n">pop_w_gdp</span> <span class="o">=</span> <span class="n">pop_w_gdp</span><span class="p">[(</span><span class="n">pop_w_gdp</span><span class="p">[</span><span class="s1">&#39;current_us&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">25000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pop_w_gdp</span><span class="p">[</span><span class="s1">&#39;Population&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10000000</span><span class="p">)]</span>
+
+<span class="c1"># Making daily deaths per million data for plotting</span>
+<span class="n">plot_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">deaths_ts</span>
+             <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">start_pipeline</span><span class="p">)</span>
+             <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">remove_cols</span><span class="p">,</span> <span class="o">*</span><span class="p">[</span><span class="s1">&#39;Province/State&#39;</span><span class="p">,</span> <span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Long&#39;</span><span class="p">])</span>
+             <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
+             <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">remove_null</span><span class="p">)</span>
+            <span class="p">)</span>
+
+<span class="n">plot_data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After function start_pipeline ran, shape of dataframe is - (269, 5), execution time is - 0:00:00.000104
+After function remove_null ran, shape of dataframe is - (264, 5), execution time is - 0:00:00.001648
+After function remove_cols ran, shape of dataframe is - (264, 3), execution time is - 0:00:00.001438
+After function filter_rows ran, shape of dataframe is - (222, 3), execution time is - 0:00:00.000781
+After function start_pipeline ran, shape of dataframe is - (4153, 12), execution time is - 0:00:00.000478
+After function filter_rows ran, shape of dataframe is - (188, 12), execution time is - 0:00:00.001278
+After function remove_cols ran, shape of dataframe is - (188, 3), execution time is - 0:00:00.000900
+After function start_pipeline ran, shape of dataframe is - (266, 205), execution time is - 0:00:00.000276
+After function remove_cols ran, shape of dataframe is - (266, 202), execution time is - 0:00:00.001868
+After function clean ran, shape of dataframe is - (201, 14), execution time is - 0:00:00.028541
+After function remove_null ran, shape of dataframe is - (200, 14), execution time is - 0:00:00.002357
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Australia</th>
+      <th>Belgium</th>
+      <th>Canada</th>
+      <th>France</th>
+      <th>Germany</th>
+      <th>Italy</th>
+      <th>Japan</th>
+      <th>Korea, South</th>
+      <th>Netherlands</th>
+      <th>Spain</th>
+      <th>Sweden</th>
+      <th>US</th>
+      <th>United Kingdom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1/23/20</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1/24/20</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1/25/20</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1/26/20</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1/27/20</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>8/5/20</td>
+      <td>0.314222</td>
+      <td>0.603989</td>
+      <td>0.132080</td>
+      <td>0.000000</td>
+      <td>0.190967</td>
+      <td>0.165394</td>
+      <td>0.039533</td>
+      <td>0.000000</td>
+      <td>0.175082</td>
+      <td>0.021388</td>
+      <td>1.287222</td>
+      <td>4.164311</td>
+      <td>1.988628</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>8/6/20</td>
+      <td>0.432055</td>
+      <td>0.172568</td>
+      <td>0.079248</td>
+      <td>0.168522</td>
+      <td>0.023871</td>
+      <td>0.099236</td>
+      <td>0.047440</td>
+      <td>0.019505</td>
+      <td>0.000000</td>
+      <td>0.021388</td>
+      <td>0.594102</td>
+      <td>3.794015</td>
+      <td>0.721798</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>8/7/20</td>
+      <td>0.471333</td>
+      <td>0.431421</td>
+      <td>0.105664</td>
+      <td>0.291083</td>
+      <td>0.167096</td>
+      <td>0.049618</td>
+      <td>0.063253</td>
+      <td>0.019505</td>
+      <td>0.058361</td>
+      <td>0.064165</td>
+      <td>-0.297051</td>
+      <td>3.772768</td>
+      <td>1.443597</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>8/8/20</td>
+      <td>0.667722</td>
+      <td>0.345137</td>
+      <td>0.184913</td>
+      <td>0.000000</td>
+      <td>0.071613</td>
+      <td>0.215012</td>
+      <td>0.000000</td>
+      <td>0.019505</td>
+      <td>0.233442</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>3.265888</td>
+      <td>0.810182</td>
+    </tr>
+    <tr>
+      <th>200</th>
+      <td>8/9/20</td>
+      <td>0.707000</td>
+      <td>0.172568</td>
+      <td>0.105664</td>
+      <td>0.000000</td>
+      <td>0.011935</td>
+      <td>0.033079</td>
+      <td>0.039533</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.563134</td>
+      <td>0.117845</td>
+    </tr>
+  </tbody>
+</table>
+<p>200 rows × 14 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">highlight</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;mouseover&#39;</span><span class="p">,</span> <span class="n">empty</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">],</span> <span class="n">nearest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;US&#39;</span><span class="p">})</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">plot_data</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Daily Deaths per million in wealthy countries&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">transform_fold</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">plot_data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+        <span class="o">.</span><span class="n">transform_window</span><span class="p">(</span><span class="n">deaths</span><span class="o">=</span><span class="s1">&#39;mean(value)&#39;</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Date:T&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%b&quot;</span><span class="p">,</span> <span class="n">tickCount</span><span class="o">=</span><span class="mi">7</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;deaths:Q&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">8</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+            <span class="n">tooltip</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key:N&#39;</span><span class="p">]</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">))</span>
+
+<span class="n">points</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">opacity</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span><span class="n">highlight</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">600</span>
+<span class="p">)</span>
+
+<span class="n">line</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">stroke</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="c1">#x=&#39;Date:T&#39;,</span>
+            <span class="c1">#y=&#39;deaths:Q&#39;,</span>
+            <span class="c1">#color=&#39;key:N&#39;,</span>
+            <span class="c1">#color=alt.condition(alt.datum.key == &#39;US&#39;, alt.value(&#39;red&#39;), alt.value(&#39;grey&#39;)),</span>
+            <span class="n">detail</span><span class="o">=</span><span class="s1">&#39;key:N&#39;</span>
+            <span class="c1">#size=alt.condition(highlight, alt.value(5), alt.value(2)),</span>
+            
+        <span class="p">)</span>
+
+<span class="n">top_layer</span> <span class="o">=</span> <span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">highlight</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span>
+            <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+                <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;grey&#39;</span><span class="p">)),</span>
+                <span class="n">size</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+            <span class="p">))</span>
+
+<span class="n">usa_layer</span> <span class="o">=</span> <span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;US&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span>
+            <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+                <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">),</span>
+            <span class="p">))</span>
+
+
+<span class="n">circles</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">strokeOpacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">fillOpacity</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">dx</span><span class="o">=-</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;deaths:Q&#39;</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;argmax&#39;</span><span class="p">:</span> <span class="s1">&#39;Date&#39;</span><span class="p">}),</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Date:T&#39;</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">),</span>
+    <span class="n">stroke</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">key</span><span class="o">==</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;grey&#39;</span><span class="p">)),</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">key</span><span class="o">==</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;grey&#39;</span><span class="p">)),</span>
+<span class="p">)</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="n">circles</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">({</span><span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;oneOf&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="s1">&#39;United Kingdom&#39;</span><span class="p">,</span> <span class="s1">&#39;Korea, South&#39;</span><span class="p">]})</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">dx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s1">&#39;key:N&#39;</span>
+<span class="p">)</span>
+<span class="p">(</span><span class="n">points</span><span class="o">+</span><span class="n">line</span><span class="o">+</span><span class="n">top_layer</span><span class="o">+</span><span class="n">usa_layer</span><span class="o">+</span><span class="n">circles</span><span class="o">+</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span><span class="n">strokeWidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">configure_axis</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-f7937292f3d44a39b83e0f47fbd62356"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-f7937292f3d44a39b83e0f47fbd62356") {
+      outputDiv = document.getElementById("altair-viz-f7937292f3d44a39b83e0f47fbd62356");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "strokeWidth": 0}, "axis": {"grid": true}}, "layer": [{"mark": "circle", "encoding": {"opacity": {"value": 0}, "tooltip": [{"type": "nominal", "field": "key"}], "x": {"type": "temporal", "axis": {"format": "%b", "tickCount": 7}, "field": "Date", "title": null}, "y": {"type": "quantitative", "axis": {"tickCount": 8}, "field": "deaths", "title": null}}, "height": 600, "selection": {"selector005": {"type": "single", "on": "mouseover", "empty": "none", "fields": ["key"], "nearest": true, "init": {"key": "US"}}}, "title": "Daily Deaths per million in wealthy countries", "transform": [{"fold": ["Australia", "Belgium", "Canada", "France", "Germany", "Italy", "Japan", "Korea, South", "Netherlands", "Spain", "Sweden", "US", "United Kingdom"]}, {"window": [{"op": "mean", "field": "value", "as": "deaths"}], "frame": [-6, 0], "groupby": ["key"]}], "width": 600}, {"mark": {"type": "line", "stroke": "grey"}, "encoding": {"detail": {"type": "nominal", "field": "key"}, "tooltip": [{"type": "nominal", "field": "key"}], "x": {"type": "temporal", "axis": {"format": "%b", "tickCount": 7}, "field": "Date", "title": null}, "y": {"type": "quantitative", "axis": {"tickCount": 8}, "field": "deaths", "title": null}}, "height": 600, "title": "Daily Deaths per million in wealthy countries", "transform": [{"fold": ["Australia", "Belgium", "Canada", "France", "Germany", "Italy", "Japan", "Korea, South", "Netherlands", "Spain", "Sweden", "US", "United Kingdom"]}, {"window": [{"op": "mean", "field": "value", "as": "deaths"}], "frame": [-6, 0], "groupby": ["key"]}]}, {"mark": "line", "encoding": {"color": {"condition": {"value": "red", "test": "(datum.key === 'US')"}, "value": "grey"}, "size": {"value": 4}, "tooltip": [{"type": "nominal", "field": "key"}], "x": {"type": "temporal", "axis": {"format": "%b", "tickCount": 7}, "field": "Date", "title": null}, "y": {"type": "quantitative", "axis": {"tickCount": 8}, "field": "deaths", "title": null}}, "height": 600, "title": "Daily Deaths per million in wealthy countries", "transform": [{"fold": ["Australia", "Belgium", "Canada", "France", "Germany", "Italy", "Japan", "Korea, South", "Netherlands", "Spain", "Sweden", "US", "United Kingdom"]}, {"window": [{"op": "mean", "field": "value", "as": "deaths"}], "frame": [-6, 0], "groupby": ["key"]}, {"filter": {"selection": "selector005"}}]}, {"mark": "line", "encoding": {"color": {"value": "red"}, "tooltip": [{"type": "nominal", "field": "key"}], "x": {"type": "temporal", "axis": {"format": "%b", "tickCount": 7}, "field": "Date", "title": null}, "y": {"type": "quantitative", "axis": {"tickCount": 8}, "field": "deaths", "title": null}}, "height": 600, "title": "Daily Deaths per million in wealthy countries", "transform": [{"fold": ["Australia", "Belgium", "Canada", "France", "Germany", "Italy", "Japan", "Korea, South", "Netherlands", "Spain", "Sweden", "US", "United Kingdom"]}, {"window": [{"op": "mean", "field": "value", "as": "deaths"}], "frame": [-6, 0], "groupby": ["key"]}, {"filter": "(datum.key === 'US')"}]}, {"mark": {"type": "circle", "dx": -20, "fillOpacity": 0.3, "filled": true, "size": 100, "strokeOpacity": 0.7}, "encoding": {"color": {"condition": {"value": "red", "test": "(datum.key === 'US')"}, "value": "grey"}, "stroke": {"condition": {"value": "red", "test": "(datum.key === 'US')"}, "value": "grey"}, "tooltip": [{"type": "nominal", "field": "key"}], "x": {"type": "temporal", "aggregate": "max", "field": "Date"}, "y": {"type": "quantitative", "aggregate": {"argmax": "Date"}, "field": "deaths"}}, "height": 600, "title": "Daily Deaths per million in wealthy countries", "transform": [{"fold": ["Australia", "Belgium", "Canada", "France", "Germany", "Italy", "Japan", "Korea, South", "Netherlands", "Spain", "Sweden", "US", "United Kingdom"]}, {"window": [{"op": "mean", "field": "value", "as": "deaths"}], "frame": [-6, 0], "groupby": ["key"]}]}, {"mark": {"type": "text", "align": "left", "dx": 10}, "encoding": {"color": {"condition": {"value": "red", "test": "(datum.key === 'US')"}, "value": "grey"}, "stroke": {"condition": {"value": "red", "test": "(datum.key === 'US')"}, "value": "grey"}, "text": {"type": "nominal", "field": "key"}, "tooltip": [{"type": "nominal", "field": "key"}], "x": {"type": "temporal", "aggregate": "max", "field": "Date"}, "y": {"type": "quantitative", "aggregate": {"argmax": "Date"}, "field": "deaths"}}, "height": 600, "title": "Daily Deaths per million in wealthy countries", "transform": [{"fold": ["Australia", "Belgium", "Canada", "France", "Germany", "Italy", "Japan", "Korea, South", "Netherlands", "Spain", "Sweden", "US", "United Kingdom"]}, {"window": [{"op": "mean", "field": "value", "as": "deaths"}], "frame": [-6, 0], "groupby": ["key"]}, {"filter": {"field": "key", "oneOf": ["US", "United Kingdom", "Korea, South"]}}]}], "data": {"name": "data-f7f17ca285077ca64402435ff210a381"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-f7f17ca285077ca64402435ff210a381": [{"Date": "1/23/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "1/24/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "1/25/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "1/26/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "1/27/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "1/28/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "1/29/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "1/30/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "1/31/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/1/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/2/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/3/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/4/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/5/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/6/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/7/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/8/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/9/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/10/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/11/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/12/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/13/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.007906609781877351, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/14/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/15/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.015320150078641393, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/16/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/17/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/18/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.007906609781877351, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/19/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/20/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.0, "Japan": 0.0, "Korea, South": 0.019504894392407227, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/21/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.016539360999803052, "Japan": 0.0, "Korea, South": 0.019504894392407227, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/22/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.016539360999803052, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/23/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.016539360999803052, "Japan": 0.0, "Korea, South": 0.0780195775696289, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/24/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.06615744399921221, "Japan": 0.0, "Korea, South": 0.03900978878481445, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/25/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.04961808299940915, "Japan": 0.007906609781877351, "Korea, South": 0.03900978878481445, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/26/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.015320150078641393, "Germany": 0.0, "Italy": 0.033078721999606105, "Japan": 0.0, "Korea, South": 0.03900978878481445, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/27/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.08269680499901524, "Japan": 0.007906609781877351, "Korea, South": 0.019504894392407227, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/28/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.06615744399921221, "Japan": 0.007906609781877351, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "2/29/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.13231488799842442, "Japan": 0.007906609781877351, "Korea, South": 0.05851468317722169, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0030352119521741775, "United Kingdom": 0.0}, {"Date": "3/1/20", "Australia": 0.0392777605392051, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.08269680499901524, "Japan": 0.0, "Korea, South": 0.019504894392407227, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.0, "United Kingdom": 0.0}, {"Date": "3/2/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.015320150078641393, "Germany": 0.0, "Italy": 0.2977084979964549, "Japan": 0.0, "Korea, South": 0.2145538383164795, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 0.015176059760870888, "United Kingdom": 0.0}, {"Date": "3/3/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.015320150078641393, "Germany": 0.0, "Italy": 0.44656274699468235, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.021388186102799366, "Sweden": 0.0, "US": 0.0030352119521741775, "United Kingdom": 0.0}, {"Date": "3/4/20", "Australia": 0.0392777605392051, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 0.46310210799448537, "Japan": 0.007906609781877351, "Korea, South": 0.1365342607468506, "Netherlands": 0.0, "Spain": 0.021388186102799366, "Sweden": 0.0, "US": 0.01214084780869671, "United Kingdom": 0.0}, {"Date": "3/5/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.030640300157282786, "Germany": 0.0, "Italy": 0.678113800991925, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.021388186102799366, "Sweden": 0.0, "US": 0.0030352119521741775, "United Kingdom": 0.0}, {"Date": "3/6/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.04596045023592418, "Germany": 0.0, "Italy": 0.8104286889903495, "Japan": 0.0, "Korea, South": 0.1365342607468506, "Netherlands": 0.05836051425651068, "Spain": 0.04277637220559873, "Sweden": 0.0, "US": 0.006070423904348355, "United Kingdom": 0.014730576865299067}, {"Date": "3/7/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.030640300157282786, "Germany": 0.0, "Italy": 0.5954169959929098, "Japan": 0.0, "Korea, South": 0.03900978878481445, "Netherlands": 0.0, "Spain": 0.10694093051399682, "Sweden": 0.0, "US": 0.009105635856522533, "United Kingdom": 0.014730576865299067}, {"Date": "3/8/20", "Australia": 0.0392777605392051, "Belgium": 0.0, "Canada": 0.0, "France": 0.12256120062913115, "Germany": 0.0, "Italy": 2.1997350129738056, "Japan": 0.007906609781877351, "Korea, South": 0.11702936635444337, "Netherlands": 0.11672102851302137, "Spain": 0.14971730271959555, "Sweden": 0.0, "US": 0.01214084780869671, "United Kingdom": 0.0}, {"Date": "3/9/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.026416099746347326, "France": 0.0, "Germany": 0.023870921809661744, "Italy": 1.604318016980896, "Japan": 0.015813219563754703, "Korea, South": 0.05851468317722169, "Netherlands": 0.0, "Spain": 0.235270047130793, "Sweden": 0.0, "US": 0.0030352119521741775, "United Kingdom": 0.014730576865299067}, {"Date": "3/10/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.21448210110097954, "Germany": 0.0, "Italy": 2.7786126479669124, "Japan": 0.023719829345632056, "Korea, South": 0.019504894392407227, "Netherlands": 0.05836051425651068, "Spain": 0.14971730271959555, "Sweden": 0.0, "US": 0.018211271713045065, "United Kingdom": 0.05892230746119627}, {"Date": "3/11/20", "Australia": 0.0, "Belgium": 0.2588524071893323, "Canada": 0.0, "France": 0.22980225117962091, "Germany": 0.011935460904830872, "Italy": 3.241714755961398, "Japan": 0.015813219563754703, "Korea, South": 0.11702936635444337, "Netherlands": 0.05836051425651068, "Spain": 0.4063755359531879, "Sweden": 0.09901705766852455, "US": 0.015176059760870888, "United Kingdom": 0.0}, {"Date": "3/12/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.0, "Italy": 3.125939228962776, "Japan": 0.031626439127509405, "Korea, South": 0.11702936635444337, "Netherlands": 0.0, "Spain": 0.021388186102799366, "Sweden": 0.0, "US": 0.030352119521741775, "United Kingdom": 0.029461153730598134}, {"Date": "3/13/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.47492465243788323, "Germany": 0.04774184361932349, "Italy": 4.134840249950763, "Japan": 0.015813219563754703, "Korea, South": 0.0, "Netherlands": 0.29180257128255344, "Spain": 1.6682785160183504, "Sweden": 0.0, "US": 0.0273169075695676, "United Kingdom": 0.014730576865299067}, {"Date": "3/14/20", "Australia": 0.0, "Belgium": 0.08628413572977742, "Canada": 0.0, "France": 0.18384180094369673, "Germany": 0.023870921809661744, "Italy": 2.8943881749655334, "Japan": 0.007906609781877351, "Korea, South": 0.11702936635444337, "Netherlands": 0.11672102851302137, "Spain": 1.3260675383735607, "Sweden": 0.09901705766852455, "US": 0.018211271713045065, "United Kingdom": 0.26515038357538323}, {"Date": "3/15/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.0, "France": 0.0, "Germany": 0.023870921809661744, "Italy": 6.086484847927522, "Japan": 0.015813219563754703, "Korea, South": 0.05851468317722169, "Netherlands": 0.46688411405208546, "Spain": 2.0104894936631403, "Sweden": 0.09901705766852455, "US": 0.03642254342609013, "United Kingdom": 0.22095865297948603}, {"Date": "3/16/20", "Australia": 0.0, "Belgium": 0.08628413572977742, "Canada": 0.07924829923904199, "France": 0.8885687045612009, "Germany": 0.07161276542898523, "Italy": 5.772236988931264, "Japan": 0.04743965869126411, "Korea, South": 0.0, "Netherlands": 0.23344205702604273, "Spain": 1.1335738634483663, "Sweden": 0.2970511730055737, "US": 0.0819507227087028, "United Kingdom": 0.3388032679018786}, {"Date": "3/17/20", "Australia": 0.0785555210784102, "Belgium": 0.43142067864888706, "Canada": 0.026416099746347326, "France": 0.0, "Germany": 0.0835482263338161, "Italy": 5.706079544932052, "Japan": 0.0, "Korea, South": 0.11702936635444337, "Netherlands": 1.108849770873703, "Spain": 4.085143545634678, "Sweden": 0.09901705766852455, "US": 0.10623241832609621, "United Kingdom": 0.23568922984478508}, {"Date": "3/18/20", "Australia": 0.0392777605392051, "Belgium": 0.34513654291910967, "Canada": 0.07924829923904199, "France": 0.0, "Germany": 0.04774184361932349, "Italy": 7.856196474906449, "Japan": 0.015813219563754703, "Korea, South": 0.05851468317722169, "Netherlands": 0.8754077138476603, "Spain": 1.924936749251943, "Sweden": 0.2970511730055737, "US": 0.17907750517827647, "United Kingdom": 0.5008396134201684}, {"Date": "3/19/20", "Australia": 0.0, "Belgium": 0.6039889501084419, "Canada": 0.026416099746347326, "France": 1.4554142574709326, "Germany": 0.19096737447729395, "Italy": 7.062307146915902, "Japan": 0.007906609781877351, "Korea, South": 0.1365342607468506, "Netherlands": 1.108849770873703, "Spain": 4.427354523279469, "Sweden": 0.09901705766852455, "US": 0.23674653226958584, "United Kingdom": 0.63341480520786}, {"Date": "3/20/20", "Australia": 0.0392777605392051, "Belgium": 1.3805461716764387, "Canada": 0.07924829923904199, "France": 3.1712710662787686, "Germany": 0.27451560081111004, "Italy": 10.370179346876514, "Japan": 0.007906609781877351, "Korea, South": 0.05851468317722169, "Netherlands": 1.7508154276953205, "Spain": 4.555683639896265, "Sweden": 0.4950852883426227, "US": 0.30048598326524356, "United Kingdom": 0.5303007671507665}, {"Date": "3/21/20", "Australia": 0.0, "Belgium": 2.5885240718933225, "Canada": 0.18491269822443127, "France": 1.7158568088078363, "Germany": 0.2029028353821248, "Italy": 13.115713272843818, "Japan": 0.015813219563754703, "Korea, South": 0.1560391551392578, "Netherlands": 1.7508154276953205, "Spain": 7.100877786129389, "Sweden": 0.3960682306740982, "US": 0.28834513545654683, "United Kingdom": 0.8249123044567478}, {"Date": "3/22/20", "Australia": 0.0, "Belgium": 0.6902730858382193, "Canada": 0.05283219949269465, "France": 1.7311769588864774, "Germany": 0.1193546090483087, "Italy": 10.767124010871784, "Japan": 0.031626439127509405, "Korea, South": 0.17554404953166505, "Netherlands": 2.5095021130299595, "Spain": 8.491109882811347, "Sweden": 0.09901705766852455, "US": 0.44921136892177826, "United Kingdom": 0.5155701902854675}, {"Date": "3/23/20", "Australia": 0.0, "Belgium": 1.1216937644871063, "Canada": 0.1056643989853893, "France": 2.8495479146272995, "Germany": 0.3461283662400953, "Italy": 9.940155960881633, "Japan": 0.007906609781877351, "Korea, South": 0.0, "Netherlands": 1.9842574847213634, "Spain": 11.528232309408857, "Sweden": 0.3960682306740982, "US": 0.5675846350565712, "United Kingdom": 1.0900626880321311}, {"Date": "3/24/20", "Australia": 0.0392777605392051, "Belgium": 2.9336606148124322, "Canada": 0.026416099746347326, "France": 3.6768360188739346, "Germany": 0.4058056707642496, "Italy": 12.288745222853665, "Japan": 0.007906609781877351, "Korea, South": 0.17554404953166505, "Netherlands": 3.6767123981601735, "Spain": 10.629928493091285, "Sweden": 1.0891876343537703, "US": 0.7345212924261509, "United Kingdom": 2.1948559529295615}, {"Date": "3/25/20", "Australia": 0.0, "Belgium": 4.831911600867535, "Canada": 0.1056643989853893, "France": 3.5389546681661623, "Germany": 0.5848375843367127, "Italy": 11.296383562865483, "Japan": 0.023719829345632056, "Korea, South": 0.11702936635444337, "Netherlands": 4.668841140520855, "Spain": 17.94468814024867, "Sweden": 2.5744434993816387, "US": 0.9591269768870401, "United Kingdom": 2.754617873810926}, {"Date": "3/26/20", "Australia": 0.19638880269602546, "Belgium": 3.6239337006506513, "Canada": 0.2113287979707786, "France": 5.591854778704109, "Germany": 0.7280631151946833, "Italy": 11.77602503185977, "Japan": 0.015813219563754703, "Korea, South": 0.09752447196203615, "Netherlands": 4.552120112007834, "Spain": 15.356717621809944, "Sweden": 1.4852558650278682, "US": 1.280859443817503, "United Kingdom": 2.7104261432150287}, {"Date": "3/27/20", "Australia": 0.0, "Belgium": 5.953605365354641, "Canada": 0.4226575959415572, "France": 4.580724873513777, "Germany": 0.8951595678623154, "Italy": 15.199672758819002, "Japan": 0.04743965869126411, "Korea, South": 0.1560391551392578, "Netherlands": 6.536377596729197, "Spain": 16.53306785746391, "Sweden": 2.7724776147186874, "US": 1.708824329074062, "United Kingdom": 4.183483829744936}, {"Date": "3/28/20", "Australia": 0.0392777605392051, "Belgium": 5.522184686705755, "Canada": 0.18491269822443127, "France": 4.902448025165246, "Germany": 1.0861269423396094, "Italy": 14.703491928824912, "Japan": 0.023719829345632056, "Korea, South": 0.09752447196203615, "Netherlands": 5.427527825855494, "Spain": 18.051629070762665, "Sweden": 0.0, "US": 1.9850286167219118, "United Kingdom": 4.330789598397926}, {"Date": "3/29/20", "Australia": 0.0785555210784102, "Belgium": 6.7301625869226385, "Canada": 0.07924829923904199, "France": 4.504124123120571, "Germany": 1.1935460904830872, "Italy": 12.503756915851104, "Japan": 0.05534626847314146, "Korea, South": 0.1560391551392578, "Netherlands": 7.703587881859409, "Spain": 17.559700790398278, "Sweden": 0.4950852883426227, "US": 1.9243243776784287, "United Kingdom": 3.1670740260392996}, {"Date": "3/30/20", "Australia": 0.0392777605392051, "Belgium": 7.075299129841748, "Canada": 0.4226575959415572, "France": 6.419142882950744, "Germany": 1.3367716213410576, "Italy": 13.429961131840075, "Japan": 0.015813219563754703, "Korea, South": 0.11702936635444337, "Netherlands": 5.427527825855494, "Spain": 19.52741391185582, "Sweden": 3.564614076066884, "US": 2.5313667681132643, "United Kingdom": 5.509235747621852}, {"Date": "3/31/20", "Australia": 0.0392777605392051, "Belgium": 16.566554060117266, "Canada": 0.5547380946732938, "France": 7.69071533947798, "Germany": 1.5516099176280134, "Italy": 13.843445156835152, "Japan": 0.015813219563754703, "Korea, South": 0.0780195775696289, "Netherlands": 10.21308999488937, "Spain": 15.998363204893923, "Sweden": 3.3665799607298346, "US": 3.809190999978593, "United Kingdom": 5.641810939409543}, {"Date": "4/1/20", "Australia": 0.0785555210784102, "Belgium": 10.612948694762622, "Canada": 0.2113287979707786, "France": 13.51237236936171, "Germany": 1.7306418312004763, "Italy": 12.024115446856817, "Japan": 0.039533048909386755, "Korea, South": 0.05851468317722169, "Netherlands": 7.878669424628943, "Spain": 19.741295772883817, "Sweden": 5.842006402442949, "US": 3.8486487553568574, "United Kingdom": 9.884217076615673}, {"Date": "4/2/20", "Australia": 0.1571110421568204, "Belgium": 15.789996838549268, "Canada": 0.7924829923904197, "France": 15.075027677383131, "Germany": 2.2319311892033733, "Italy": 12.569914359850317, "Japan": 0.023719829345632056, "Korea, South": 0.0780195775696289, "Netherlands": 9.687845366580774, "Spain": 20.55404684479019, "Sweden": 6.832176979128194, "US": 4.895796878856948, "United Kingdom": 9.604336116174993}, {"Date": "4/3/20", "Australia": 0.1571110421568204, "Belgium": 11.389505916330618, "Canada": 1.056643989853893, "France": 17.189208388235645, "Germany": 2.0051574320115866, "Italy": 12.669150525849135, "Japan": 0.04743965869126411, "Korea, South": 0.09752447196203615, "Netherlands": 8.695716624220093, "Spain": 18.17995818737946, "Sweden": 4.9508528834262275, "US": 4.058078380056875, "United Kingdom": 10.532362458688834}, {"Date": "4/4/20", "Australia": 0.0785555210784102, "Belgium": 12.079779002168838, "Canada": 1.0302278901075457, "France": 16.147438182888028, "Germany": 2.0170928929164176, "Italy": 11.263304840865876, "Japan": 0.04743965869126411, "Korea, South": 0.05851468317722169, "Netherlands": 9.687845366580774, "Spain": 16.019751390996724, "Sweden": 1.4852558650278682, "US": 4.027726260535133, "United Kingdom": 11.209968994492591}, {"Date": "4/5/20", "Australia": 0.19638880269602546, "Belgium": 14.150598259683496, "Canada": 1.0830600896002405, "France": 7.951157890814884, "Germany": 1.670964526676322, "Italy": 8.6831645248966, "Japan": 0.04743965869126411, "Korea, South": 0.11702936635444337, "Netherlands": 6.711459139498729, "Spain": 14.84340115534276, "Sweden": 2.7724776147186874, "US": 4.5588883521656145, "United Kingdom": 9.515952654983197}, {"Date": "4/6/20", "Australia": 0.19638880269602546, "Belgium": 15.96256511000882, "Canada": 2.113287979707786, "France": 12.76168501550828, "Germany": 2.6974141644917773, "Italy": 10.51903359587474, "Japan": 0.023719829345632056, "Korea, South": 0.05851468317722169, "Netherlands": 6.0111329684206005, "Spain": 14.971730271959554, "Sweden": 7.525296382807866, "US": 5.278233584830895, "United Kingdom": 8.411159390085768}, {"Date": "4/7/20", "Australia": 0.19638880269602546, "Belgium": 34.7725066991003, "Canada": 0.9509795908685038, "France": 21.708652661434854, "Germany": 2.4587049463951596, "Italy": 9.989774043881043, "Japan": 0.015813219563754703, "Korea, South": 0.11702936635444337, "Netherlands": 13.6563603360235, "Spain": 15.057283016370752, "Sweden": 11.2879445742118, "US": 7.2207692342223675, "United Kingdom": 15.290338786180433}, {"Date": "4/8/20", "Australia": 0.19638880269602546, "Belgium": 17.688247824604368, "Canada": 0.8453151918831144, "France": 8.334161642780918, "Germany": 3.97450848130868, "Italy": 8.964333661893253, "Japan": 0.05534626847314146, "Korea, South": 0.1560391551392578, "Netherlands": 8.57899559570707, "Spain": 15.976975018791126, "Sweden": 9.505637536178359, "US": 6.622832479644055, "United Kingdom": 15.260877632449834}, {"Date": "4/9/20", "Australia": 0.0392777605392051, "Belgium": 24.418410411527006, "Canada": 2.5359455756493436, "France": 20.544321255458108, "Germany": 3.0793489134463647, "Italy": 10.08901020987986, "Japan": 0.06325287825501881, "Korea, South": 0.0780195775696289, "Netherlands": 8.637356109963582, "Spain": 14.009261897333584, "Sweden": 10.495808112863603, "US": 6.528740909126656, "United Kingdom": 16.365670897347265}, {"Date": "4/10/20", "Australia": 0.11783328161761529, "Belgium": 42.796931321969595, "Canada": 1.4264693863027558, "France": 15.120988127619055, "Germany": 1.9096737447729393, "Italy": 9.427435769887737, "Japan": 0.09487931738252822, "Korea, South": 0.0780195775696289, "Netherlands": 6.82818016801175, "Spain": 13.560109989174796, "Sweden": 7.624313440476391, "US": 6.5135648493657845, "United Kingdom": 16.984355125689827}, {"Date": "4/11/20", "Australia": 0.11783328161761529, "Belgium": 28.214912383637213, "Canada": 2.562361675395691, "France": 9.743615450015927, "Germany": -0.369999288049757, "Italy": 10.237864458878088, "Japan": 0.10278592716440557, "Korea, South": 0.05851468317722169, "Netherlands": 7.761948396115921, "Spain": 11.228797703969667, "Sweden": 1.6832899803649173, "US": 6.446790186417953, "United Kingdom": 12.388415143716516}, {"Date": "4/12/20", "Australia": 0.11783328161761529, "Belgium": 21.91617047536346, "Canada": 1.5849659847808395, "France": 8.594604194117823, "Germany": 3.413541818781629, "Italy": 7.128464590915114, "Japan": 0.07115948803689616, "Korea, South": 0.05851468317722169, "Netherlands": 5.4858883401120035, "Spain": 12.897076219988017, "Sweden": 1.1882046920222948, "US": 5.6151421115222275, "United Kingdom": 10.10517572959516}, {"Date": "4/13/20", "Australia": 0.0392777605392051, "Belgium": 26.144093126122556, "Canada": 1.7698786830052708, "France": 8.793766145140161, "Germany": 2.0528992756309097, "Italy": 9.361278325888525, "Japan": 0.07115948803689616, "Korea, South": 0.05851468317722169, "Netherlands": 5.019004226059919, "Spain": 11.699337798231252, "Sweden": 1.9803411533704909, "US": 5.785113980843982, "United Kingdom": 10.974279764647806}, {"Date": "4/14/20", "Australia": 0.0392777605392051, "Belgium": 21.91617047536346, "Canada": 3.169931969561679, "France": 11.413511808587838, "Germany": 1.1935460904830872, "Italy": 9.956695321881437, "Japan": 0.11069253694628292, "Korea, South": 0.09752447196203615, "Netherlands": 7.119982739294304, "Spain": 6.416455830839809, "Sweden": 11.2879445742118, "US": 7.457515766491954, "United Kingdom": 15.48183628542932}, {"Date": "4/15/20", "Australia": 0.0392777605392051, "Belgium": 24.418410411527006, "Canada": 2.826522672859164, "France": 22.030375813086327, "Germany": 6.087085061463744, "Italy": 9.559750657886163, "Japan": 0.12650575651003762, "Korea, South": 0.05851468317722169, "Netherlands": 11.08849770873703, "Spain": 13.945097339025185, "Sweden": 16.832899803649173, "US": 7.918867983222429, "United Kingdom": 12.462068028043012}, {"Date": "4/16/20", "Australia": 0.0, "Belgium": 35.98048459931718, "Canada": 6.630441036333179, "France": 11.536073009216969, "Germany": 2.959994304398056, "Italy": 8.6831645248966, "Japan": 0.14231897607379232, "Korea, South": 0.0780195775696289, "Netherlands": 10.621613594684945, "Spain": 12.982628964399215, "Sweden": 12.872217496908192, "US": 6.601585995978836, "United Kingdom": 15.216685901853937}, {"Date": "4/17/20", "Australia": 0.11783328161761529, "Belgium": 26.40294553331189, "Canada": 2.562361675395691, "France": 11.6586342098461, "Germany": 3.5806382714492617, "Italy": 9.510132574886754, "Japan": 0.10278592716440557, "Korea, South": 0.019504894392407227, "Netherlands": 8.40391405293754, "Spain": 14.693683852623163, "Sweden": 6.634142863791146, "US": 8.091875064496358, "United Kingdom": 13.802550522785227}, {"Date": "4/18/20", "Australia": 0.0392777605392051, "Belgium": 25.02239936163545, "Canada": 1.1887244885856296, "France": 9.835536350487775, "Germany": 1.2770943168169033, "Italy": 7.97197200190507, "Japan": 0.15022558585566967, "Korea, South": 0.03900978878481445, "Netherlands": 8.287193024424518, "Spain": 0.8769156302147739, "Sweden": 10.990893401206227, "US": 7.421093223065864, "United Kingdom": 16.468784935404358}, {"Date": "4/19/20", "Australia": 0.0, "Belgium": 19.845351217848805, "Canada": 4.332240358400962, "France": 6.051459281063351, "Germany": 1.5158035349135206, "Italy": 7.161543312914721, "Japan": 0.15022558585566967, "Korea, South": 0.03900978878481445, "Netherlands": 4.902283197546898, "Spain": 8.76915630214774, "Sweden": 2.8714946723872123, "US": 3.8729304509742506, "United Kingdom": 7.350557855784236}, {"Date": "4/20/20", "Australia": 0.0, "Belgium": 12.511199680817725, "Canada": 4.279408158908267, "France": 8.380122093016844, "Germany": 3.294187209733321, "Italy": 7.5088698939105845, "Japan": 0.15813219563754702, "Korea, South": 0.03900978878481445, "Netherlands": 3.9101544551862157, "Spain": 8.533886255016947, "Sweden": 3.9606823067409818, "US": 5.566578720287442, "United Kingdom": 8.322775928893973}, {"Date": "4/21/20", "Australia": 0.0, "Belgium": 14.66830307406216, "Canada": 4.834146253581561, "France": 8.13499969175858, "Germany": 2.040963814726079, "Italy": 8.832018773894829, "Japan": 0.22138507389256584, "Korea, South": 0.019504894392407227, "Netherlands": 9.629484852324262, "Spain": 9.196920024203727, "Sweden": 18.318155668677043, "US": 7.600170728244141, "United Kingdom": 17.278966662995806}, {"Date": "4/22/20", "Australia": 0.0, "Belgium": 22.779011832661237, "Canada": 4.437904757386351, "France": 8.334161642780918, "Germany": 2.9361233825883946, "Italy": 7.227700756913933, "Japan": 0.15813219563754702, "Korea, South": 0.019504894392407227, "Netherlands": 8.112111481654985, "Spain": 9.303860954717724, "Sweden": 17.030933918986225, "US": 7.378600255735425, "United Kingdom": 12.47679860490831}, {"Date": "4/23/20", "Australia": 0.3142220843136408, "Belgium": 19.67278294638925, "Canada": 4.3058242586546145, "France": 7.90519744057896, "Germany": 3.532896427829938, "Italy": 7.674263503908615, "Japan": 0.22138507389256584, "Korea, South": 0.03900978878481445, "Netherlands": 7.236703767807326, "Spain": 9.41080188523172, "Sweden": 8.317432844156063, "US": 7.493938309918044, "United Kingdom": 10.73859053480302}, {"Date": "4/24/20", "Australia": 0.1571110421568204, "Belgium": 16.30770165292793, "Canada": 4.25299205916192, "France": 5.974858530670144, "Germany": 2.2080602673937113, "Italy": 6.94653161991728, "Japan": 0.07115948803689616, "Korea, South": 0.0, "Netherlands": 6.536377596729197, "Spain": 7.849464299727367, "Sweden": 12.971234554576716, "US": 6.537846544983178, "United Kingdom": 14.936804941413255}, {"Date": "4/25/20", "Australia": 0.0392777605392051, "Belgium": 20.535624303687023, "Canada": 4.464320857132698, "France": 5.653135379018674, "Germany": 1.396448925865212, "Italy": 6.863834814918266, "Japan": 0.15022558585566967, "Korea, South": 0.03900978878481445, "Netherlands": 7.003261710781282, "Spain": 8.08473434685816, "Sweden": 3.9606823067409818, "US": 5.150754682839579, "United Kingdom": 12.432606874312414}, {"Date": "4/26/20", "Australia": 0.11783328161761529, "Belgium": 15.272292024170602, "Canada": 3.06426757057629, "France": 3.707476319031217, "Germany": 1.1816106295782562, "Italy": 4.300233859948793, "Japan": 0.12650575651003762, "Korea, South": 0.019504894392407227, "Netherlands": 3.9101544551862157, "Spain": 6.159797597606217, "Sweden": 0.1980341153370491, "US": 4.036831896391656, "United Kingdom": 6.186842283425609}, {"Date": "4/27/20", "Australia": 0.0, "Belgium": 9.750107337464847, "Canada": 4.068079360937488, "France": 6.694905584366289, "Germany": 1.7903191357246309, "Italy": 5.507607212934415, "Japan": 0.17394541520130172, "Korea, South": 0.019504894392407227, "Netherlands": 2.5095021130299595, "Spain": 7.07948960002659, "Sweden": 7.9213646134819635, "US": 4.452655933839518, "United Kingdom": 5.023126711066982}, {"Date": "4/28/20", "Australia": 0.23566656323523058, "Belgium": 10.699232830492399, "Canada": 3.7510861639813204, "France": 5.622495078861392, "Germany": 2.243866650108204, "Italy": 6.318035901924765, "Japan": 0.15022558585566967, "Korea, South": 0.03900978878481445, "Netherlands": 2.801304684312513, "Spain": 6.437844016942608, "Sweden": 8.020381671150489, "US": 6.8019099848223314, "United Kingdom": 13.44901667801805}, {"Date": "4/29/20", "Australia": 0.0785555210784102, "Belgium": 14.66830307406216, "Canada": 4.54356915637174, "France": 6.541704083579876, "Germany": 1.8261255184391234, "Italy": 5.342213602936385, "Japan": 0.14231897607379232, "Korea, South": 0.019504894392407227, "Netherlands": 8.462274567194049, "Spain": 9.688848304568111, "Sweden": 10.594825170532127, "US": 7.651769331431101, "United Kingdom": 11.740269761643358}, {"Date": "4/30/20", "Australia": 0.0785555210784102, "Belgium": 8.024424622869299, "Canada": 4.094495460683835, "France": 4.4275233727273635, "Germany": 1.8619319011536162, "Italy": 4.713717884943868, "Japan": 0.2134784641106885, "Korea, South": 0.019504894392407227, "Netherlands": 4.902283197546898, "Spain": 5.73203387555023, "Sweden": 12.278115150897046, "US": 7.0538325768527885, "United Kingdom": 9.95786996094217}, {"Date": "5/1/20", "Australia": 0.0, "Belgium": 9.404970794545738, "Canada": 5.996454642420843, "France": 3.339792717143824, "Germany": 1.3487070822458886, "Italy": 4.44908810894702, "Japan": 0.2292916836744432, "Korea, South": 0.03900978878481445, "Netherlands": 5.719330397138047, "Spain": 0.0, "Sweden": 6.634142863791146, "US": 5.739585801561369, "United Kingdom": 10.930088034051908}, {"Date": "5/2/20", "Australia": 0.0392777605392051, "Belgium": 5.349616415246199, "Canada": 3.883166662713057, "France": 2.5431449130544714, "Germany": 0.9070950287671462, "Italy": 7.839657113906646, "Japan": 0.20557185432881114, "Korea, South": 0.0, "Netherlands": 5.4858883401120035, "Spain": 11.913219659259246, "Sweden": 1.5842729226963927, "US": 5.135578623078708, "United Kingdom": 9.16241881021602}, {"Date": "5/3/20", "Australia": 0.0392777605392051, "Belgium": 6.816446722652415, "Canada": 2.9321870718445533, "France": 2.098860560773871, "Germany": 0.644514888860867, "Italy": 2.877848813965731, "Japan": 0.18975863476505644, "Korea, South": 0.03900978878481445, "Netherlands": 4.0268754836992375, "Spain": 3.5076625208590957, "Sweden": 0.9901705766852454, "US": 3.402472598387253, "United Kingdom": 4.6401317125692065}, {"Date": "5/4/20", "Australia": 0.0392777605392051, "Belgium": 6.902730858382193, "Canada": 5.494548747240245, "France": 4.657325623906984, "Germany": 1.5158035349135206, "Italy": 3.2251753949615947, "Japan": 0.17394541520130172, "Korea, South": 0.03900978878481445, "Netherlands": 1.5173733706692778, "Spain": 3.5076625208590957, "Sweden": 8.911535190167209, "US": 4.045937532248179, "United Kingdom": 4.2571367140714305}, {"Date": "5/5/20", "Australia": 0.0392777605392051, "Belgium": 7.938140487139523, "Canada": 4.93981065256695, "France": 5.101609976187584, "Germany": 0.0, "Italy": 3.9032891959535196, "Japan": 0.08697270760065086, "Korea, South": 0.019504894392407227, "Netherlands": 5.07736474031643, "Spain": 3.956814429017882, "Sweden": 8.416449901824587, "US": 7.035621305139744, "United Kingdom": 10.208289767652253}, {"Date": "5/6/20", "Australia": 0.0, "Belgium": 27.869775840718102, "Canada": 4.64923355535713, "France": 4.213041271626384, "Germany": 3.365799975162306, "Italy": 6.103024208927326, "Japan": 0.09487931738252822, "Korea, South": 0.019504894392407227, "Netherlands": 2.100978513234385, "Spain": 5.2187174090830455, "Sweden": 8.614484017161637, "US": 7.172205842987582, "United Kingdom": 9.604336116174993}, {"Date": "5/7/20", "Australia": 0.0, "Belgium": 6.557594315463083, "Canada": 4.622817455610782, "France": 2.7269867139981683, "Germany": 1.396448925865212, "Italy": 4.531784913946035, "Japan": 0.09487931738252822, "Korea, South": 0.0, "Netherlands": 4.960643711803408, "Spain": 4.555683639896265, "Sweden": 9.802688709183931, "US": 5.8761703394092075, "United Kingdom": 7.954511507261496}, {"Date": "5/8/20", "Australia": 0.0, "Belgium": 9.146118387356406, "Canada": 4.120911560430183, "France": 3.7227964691098587, "Germany": 1.4083843867700427, "Italy": 4.019064722952141, "Japan": 0.13441236629191497, "Korea, South": 0.0, "Netherlands": 4.143596512212259, "Spain": 4.897894617541055, "Sweden": 13.367302785250816, "US": 5.302515280448288, "United Kingdom": 9.250802271407816}, {"Date": "5/9/20", "Australia": 0.0, "Belgium": 5.177048143786645, "Canada": 3.328428568039763, "France": 1.2256120062913114, "Germany": 0.46548297528840404, "Italy": 3.208636033961792, "Japan": 0.15813219563754702, "Korea, South": 0.0, "Netherlands": 3.7350729124166837, "Spain": 3.828485312401086, "Sweden": 4.455767595083604, "US": 4.516395384835176, "United Kingdom": 5.082049018528179}, {"Date": "5/10/20", "Australia": 0.0, "Belgium": 6.471310179733306, "Canada": 4.437904757386351, "France": 1.0724105055048976, "Germany": 0.2387092180966174, "Italy": 2.728994564967503, "Japan": 0.09487931738252822, "Korea, South": 0.0, "Netherlands": 1.0504892566171924, "Spain": 3.058510612700309, "Sweden": 0.4950852883426227, "US": 2.7134794852437145, "United Kingdom": 3.9625251767654497}, {"Date": "5/11/20", "Australia": 0.0, "Belgium": 4.400490922218649, "Canada": 3.2755963685470686, "France": 4.029199470682687, "Germany": 1.0980624032444402, "Italy": 2.960545618964746, "Japan": 0.15022558585566967, "Korea, South": 0.03900978878481445, "Netherlands": 0.9337682281041709, "Spain": 2.630746890644322, "Sweden": 3.0695287877242614, "US": 3.08074013145679, "United Kingdom": 3.1228822954434023}, {"Date": "5/12/20", "Australia": 0.0392777605392051, "Belgium": 4.659343329407981, "Canada": 4.8869784530742555, "France": 5.331412227367205, "Germany": 0.9190304896719771, "Italy": 2.8447700919661245, "Japan": 0.17394541520130172, "Korea, South": 0.019504894392407227, "Netherlands": 3.151467769851577, "Spain": 3.764320754092688, "Sweden": 5.6439722871059, "US": 4.935254634235212, "United Kingdom": 9.294994002003712}, {"Date": "5/13/20", "Australia": 0.0, "Belgium": 7.075299129841748, "Canada": 3.302012468293416, "France": 1.2715724565272357, "Germany": 1.4680616912941973, "Italy": 3.2251753949615947, "Japan": 0.15022558585566967, "Korea, South": 0.019504894392407227, "Netherlands": 3.0347467413385556, "Spain": 3.9354262429150833, "Sweden": 14.55550747727311, "US": 5.351078671683075, "United Kingdom": 7.321096702053637}, {"Date": "5/14/20", "Australia": 0.0, "Belgium": 5.177048143786645, "Canada": 4.411488657640003, "France": 5.377372677603129, "Germany": 0.27451560081111004, "Italy": 4.333312581948398, "Japan": 0.12650575651003762, "Korea, South": 0.0, "Netherlands": 1.6340943991822992, "Spain": 4.641236384307462, "Sweden": 6.832176979128194, "US": 5.411782910726558, "United Kingdom": 6.319417475213299}, {"Date": "5/15/20", "Australia": 0.0, "Belgium": 4.831911600867535, "Canada": 2.2982006779322175, "France": 1.593295608178705, "Germany": 0.15516099176280132, "Italy": 4.002525361952338, "Japan": 0.14231897607379232, "Korea, South": 0.03900978878481445, "Netherlands": 3.0931072555950663, "Spain": 2.9515696821863124, "Sweden": 11.584995747217373, "US": 5.102191291604792, "United Kingdom": 5.671272093140141}, {"Date": "5/16/20", "Australia": 0.0, "Belgium": 3.9690702435697616, "Canada": 3.1963480693080264, "France": 0.0, "Germany": 0.48935389709806576, "Italy": 2.5305222329698664, "Japan": 0.14231897607379232, "Korea, South": 0.0, "Netherlands": 1.5757338849257885, "Spain": 2.224371354691134, "Sweden": 2.7724776147186874, "US": 3.6908177338437995, "United Kingdom": 7.070676895343553}, {"Date": "5/17/20", "Australia": 0.0392777605392051, "Belgium": 4.055354379299539, "Canada": 2.720858273873775, "France": 8.870366895533367, "Germany": 0.2864510617159409, "Italy": 2.3982073449714423, "Japan": 0.07115948803689616, "Korea, South": 0.019504894392407227, "Netherlands": 0.5836051425651069, "Spain": 0.0, "Sweden": 0.4950852883426227, "US": 2.300690659748027, "United Kingdom": 2.504198067100842}, {"Date": "5/18/20", "Australia": 0.0, "Belgium": 2.4159558004337676, "Canada": 1.5057176855417975, "France": 2.006939660302023, "Germany": 0.48935389709806576, "Italy": 1.6373967389805018, "Japan": 0.07115948803689616, "Korea, South": 0.0, "Netherlands": 0.8170471995911496, "Spain": 3.1226751710087073, "Sweden": 1.8813240957019666, "US": 2.3553244748871616, "United Kingdom": 2.356892298447851}, {"Date": "5/19/20", "Australia": 0.0392777605392051, "Belgium": 2.4159558004337676, "Canada": 1.7962947827516182, "France": -3.3244725670651825, "Germany": 0.9309659505768081, "Italy": 2.6793764819680943, "Japan": 0.07115948803689616, "Korea, South": 0.0, "Netherlands": 1.2255707993867244, "Spain": 1.4757848410931562, "Sweden": 4.455767595083604, "US": 4.719754585630845, "United Kingdom": 8.08708669904919}, {"Date": "5/20/20", "Australia": 0.0, "Belgium": 3.6239337006506513, "Canada": 3.222764169054374, "France": 1.6852165086505535, "Germany": 0.7519340370043449, "Italy": 2.662837120968291, "Japan": 0.10278592716440557, "Korea, South": 0.019504894392407227, "Netherlands": 1.9258969704648523, "Spain": 2.35270047130793, "Sweden": 8.713501074830162, "US": 4.792599672483026, "United Kingdom": 5.450313440160655}, {"Date": "5/21/20", "Australia": 0.0392777605392051, "Belgium": 3.106228886271987, "Canada": 3.0906836703226372, "France": 1.2715724565272357, "Germany": 0.7041921933850214, "Italy": 2.5801403159692757, "Japan": 0.06325287825501881, "Korea, South": 0.0, "Netherlands": 1.5757338849257885, "Spain": 1.112185677345567, "Sweden": 3.9606823067409818, "US": 3.745451548982935, "United Kingdom": 4.978934980471085}, {"Date": "5/22/20", "Australia": 0.0, "Belgium": 2.2433875289742127, "Canada": 2.4566972764103014, "France": 1.1336911058194632, "Germany": 0.2983865226207718, "Italy": 2.1501169299743963, "Japan": 0.07906609781877351, "Korea, South": 0.03900978878481445, "Netherlands": 0.7586866853346389, "Spain": 14.715072038725962, "Sweden": 5.346921114100326, "US": 3.8638248151177277, "United Kingdom": 5.273546517777066}, {"Date": "5/23/20", "Australia": 0.0392777605392051, "Belgium": 2.1571033932444355, "Canada": 2.8001065731128167, "France": 0.65876645338158, "Germany": 0.3938702098594188, "Italy": 1.968183958976563, "Japan": 0.07115948803689616, "Korea, South": 0.0, "Netherlands": 1.3422918278997455, "Spain": 1.0694093051399682, "Sweden": 6.634142863791146, "US": 3.4297895059568204, "United Kingdom": 4.168753252879636}, {"Date": "5/24/20", "Australia": 0.0, "Belgium": 3.7102178363804286, "Canada": 1.7962947827516182, "France": 0.5362052527524488, "Germany": 0.2625801399062792, "Italy": 0.8269680499901524, "Japan": 0.05534626847314146, "Korea, South": 0.019504894392407227, "Netherlands": 0.6419656568216175, "Spain": 1.582725771607153, "Sweden": 0.5941023460111474, "US": 1.8636201386349451, "United Kingdom": 6.496184397596888}, {"Date": "5/25/20", "Australia": 0.0, "Belgium": 2.7610923433528773, "Canada": 3.1963480693080264, "France": 1.3788135070777254, "Germany": 0.31032198352560264, "Italy": 1.5216212119818806, "Japan": 0.039533048909386755, "Korea, South": 0.03900978878481445, "Netherlands": 0.46688411405208546, "Spain": -41.02254094516918, "Sweden": 3.0695287877242614, "US": 1.5874158509870948, "United Kingdom": 1.7971303775664864}, {"Date": "5/26/20", "Australia": 0.0392777605392051, "Belgium": 1.8982509860551031, "Canada": 2.588777775142038, "France": 1.1183709557408217, "Germany": 0.7519340370043449, "Italy": 1.2900701579846379, "Japan": 0.04743965869126411, "Korea, South": 0.0, "Netherlands": 1.5173733706692778, "Spain": 6.052856667092221, "Sweden": 9.505637536178359, "US": 2.1094723067610532, "United Kingdom": 2.0033584536806734}, {"Date": "5/27/20", "Australia": 0.0, "Belgium": 2.5885240718933225, "Canada": 3.249180268800721, "France": 1.011129905190332, "Germany": 0.6683858106705288, "Italy": 1.9351052369769566, "Japan": 0.05534626847314146, "Korea, South": 0.0, "Netherlands": 0.8754077138476603, "Spain": 0.0, "Sweden": 9.406620478509833, "US": 4.607451743400401, "United Kingdom": 6.525645551327487}, {"Date": "5/28/20", "Australia": 0.0, "Belgium": 2.0708192575146582, "Canada": 2.8001065731128167, "France": 1.011129905190332, "Germany": 0.5012893580028966, "Italy": 1.1577552699862135, "Japan": 0.08697270760065086, "Korea, South": 0.0, "Netherlands": 1.8675364562083419, "Spain": 0.04277637220559873, "Sweden": 4.554784652752129, "US": 3.6179726469916194, "United Kingdom": 6.127919975964413}, {"Date": "5/29/20", "Australia": 0.0, "Belgium": 3.6239337006506513, "Canada": 2.1397040794541335, "France": 0.7966478040893525, "Germany": 0.4058056707642496, "Italy": 1.4389244069828655, "Japan": 0.04743965869126411, "Korea, South": 0.0, "Netherlands": 1.6340943991822992, "Spain": 0.04277637220559873, "Sweden": 8.317432844156063, "US": 3.5542331959959617, "United Kingdom": 5.494505170756552}, {"Date": "5/30/20", "Australia": 0.0, "Belgium": 1.9845351217848808, "Canada": 2.5359455756493436, "France": 0.8732485544825594, "Germany": 0.31032198352560264, "Italy": 1.8358690709781385, "Japan": 0.05534626847314146, "Korea, South": 0.019504894392407227, "Netherlands": 1.1672102851302137, "Spain": 0.08555274441119746, "Sweden": 4.455767595083604, "US": 2.97147250117852, "United Kingdom": 3.3880326790187856}, {"Date": "5/31/20", "Australia": 0.0, "Belgium": 1.2079779002168838, "Canada": 5.679461445464676, "France": 0.47492465243788323, "Germany": 0.1193546090483087, "Italy": 1.2404520749852288, "Japan": 0.031626439127509405, "Korea, South": 0.019504894392407227, "Netherlands": 0.29180257128255344, "Spain": 0.04277637220559873, "Sweden": 0.0, "US": 1.793810263734939, "United Kingdom": 1.6940163395093928}, {"Date": "6/1/20", "Australia": -0.0392777605392051, "Belgium": 1.6393985788657708, "Canada": 0.7924829923904197, "France": 0.47492465243788323, "Germany": 0.17903191357246306, "Italy": 0.9923616599881829, "Japan": 0.007906609781877351, "Korea, South": 0.019504894392407227, "Netherlands": 0.3501630855390641, "Spain": 0.0, "Sweden": 0.7921364613481964, "US": 2.3583596868393357, "United Kingdom": 1.6350940320481966}, {"Date": "6/2/20", "Australia": 0.0, "Belgium": 1.6393985788657708, "Canada": 1.954791381229702, "France": 1.6392560584146292, "Germany": 0.09548368723864697, "Italy": 0.9096648549891677, "Japan": 0.023719829345632056, "Korea, South": 0.019504894392407227, "Netherlands": 0.29180257128255344, "Spain": 0.0, "Sweden": 6.436108748454096, "US": 3.165726066117667, "United Kingdom": 4.816898634952795}, {"Date": "6/3/20", "Australia": 0.0, "Belgium": 1.4668303074062161, "Canada": 2.66802607438108, "France": 1.240932156369953, "Germany": 0.46548297528840404, "Italy": 1.1742946309860165, "Japan": 0.023719829345632056, "Korea, South": 0.0, "Netherlands": 0.5836051425651069, "Spain": 0.021388186102799366, "Sweden": 7.327262267470817, "US": 3.0685992836480933, "United Kingdom": 5.376660555834159}, {"Date": "6/4/20", "Australia": 0.0, "Belgium": 2.2433875289742127, "Canada": 3.6454217649959313, "France": 0.6740866034602213, "Germany": 0.3938702098594188, "Italy": 1.4554637679826683, "Japan": 0.04743965869126411, "Korea, South": 0.0, "Netherlands": 0.7586866853346389, "Spain": 0.10694093051399682, "Sweden": 1.9803411533704909, "US": 3.1050218270741836, "United Kingdom": 2.607312105157935}, {"Date": "6/5/20", "Australia": 0.0, "Belgium": 1.5531144431359936, "Canada": 1.611382084527187, "France": 0.7047269036175041, "Germany": 0.27451560081111004, "Italy": 1.4058456849832592, "Japan": 0.039533048909386755, "Korea, South": 0.0, "Netherlands": 0.8754077138476603, "Spain": 0.021388186102799366, "Sweden": 7.624313440476391, "US": 2.8804161426132944, "United Kingdom": 5.273546517777066}, {"Date": "6/6/20", "Australia": 0.0, "Belgium": 1.2079779002168838, "Canada": 1.9019591817370076, "France": 0.47492465243788323, "Germany": 0.17903191357246306, "Italy": 1.1908339919858195, "Japan": -0.007906609781877351, "Korea, South": 0.0, "Netherlands": 0.3501630855390641, "Spain": 0.021388186102799366, "Sweden": 1.6832899803649173, "US": 2.08519061114366, "United Kingdom": 3.049229411116907}, {"Date": "6/7/20", "Australia": 0.0, "Belgium": 1.2942620359466612, "Canada": 0.7132346931513779, "France": 0.19916195102233814, "Germany": 0.14322553085797046, "Italy": 0.8765861329895616, "Japan": 0.015813219563754703, "Korea, South": 0.0, "Netherlands": 0.11672102851302137, "Spain": 0.021388186102799366, "Sweden": 0.2970511730055737, "US": 1.3567397426218573, "United Kingdom": 1.1342544186280283}, {"Date": "6/8/20", "Australia": 0.0, "Belgium": 0.9491254930275516, "Canada": 0.8717312916294618, "France": 0.8272881042466352, "Germany": 0.1193546090483087, "Italy": 1.0750584649871981, "Japan": 0.023719829345632056, "Korea, South": 0.019504894392407227, "Netherlands": 0.17508154276953206, "Spain": 0.0, "Sweden": 3.4655970183983595, "US": 1.557063731465353, "United Kingdom": 0.8101817275914488}, {"Date": "6/9/20", "Australia": 0.0, "Belgium": 1.1216937644871063, "Canada": 1.5849659847808395, "France": 1.3328530568418013, "Germany": 0.48935389709806576, "Italy": 1.3066095189844409, "Japan": 0.0, "Korea, South": 0.03900978878481445, "Netherlands": 0.8754077138476603, "Spain": 0.0, "Sweden": 2.2773923263760647, "US": 2.8682752948045978, "United Kingdom": 4.286597867802029}, {"Date": "6/10/20", "Australia": 0.0, "Belgium": 0.8628413572977741, "Canada": 1.7962947827516182, "France": 0.35236345180875206, "Germany": 0.19096737447729395, "Italy": 1.1742946309860165, "Japan": 0.015813219563754703, "Korea, South": 0.0, "Netherlands": 0.6419656568216175, "Spain": 0.0, "Sweden": 7.723330498144916, "US": 2.7863245720958947, "United Kingdom": 3.682644216324767}, {"Date": "6/11/20", "Australia": 0.0, "Belgium": 0.6039889501084419, "Canada": 0.8717312916294618, "France": 0.4136440521233176, "Germany": 0.2387092180966174, "Italy": 0.8765861329895616, "Japan": 0.0, "Korea, South": 0.019504894392407227, "Netherlands": 0.11672102851302137, "Spain": 0.0, "Sweden": 1.8813240957019666, "US": 2.6952682135306696, "United Kingdom": 2.2390476835254587}, {"Date": "6/12/20", "Australia": 0.0, "Belgium": 0.8628413572977741, "Canada": 1.4264693863027558, "France": 0.4289642022019591, "Germany": 0.1312900699531396, "Italy": 0.9262042159889707, "Japan": 0.015813219563754703, "Korea, South": 0.0, "Netherlands": 0.5252446283085962, "Spain": 0.0, "Sweden": 3.9606823067409818, "US": 2.5252963442089156, "United Kingdom": 3.00503768052101}, {"Date": "6/13/20", "Australia": 0.0, "Belgium": 0.34513654291910967, "Canada": 1.532133785288145, "France": 0.36768360188739346, "Germany": 0.1193546090483087, "Italy": 1.2900701579846379, "Japan": 0.023719829345632056, "Korea, South": 0.0, "Netherlands": 0.23344205702604273, "Spain": 0.0, "Sweden": 1.9803411533704909, "US": 2.315866719508897, "United Kingdom": 2.6956955663497295}, {"Date": "6/14/20", "Australia": 0.0, "Belgium": 0.43142067864888706, "Canada": 0.9245634911221565, "France": 0.13788135070777255, "Germany": 0.09548368723864697, "Italy": 0.7277318839913341, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.11672102851302137, "Spain": 0.0, "Sweden": 0.0, "US": 0.9348452812696466, "United Kingdom": 0.5303007671507665}, {"Date": "6/15/20", "Australia": 0.0, "Belgium": 0.5177048143786646, "Canada": 0.26416099746347327, "France": 0.4442843522806004, "Germany": 0.07161276542898523, "Italy": 0.43002338599487927, "Japan": 0.015813219563754703, "Korea, South": 0.019504894392407227, "Netherlands": 0.3501630855390641, "Spain": 0.0, "Sweden": 1.6832899803649173, "US": 1.1867678733001035, "United Kingdom": 0.5597619208813647}, {"Date": "6/16/20", "Australia": 0.0, "Belgium": 0.17256827145955483, "Canada": 1.135892289092935, "France": 1.7005366587291948, "Germany": 0.15516099176280132, "Italy": 0.5623382739933037, "Japan": 0.039533048909386755, "Korea, South": 0.019504894392407227, "Netherlands": 0.29180257128255344, "Spain": 0.0, "Sweden": 4.752818768089179, "US": 2.5586836756828317, "United Kingdom": 3.47641614021058}, {"Date": "6/17/20", "Australia": 0.0, "Belgium": 1.0354096287573291, "Canada": 1.0830600896002405, "France": 0.4289642022019591, "Germany": 0.369999288049757, "Italy": 0.7111925229915311, "Japan": 0.007906609781877351, "Korea, South": 0.019504894392407227, "Netherlands": 0.23344205702604273, "Spain": 0.0, "Sweden": 10.099739882189505, "US": 2.2824793880349814, "United Kingdom": 2.7104261432150287}, {"Date": "6/18/20", "Australia": 0.0, "Belgium": 0.6902730858382193, "Canada": 1.294388887571019, "France": 0.4289642022019591, "Germany": 0.2864510617159409, "Italy": 1.0915978259870012, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.23344205702604273, "Spain": 0.0, "Sweden": 1.1882046920222948, "US": 2.155000486043666, "United Kingdom": 2.0180890305459727}, {"Date": "6/19/20", "Australia": 0.0, "Belgium": 1.0354096287573291, "Canada": 1.2415566880783244, "France": 0.21448210110097954, "Germany": 0.14322553085797046, "Italy": 0.7773499669907433, "Japan": 0.12650575651003762, "Korea, South": 0.0, "Netherlands": 0.17508154276953206, "Spain": 25.21667141520045, "Sweden": 5.1488869987632775, "US": 2.0396624318610472, "United Kingdom": 2.548389797696739}, {"Date": "6/20/20", "Australia": 0.0, "Belgium": 0.08628413572977742, "Canada": 1.532133785288145, "France": 0.2451224012582623, "Germany": 0.09548368723864697, "Italy": 0.8104286889903495, "Japan": 0.031626439127509405, "Korea, South": 0.0, "Netherlands": 0.46688411405208546, "Spain": 0.14971730271959555, "Sweden": 0.3960682306740982, "US": 1.8605849266827708, "United Kingdom": 1.9149749924888788}, {"Date": "6/21/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.4226575959415572, "France": 0.10724105055048977, "Germany": 0.0, "Italy": 0.3969446639952732, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.05836051425651068, "Spain": 0.021388186102799366, "Sweden": 0.1980341153370491, "US": 0.8620001944174663, "United Kingdom": 0.63341480520786}, {"Date": "6/22/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.31699319695616796, "France": 0.35236345180875206, "Germany": 0.04774184361932349, "Italy": 0.38040530299547015, "Japan": 0.0, "Korea, South": 0.019504894392407227, "Netherlands": 0.0, "Spain": 0.021388186102799366, "Sweden": 1.0891876343537703, "US": 1.1746270254914066, "United Kingdom": 0.20622807611418695}, {"Date": "6/23/20", "Australia": 0.0392777605392051, "Belgium": 1.4668303074062161, "Canada": 0.4754897954342519, "France": 0.8732485544825594, "Germany": 0.17903191357246306, "Italy": 0.2977084979964549, "Japan": 0.07906609781877351, "Korea, South": 0.0, "Netherlands": 0.29180257128255344, "Spain": 0.021388186102799366, "Sweden": 3.861665249072458, "US": 2.5708245234915283, "United Kingdom": 2.5189286439661407}, {"Date": "6/24/20", "Australia": 0.0392777605392051, "Belgium": 0.7765572215679968, "Canada": 0.8453151918831144, "France": 0.16852165086505533, "Germany": 0.1670964526676322, "Italy": -0.5127201909938945, "Japan": 0.015813219563754703, "Korea, South": 0.019504894392407227, "Netherlands": 0.11672102851302137, "Spain": 0.04277637220559873, "Sweden": 4.752818768089179, "US": 2.3189019314610717, "United Kingdom": 2.2685088372560567}, {"Date": "6/25/20", "Australia": 0.0, "Belgium": 0.34513654291910967, "Canada": 0.6075702941659885, "France": 0.3217231516514693, "Germany": 0.14322553085797046, "Italy": 0.5623382739933037, "Japan": 0.031626439127509405, "Korea, South": 0.0, "Netherlands": 0.17508154276953206, "Spain": 0.0641645583083981, "Sweden": 2.0793582110390156, "US": 1.696683481265365, "United Kingdom": 2.1948559529295615}, {"Date": "6/26/20", "Australia": 0.0, "Belgium": 0.43142067864888706, "Canada": 0.1056643989853893, "France": 0.39832390204467627, "Germany": 0.2983865226207718, "Italy": 0.49618082999409147, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.17508154276953206, "Spain": 0.17110548882239493, "Sweden": 4.9508528834262275, "US": 1.8575497147305966, "United Kingdom": 2.7104261432150287}, {"Date": "6/27/20", "Australia": 0.0, "Belgium": 0.08628413572977742, "Canada": 0.13208049873173663, "France": 0.0, "Germany": 0.035806382714492616, "Italy": 0.13231488799842442, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.11672102851302137, "Spain": 0.0641645583083981, "Sweden": 0.0, "US": 1.5176059760870888, "United Kingdom": 1.4730576865299068}, {"Date": "6/28/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.15849659847808398, "France": 0.0, "Germany": 0.0, "Italy": 0.3638659419956671, "Japan": 0.007906609781877351, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.04277637220559873, "Sweden": 0.0, "US": 0.7618381999957184, "United Kingdom": 0.5303007671507665}, {"Date": "6/29/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 1.215140588331977, "France": 0.5362052527524488, "Germany": 0.09548368723864697, "Italy": 0.0992361659988183, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.11672102851302137, "Spain": 0.0641645583083981, "Sweden": 2.9705117300557364, "US": 1.1048171505914006, "United Kingdom": 0.3682644216324767}, {"Date": "6/30/20", "Australia": 0.0, "Belgium": 1.2942620359466612, "Canada": 0.5811541944196412, "France": 0.45960450235924183, "Germany": 0.1670964526676322, "Italy": 0.38040530299547015, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.3501630855390641, "Spain": 0.19249367492519429, "Sweden": 2.2773923263760647, "US": 2.2308807848480203, "United Kingdom": 2.2979699909866547}, {"Date": "7/1/20", "Australia": 0.0, "Belgium": 0.6039889501084419, "Canada": 0.7396507928977251, "France": 0.2757627014155451, "Germany": 0.05967730452415435, "Italy": 0.34732658099586405, "Japan": 0.031626439127509405, "Korea, South": 0.0, "Netherlands": 0.11672102851302137, "Spain": 0.19249367492519429, "Sweden": 3.6636311337354086, "US": 2.08519061114366, "United Kingdom": 2.5925815282926363}, {"Date": "7/2/20", "Australia": 0.0, "Belgium": 0.6039889501084419, "Canada": 0.5811541944196412, "France": 0.21448210110097954, "Germany": 0.1312900699531396, "Italy": 0.49618082999409147, "Japan": 0.007906609781877351, "Korea, South": 0.0, "Netherlands": 0.17508154276953206, "Spain": 0.08555274441119746, "Sweden": 4.059699364409506, "US": 2.197493453374104, "United Kingdom": 1.3110213410116172}, {"Date": "7/3/20", "Australia": 0.0, "Belgium": 0.34513654291910967, "Canada": 0.5811541944196412, "France": 0.2757627014155451, "Germany": 0.04774184361932349, "Italy": 0.24809041499704573, "Japan": 0.0, "Korea, South": 0.019504894392407227, "Netherlands": 0.11672102851302137, "Spain": 0.3635991637475892, "Sweden": 0.891153519016721, "US": 1.9819934047697378, "United Kingdom": 2.0033584536806734}, {"Date": "7/4/20", "Australia": 0.0, "Belgium": 0.5177048143786646, "Canada": 0.26416099746347327, "France": 0.0, "Germany": 0.1193546090483087, "Italy": 0.34732658099586405, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.3501630855390641, "Spain": 0.0, "Sweden": 0.0, "US": 0.8225424390392021, "United Kingdom": 0.9869486499750376}, {"Date": "7/5/20", "Australia": 0.0785555210784102, "Belgium": 0.0, "Canada": 0.18491269822443127, "France": 0.0, "Germany": 0.035806382714492616, "Italy": 0.11577552699862134, "Japan": 0.0, "Korea, South": 0.019504894392407227, "Netherlands": 0.05836051425651068, "Spain": 0.0, "Sweden": 0.0, "US": 0.9075283737000791, "United Kingdom": 0.32407269103657954}, {"Date": "7/6/20", "Australia": 0.0, "Belgium": 0.2588524071893323, "Canada": 0.23774489771712595, "France": 0.4136440521233176, "Germany": -0.011935460904830872, "Italy": 0.13231488799842442, "Japan": 0.007906609781877351, "Korea, South": 0.019504894392407227, "Netherlands": 0.05836051425651068, "Spain": 0.0641645583083981, "Sweden": 1.2872217496908194, "US": 1.0653593952131364, "United Kingdom": 0.23568922984478508}, {"Date": "7/7/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.44907369568790456, "France": 0.19916195102233814, "Germany": 0.1193546090483087, "Italy": 0.49618082999409147, "Japan": 0.023719829345632056, "Korea, South": 0.0, "Netherlands": 0.23344205702604273, "Spain": 0.08555274441119746, "Sweden": 1.3862388073593437, "US": 3.715099429461193, "United Kingdom": 2.283239414121356}, {"Date": "7/8/20", "Australia": 0.0, "Belgium": 0.17256827145955483, "Canada": 0.5547380946732938, "France": 0.0, "Germany": 0.1670964526676322, "Italy": 0.24809041499704573, "Japan": 0.007906609781877351, "Korea, South": 0.03900978878481445, "Netherlands": 0.17508154276953206, "Spain": 0.08555274441119746, "Sweden": 3.4655970183983595, "US": 2.579930159348051, "United Kingdom": 1.8560526850276826}, {"Date": "7/9/20", "Australia": 0.0, "Belgium": 0.17256827145955483, "Canada": 0.2905770972098206, "France": 0.7047269036175041, "Germany": 0.1312900699531396, "Italy": 0.1984723319976366, "Japan": 0.0, "Korea, South": 0.019504894392407227, "Netherlands": 0.11672102851302137, "Spain": 0.10694093051399682, "Sweden": 1.782307038033442, "US": 3.0716344956002675, "United Kingdom": 1.252099033550421}, {"Date": "7/10/20", "Australia": 0.0392777605392051, "Belgium": 0.2588524071893323, "Canada": 0.36982539644886253, "France": 0.38300375196603487, "Germany": 0.07161276542898523, "Italy": 0.1984723319976366, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": -0.05836051425651068, "Spain": 0.04277637220559873, "Sweden": 2.5744434993816387, "US": 2.5192259203045673, "United Kingdom": 0.7070676895343553}, {"Date": "7/11/20", "Australia": 0.0392777605392051, "Belgium": 0.08628413572977742, "Canada": 0.18491269822443127, "France": 0.0, "Germany": 0.0835482263338161, "Italy": 0.11577552699862134, "Japan": 0.0, "Korea, South": 0.019504894392407227, "Netherlands": 0.05836051425651068, "Spain": 0.0, "Sweden": 0.0, "US": 2.0973314589523566, "United Kingdom": 2.1801253760642623}, {"Date": "7/12/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.2905770972098206, "France": 0.0, "Germany": 0.011935460904830872, "Italy": 0.14885424899822744, "Japan": 0.007906609781877351, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 1.368880590430554, "United Kingdom": 0.30934211417128044}, {"Date": "7/13/20", "Australia": 0.0, "Belgium": 0.0, "Canada": 0.18491269822443127, "France": 0.38300375196603487, "Germany": 0.035806382714492616, "Italy": 0.21501169299743964, "Japan": 0.007906609781877351, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0641645583083981, "Sweden": 0.9901705766852454, "US": 1.1806974493957552, "United Kingdom": 0.16203634551828977}, {"Date": "7/14/20", "Australia": 0.11783328161761529, "Belgium": 0.43142067864888706, "Canada": 0.23774489771712595, "France": 0.0, "Germany": 0.04774184361932349, "Italy": 0.28116913699665186, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": -0.11672102851302137, "Spain": 0.0641645583083981, "Sweden": 0.891153519016721, "US": 2.8166766916176367, "United Kingdom": 2.0328196074112714}, {"Date": "7/15/20", "Australia": 0.0785555210784102, "Belgium": 0.08628413572977742, "Canada": 0.31699319695616796, "France": 1.394133657156367, "Germany": 0.023870921809661744, "Italy": 0.21501169299743964, "Japan": 0.0, "Korea, South": 0.03900978878481445, "Netherlands": 0.05836051425651068, "Spain": 0.08555274441119746, "Sweden": 2.673460557050163, "US": 2.9380851697046038, "United Kingdom": 1.252099033550421}, {"Date": "7/16/20", "Australia": 0.11783328161761529, "Belgium": 0.6039889501084419, "Canada": 0.4754897954342519, "France": 0.2757627014155451, "Germany": 0.0835482263338161, "Italy": 0.330787219996061, "Japan": 0.007906609781877351, "Korea, South": 0.03900978878481445, "Netherlands": 0.05836051425651068, "Spain": 0.0641645583083981, "Sweden": 2.0793582110390156, "US": 2.892556990421991, "United Kingdom": 0.9722180731097384}, {"Date": "7/17/20", "Australia": 0.0785555210784102, "Belgium": 0.43142067864888706, "Canada": 0.23774489771712595, "France": 0.21448210110097954, "Germany": 0.011935460904830872, "Italy": 0.18193297099783354, "Japan": 0.0, "Korea, South": 0.019504894392407227, "Netherlands": 0.05836051425651068, "Spain": 0.08555274441119746, "Sweden": 2.5744434993816387, "US": 2.7923949960002434, "United Kingdom": 1.6792857626440938}, {"Date": "7/18/20", "Australia": 0.1571110421568204, "Belgium": 0.0, "Canada": 0.2113287979707786, "France": 0.0, "Germany": 0.035806382714492616, "Italy": 0.23155105399724268, "Japan": 0.007906609781877351, "Korea, South": 0.019504894392407227, "Netherlands": -0.11672102851302137, "Spain": 0.0, "Sweden": 0.0, "US": 2.6406343983915344, "United Kingdom": 0.5892230746119628}, {"Date": "7/19/20", "Australia": 0.0392777605392051, "Belgium": 0.0, "Canada": 0.1056643989853893, "France": 0.0, "Germany": 0.011935460904830872, "Italy": 0.04961808299940915, "Japan": 0.0, "Korea, South": 0.019504894392407227, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 1.350669318717509, "United Kingdom": 0.39772557536307485}, {"Date": "7/20/20", "Australia": 0.11783328161761529, "Belgium": 0.43142067864888706, "Canada": 0.15849659847808398, "France": 0.38300375196603487, "Germany": 0.023870921809661744, "Italy": 0.21501169299743964, "Japan": 0.015813219563754703, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.04277637220559873, "Sweden": 1.9803411533704909, "US": 1.5600989434175272, "United Kingdom": 0.17676692238358882}, {"Date": "7/21/20", "Australia": 0.0785555210784102, "Belgium": 0.0, "Canada": 0.15849659847808398, "France": -0.18384180094369673, "Germany": 0.05967730452415435, "Italy": 0.24809041499704573, "Japan": 0.0, "Korea, South": 0.019504894392407227, "Netherlands": 0.0, "Spain": 0.04277637220559873, "Sweden": 0.6931194036796718, "US": 3.3660500549611627, "United Kingdom": 1.6203634551828976}, {"Date": "7/22/20", "Australia": 0.19638880269602546, "Belgium": 0.2588524071893323, "Canada": 0.13208049873173663, "France": 0.10724105055048977, "Germany": 0.035806382714492616, "Italy": 0.14885424899822744, "Japan": 0.015813219563754703, "Korea, South": 0.0, "Netherlands": 0.17508154276953206, "Spain": 0.04277637220559873, "Sweden": 2.0793582110390156, "US": 3.6756416740829287, "United Kingdom": 1.1637155723586265}, {"Date": "7/23/20", "Australia": 0.23566656323523058, "Belgium": 0.34513654291910967, "Canada": 0.15849659847808398, "France": 0.15320150078641392, "Germany": 0.09548368723864697, "Italy": 0.1653936099980305, "Japan": 0.015813219563754703, "Korea, South": 0.019504894392407227, "Netherlands": 0.0, "Spain": 0.0641645583083981, "Sweden": 0.891153519016721, "US": 3.402472598387253, "United Kingdom": 0.7807205738608506}, {"Date": "7/24/20", "Australia": 0.23566656323523058, "Belgium": 0.43142067864888706, "Canada": 0.1056643989853893, "France": 0.15320150078641392, "Germany": 0.1193546090483087, "Italy": 0.08269680499901524, "Japan": 0.015813219563754703, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0641645583083981, "Sweden": 2.0793582110390156, "US": 3.4085430222916013, "United Kingdom": 1.8118609544317854}, {"Date": "7/25/20", "Australia": 0.3927776053920509, "Belgium": 0.34513654291910967, "Canada": 0.15849659847808398, "France": 0.0, "Germany": 0.04774184361932349, "Italy": 0.08269680499901524, "Japan": 0.015813219563754703, "Korea, South": 0.0, "Netherlands": 0.05836051425651068, "Spain": 0.0, "Sweden": 0.0, "US": 2.7347259689089336, "United Kingdom": 0.8985651887832432}, {"Date": "7/26/20", "Australia": 0.23566656323523058, "Belgium": 0.0, "Canada": 0.13208049873173663, "France": 0.0, "Germany": 0.0, "Italy": 0.08269680499901524, "Japan": 0.015813219563754703, "Korea, South": 0.019504894392407227, "Netherlands": 1.108849770873703, "Spain": 0.0, "Sweden": 0.0, "US": 1.4477961011870826, "United Kingdom": 0.20622807611418695}, {"Date": "7/27/20", "Australia": 0.23566656323523058, "Belgium": 0.08628413572977742, "Canada": 0.2905770972098206, "France": 0.2604425513369037, "Germany": 0.011935460904830872, "Italy": 0.08269680499901524, "Japan": 0.0, "Korea, South": 0.019504894392407227, "Netherlands": -1.0504892566171924, "Spain": 0.04277637220559873, "Sweden": 0.2970511730055737, "US": 3.414613446195949, "United Kingdom": 0.10311403805709347}, {"Date": "7/28/20", "Australia": 0.35349984485284586, "Belgium": 0.9491254930275516, "Canada": 0.31699319695616796, "France": 0.21448210110097954, "Germany": 0.07161276542898523, "Italy": 0.18193297099783354, "Japan": 0.023719829345632056, "Korea, South": 0.0, "Netherlands": 0.23344205702604273, "Spain": 0.04277637220559873, "Sweden": 0.1980341153370491, "US": 4.152169950574275, "United Kingdom": 1.7529386469705892}, {"Date": "7/29/20", "Australia": 0.5106108870096663, "Belgium": 0.2588524071893323, "Canada": 0.13208049873173663, "France": 0.0, "Germany": 0.04774184361932349, "Italy": 0.0992361659988183, "Japan": 0.0, "Korea, South": 0.0, "Netherlands": 0.11672102851302137, "Spain": 0.10694093051399682, "Sweden": 2.7724776147186874, "US": 4.3585643633221185, "United Kingdom": 1.2226378798198227}, {"Date": "7/30/20", "Australia": 0.2749443237744357, "Belgium": 0.34513654291910967, "Canada": 0.31699319695616796, "France": 0.22980225117962091, "Germany": 0.10741914814347785, "Italy": 0.04961808299940915, "Japan": 0.04743965869126411, "Korea, South": 0.019504894392407227, "Netherlands": 0.0, "Spain": 0.04277637220559873, "Sweden": 0.891153519016721, "US": 3.6908177338437995, "United Kingdom": 0.5597619208813647}, {"Date": "7/31/20", "Australia": 0.19638880269602546, "Belgium": 0.08628413572977742, "Canada": 0.15849659847808398, "France": 0.4136440521233176, "Germany": 0.035806382714492616, "Italy": 0.14885424899822744, "Japan": 0.007906609781877351, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.04277637220559873, "Sweden": 0.3960682306740982, "US": 3.781874092409025, "United Kingdom": 1.7676692238358882}, {"Date": "8/1/20", "Australia": 0.2749443237744357, "Belgium": 0.34513654291910967, "Canada": 0.15849659847808398, "France": 0.0, "Germany": 0.0835482263338161, "Italy": 0.08269680499901524, "Japan": 0.031626439127509405, "Korea, South": 0.0, "Netherlands": 0.05836051425651068, "Spain": 0.0, "Sweden": 0.0, "US": 3.372120478865511, "United Kingdom": 1.0900626880321311}, {"Date": "8/2/20", "Australia": 0.5106108870096663, "Belgium": 0.0, "Canada": 0.1056643989853893, "France": 0.0, "Germany": 0.0, "Italy": 0.13231488799842442, "Japan": 0.007906609781877351, "Korea, South": 0.0, "Netherlands": 0.11672102851302137, "Spain": 0.0, "Sweden": 0.0, "US": 1.232296052582716, "United Kingdom": 0.11784461492239254}, {"Date": "8/3/20", "Australia": 0.43205536593125604, "Belgium": 0.43142067864888706, "Canada": 0.13208049873173663, "France": 0.0, "Germany": 0.0, "Italy": 0.1984723319976366, "Japan": 0.039533048909386755, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.5774810247755828, "Sweden": 0.09901705766852455, "US": 1.6359792422218817, "United Kingdom": 0.13257519178769162}, {"Date": "8/4/20", "Australia": 0.5891664080880764, "Belgium": 0.17256827145955483, "Canada": 0.26416099746347327, "France": 0.4442843522806004, "Germany": 0.10741914814347785, "Italy": 0.08269680499901524, "Japan": 0.039533048909386755, "Korea, South": 0.019504894392407227, "Netherlands": 0.05836051425651068, "Spain": 0.5560928386727835, "Sweden": 0.2970511730055737, "US": 4.182522070096017, "United Kingdom": 0.27988096044068234}, {"Date": "8/5/20", "Australia": 0.3142220843136408, "Belgium": 0.6039889501084419, "Canada": 0.13208049873173663, "France": 0.0, "Germany": 0.19096737447729395, "Italy": 0.1653936099980305, "Japan": 0.039533048909386755, "Korea, South": 0.0, "Netherlands": 0.17508154276953206, "Spain": 0.021388186102799366, "Sweden": 1.2872217496908194, "US": 4.164310798382971, "United Kingdom": 1.988627876815374}, {"Date": "8/6/20", "Australia": 0.43205536593125604, "Belgium": 0.17256827145955483, "Canada": 0.07924829923904199, "France": 0.16852165086505533, "Germany": 0.023870921809661744, "Italy": 0.0992361659988183, "Japan": 0.04743965869126411, "Korea, South": 0.019504894392407227, "Netherlands": 0.0, "Spain": 0.021388186102799366, "Sweden": 0.5941023460111474, "US": 3.7940149402177217, "United Kingdom": 0.7217982663996544}, {"Date": "8/7/20", "Australia": 0.47133312647046116, "Belgium": 0.43142067864888706, "Canada": 0.1056643989853893, "France": 0.2910828514941865, "Germany": 0.1670964526676322, "Italy": 0.04961808299940915, "Japan": 0.06325287825501881, "Korea, South": 0.019504894392407227, "Netherlands": 0.05836051425651068, "Spain": 0.0641645583083981, "Sweden": -0.2970511730055737, "US": 3.7727684565525026, "United Kingdom": 1.4435965327993088}, {"Date": "8/8/20", "Australia": 0.6677219291664866, "Belgium": 0.34513654291910967, "Canada": 0.18491269822443127, "France": 0.0, "Germany": 0.07161276542898523, "Italy": 0.21501169299743964, "Japan": 0.0, "Korea, South": 0.019504894392407227, "Netherlands": 0.23344205702604273, "Spain": 0.0, "Sweden": 0.0, "US": 3.265888060539415, "United Kingdom": 0.8101817275914488}, {"Date": "8/9/20", "Australia": 0.7069996897056917, "Belgium": 0.17256827145955483, "Canada": 0.1056643989853893, "France": 0.0, "Germany": 0.011935460904830872, "Italy": 0.033078721999606105, "Japan": 0.039533048909386755, "Korea, South": 0.0, "Netherlands": 0.0, "Spain": 0.0, "Sweden": 0.0, "US": 1.5631341553697014, "United Kingdom": 0.11784461492239254}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="armsp/covidviz"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/covidviz/interactive,/nyt/2020/08/10/US_failed.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/covidviz/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/covidviz/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/covidviz/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Making professional looking charts the likes of big media houses like NYT, Guardian and others using Python</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/armsp" title="armsp"><svg class="svg-icon grey"><use xlink:href="/covidviz/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/RajShantam" title="RajShantam"><svg class="svg-icon grey"><use xlink:href="/covidviz/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -443,6 +443,8 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 
 .site-title { font-family: 'Bungee Shade', cursive; font-size: 2rem; }
 
+.site-header { border-top: 0px solid #424242; border-bottom: 1px solid #e8e8e8; }
+
 .post-title { font-family: 'Roboto Condensed', sans-serif; }
 
 .page-link { font-family: 'Bungee', cursive; font-size: 16px; }
