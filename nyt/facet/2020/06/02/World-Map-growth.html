@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Tracking the Global Outbreak: Growth Rates | COVID-19 Viz</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Tracking the Global Outbreak: Growth Rates" />
+<meta name="author" content="Shantam Raj" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Layered facet chart of growth rates in every country where there are more than 100 cases." />
+<meta property="og:description" content="Layered facet chart of growth rates in every country where there are more than 100 cases." />
+<link rel="canonical" href="https://armsp.github.io/covidviz/nyt/facet/2020/06/02/World-Map-growth.html" />
+<meta property="og:url" content="https://armsp.github.io/covidviz/nyt/facet/2020/06/02/World-Map-growth.html" />
+<meta property="og:site_name" content="COVID-19 Viz" />
+<meta property="og:image" content="https://armsp.github.io/covidviz/images/world2.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-02T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Shantam Raj"},"description":"Layered facet chart of growth rates in every country where there are more than 100 cases.","@type":"BlogPosting","headline":"Tracking the Global Outbreak: Growth Rates","dateModified":"2020-06-02T00:00:00-05:00","datePublished":"2020-06-02T00:00:00-05:00","url":"https://armsp.github.io/covidviz/nyt/facet/2020/06/02/World-Map-growth.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://armsp.github.io/covidviz/nyt/facet/2020/06/02/World-Map-growth.html"},"image":"https://armsp.github.io/covidviz/images/world2.png","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/covidviz/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://armsp.github.io/covidviz/feed.xml" title="COVID-19 Viz" /><link rel="shortcut icon" type="image/x-icon" href="/covidviz/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Tracking the Global Outbreak: Growth Rates | COVID-19 Viz</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Tracking the Global Outbreak: Growth Rates" />
+<meta name="author" content="Shantam Raj" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Layered facet chart of growth rates in every country where there are more than 100 cases." />
+<meta property="og:description" content="Layered facet chart of growth rates in every country where there are more than 100 cases." />
+<link rel="canonical" href="https://armsp.github.io/covidviz/nyt/facet/2020/06/02/World-Map-growth.html" />
+<meta property="og:url" content="https://armsp.github.io/covidviz/nyt/facet/2020/06/02/World-Map-growth.html" />
+<meta property="og:site_name" content="COVID-19 Viz" />
+<meta property="og:image" content="https://armsp.github.io/covidviz/images/world2.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-02T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Shantam Raj"},"description":"Layered facet chart of growth rates in every country where there are more than 100 cases.","@type":"BlogPosting","headline":"Tracking the Global Outbreak: Growth Rates","dateModified":"2020-06-02T00:00:00-05:00","datePublished":"2020-06-02T00:00:00-05:00","url":"https://armsp.github.io/covidviz/nyt/facet/2020/06/02/World-Map-growth.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://armsp.github.io/covidviz/nyt/facet/2020/06/02/World-Map-growth.html"},"image":"https://armsp.github.io/covidviz/images/world2.png","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://armsp.github.io/covidviz/feed.xml" title="COVID-19 Viz" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+<!-- My additions -->
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet"> </head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/covidviz/">COVID-19 Viz</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/covidviz/about/">About Me</a><a class="page-link" href="/covidviz/search/">Search</a><a class="page-link" href="/covidviz/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Tracking the Global Outbreak: Growth Rates</h1><p class="page-description">Layered facet chart of growth rates in every country where there are more than 100 cases.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-02T00:00:00-05:00" itemprop="datePublished">
+        Jun 2, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Shantam Raj</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/covidviz/categories/#NYT">NYT</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/covidviz/categories/#facet">facet</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/armsp/covidviz/blob/master/_notebooks/2020-06-02-World Map growth.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/covidviz/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-06-02-World Map growth.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Today we will make the growth rate charts from the NYT article on <a href="https://www.nytimes.com/interactive/2020/world/coronavirus-maps.html">Tracking the Global Outbreak</a> for all the countries.</p>
+<p><img src="/covidviz/images/copied_from_nb/images/world2.png" alt="global growth rates" /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We will use the <a href="https://github.com/CSSEGISandData/COVID-19">JHU CSSE dataset</a> since NYT does not provide its own global countries dataset</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#hide_output</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="n">raw_data_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv&#39;</span>
+<span class="n">raw_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">raw_data_url</span><span class="p">)</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">set_embed_options</span><span class="p">(</span><span class="n">actions</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A few important observations -</p>
+<ul>
+<li>There are some countries that have data at a finer level like state/county. For those countires we will extract the extract the corresponding rows, sum them up into a single row and transpose it to convert to a dataframe.</li>
+<li>Those exceptional countries are 'Australia', 'Canada', 'China', 'Denmark', 'France', 'Netherlands', 'United Kingdom'</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's convert the data into the desired <a href="https://altair-viz.github.io/user_guide/data.html#long-form-vs-wide-form-data">long form</a> from the existing wide form.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># collapse</span>
+<span class="n">long_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">exceptional_countries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Australia&#39;</span><span class="p">,</span> <span class="s1">&#39;Canada&#39;</span><span class="p">,</span> <span class="s1">&#39;China&#39;</span><span class="p">,</span> <span class="s1">&#39;Denmark&#39;</span><span class="p">,</span> <span class="s1">&#39;France&#39;</span><span class="p">,</span> <span class="s1">&#39;Netherlands&#39;</span><span class="p">,</span> <span class="s1">&#39;United Kingdom&#39;</span><span class="p">]</span>
+<span class="n">country_df_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">def</span> <span class="nf">extract_country</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">exceptional_countries</span><span class="p">:</span>
+    <span class="c1">#     print(f&quot;{s[1]} - exceptional case&quot;)</span>
+    <span class="c1"># else:</span>
+        <span class="n">temp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+        <span class="n">temp_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+        <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;growth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+        <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;growth&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;growth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;growth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">temp_df</span> <span class="o">=</span> <span class="n">temp_df</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">country_df_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_df</span><span class="p">)</span>
+        
+<span class="k">for</span> <span class="n">country</span> <span class="ow">in</span> <span class="n">exceptional_countries</span><span class="p">:</span>
+    <span class="n">temp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_df</span><span class="p">[</span><span class="n">raw_df</span><span class="p">[</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">country</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">4</span><span class="p">:]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">())</span>
+    <span class="n">temp_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+    <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">country</span>
+    <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;growth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+    <span class="n">temp_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;growth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;growth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;growth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">country_df_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_df</span><span class="p">)</span>
+
+<span class="n">raw_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">extract_country</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">long_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">country_df_list</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+</p>
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Beacause this is a large dataset, Altair will - by default - refuse to display because of possible memory issues. So we will have to enable the <code>json</code> transformer so that the data is passed insternally as a url. We enable it using <code>alt.data_transformers.enable('json')</code>. Do this if you are running it locally. To do the same on Fastpages, I have already uploaded the json file that is generated by Altair behind the scenes and and I will pass the url of the file to the chart so that the output visualization is seen on the website.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># collapse</span>
+<span class="c1">#alt.data_transformers.enable(&#39;json&#39;) # use this if running locally</span>
+<span class="c1">#alt.data_transformers.disable_max_rows() # avoid this as it can hang your system</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/armsp/covidviz/master/assets/2020-06-02-Data.json&#39;</span> <span class="c1">#comment this when running locally otherwise you will have old data till 1st June only</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
+    <span class="n">rolling_mean</span> <span class="o">=</span> <span class="s1">&#39;mean(growth)&#39;</span><span class="p">,</span>
+    <span class="n">frame</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;place&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;growth:Q&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">fillOpacity</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
+    <span class="n">rolling_mean</span> <span class="o">=</span> <span class="s1">&#39;mean(growth)&#39;</span><span class="p">,</span>
+    <span class="n">frame</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;place&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:T&#39;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;rolling_mean:Q&quot;</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;cases&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span> <span class="s2">&quot;strokeWidth&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">&#39;country:N&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">),</span>
+    <span class="n">header</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Header</span><span class="p">(</span><span class="n">labelFontSize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">labelColor</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">labelFontWeight</span><span class="o">=</span><span class="s1">&#39;bolder&#39;</span><span class="p">,</span> <span class="n">labelAlign</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">labelAnchor</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span> <span class="n">labelOrient</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">labelPadding</span><span class="o">=-</span><span class="mi">15</span><span class="p">,</span> <span class="n">labelAngle</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span> 
+    <span class="n">spacing</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">RowColnumber</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> 
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Countrywise Distribution of Growth, Averaged over 7 days&quot;</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+    
+<span class="p">)</span><span class="o">.</span><span class="n">configure_axis</span><span class="p">(</span>
+    <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="c1">#domainWidth=0.1</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span><span class="n">strokeWidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
+    <span class="n">fontSize</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+    <span class="n">font</span><span class="o">=</span><span class="s1">&#39;Courier&#39;</span><span class="p">,</span>
+    <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span>
+    <span class="n">dy</span><span class="o">=-</span><span class="mi">30</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+</p>
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-b7fbf778877a4697ab32116207d8dc4f"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-b7fbf778877a4697ab32116207d8dc4f") {
+      outputDiv = document.getElementById("altair-viz-b7fbf778877a4697ab32116207d8dc4f");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "strokeWidth": 0}, "axis": {"grid": false}, "title": {"anchor": "middle", "color": "gray", "dy": -30, "font": "Courier", "fontSize": 25}}, "data": {"url": "https://raw.githubusercontent.com/armsp/covidviz/master/assets/2020-06-02-Data.json"}, "facet": {"type": "nominal", "field": "country", "header": {"labelAlign": "center", "labelAnchor": "middle", "labelAngle": 0, "labelColor": "gray", "labelFontSize": 13, "labelFontWeight": "bolder", "labelOrient": "top", "labelPadding": -15}, "sort": {"field": "value", "op": "max", "order": "descending"}, "title": null}, "spec": {"layer": [{"mark": {"type": "bar", "color": "gray", "opacity": 0.2, "size": 2}, "encoding": {"x": {"type": "temporal", "field": "date", "title": null}, "y": {"type": "quantitative", "field": "growth", "title": null}}, "height": 100, "transform": [{"window": [{"op": "mean", "field": "growth", "as": "rolling_mean"}], "frame": [-6, 0], "groupby": ["place"]}], "width": 90}, {"mark": {"type": "line", "color": "red", "opacity": 0.7, "strokeWidth": 2}, "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "rolling_mean", "title": "cases"}}, "transform": [{"window": [{"op": "mean", "field": "growth", "as": "rolling_mean"}], "frame": [-6, 0], "groupby": ["place"]}]}]}, "columns": 7, "spacing": {"column": 0, "row": 70}, "title": "Countrywise Distribution of Growth, Averaged over 7 days", "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"}, {"actions": false, "mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are a few issues with the above chart -</p>
+<ul>
+<li>We are seeing negative values in growth rate, How can it be negative? The lowest it can go is 0.</li>
+<li>The graphs for countries with very few cases don't look good.</li>
+<li>The scales of the countries vary a lot. We need to adjust the scale like NYT does, to make it readable.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's improve upon the issues above with the following solutions -</p>
+<ul>
+<li>NYT does not show graphs for those with fewer than 100 cases. Like NYT we have filtered countries with less than 100 cases</li>
+<li>The growth rates will be negative if there are discrepancies in the data - when the cumulative cases drop for any reason than the previous day. You will certainly notice thos in the dataset for some of the countries.</li>
+<li>We will filter the negative values as based on my observation that's what NYT seems to be doing</li>
+<li>Independednt Y axis</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Few points to keep in mind -</p>
+<ul>
+<li>The bar chart shows the increment in cases per day</li>
+<li>The line chart is the 7 day average of growth in cases per day</li>
+<li>The facet is ordered in descending order by the maximum number of cases</li>
+<li>We will forcefully align the countries one below the other because choosing independent axes often leads to misaligned facet items</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># collapse</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">growth</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
+    <span class="n">rolling_mean</span> <span class="o">=</span> <span class="s1">&#39;mean(growth)&#39;</span><span class="p">,</span>
+    <span class="n">frame</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;place&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;growth:Q&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">fillOpacity</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">growth</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
+    <span class="n">rolling_mean</span> <span class="o">=</span> <span class="s1">&#39;mean(growth)&#39;</span><span class="p">,</span>
+    <span class="n">frame</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;place&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:T&#39;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;rolling_mean:Q&quot;</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;cases&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span> <span class="s2">&quot;strokeWidth&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">&#39;country:N&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">),</span>
+    <span class="n">header</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Header</span><span class="p">(</span><span class="n">labelFontSize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">labelColor</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">labelFontWeight</span><span class="o">=</span><span class="s1">&#39;bolder&#39;</span><span class="p">,</span> <span class="n">labelAlign</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">labelAnchor</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span> <span class="n">labelOrient</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">labelPadding</span><span class="o">=-</span><span class="mi">15</span><span class="p">,</span> <span class="n">labelAngle</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span> 
+    <span class="n">spacing</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">RowColnumber</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Countrywise Distribution of Growth, Averaged over 7 days&quot;</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+    <span class="n">align</span><span class="o">=</span><span class="s1">&#39;each&#39;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">resolve_scale</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;independent&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;independent&#39;</span><span class="p">,)</span><span class="o">.</span><span class="n">configure_axis</span><span class="p">(</span>
+    <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="c1">#domainWidth=0.1</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span><span class="n">strokeWidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
+    <span class="n">fontSize</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+    <span class="n">font</span><span class="o">=</span><span class="s1">&#39;Courier&#39;</span><span class="p">,</span>
+    <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span>
+    <span class="n">dy</span><span class="o">=-</span><span class="mi">30</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+</p>
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-7278f55caba54e42bd752fe02ba34d59"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-7278f55caba54e42bd752fe02ba34d59") {
+      outputDiv = document.getElementById("altair-viz-7278f55caba54e42bd752fe02ba34d59");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "strokeWidth": 0}, "axis": {"grid": false}, "title": {"anchor": "middle", "color": "gray", "dy": -30, "font": "Courier", "fontSize": 25}}, "data": {"url": "https://raw.githubusercontent.com/armsp/covidviz/master/assets/2020-06-02-Data.json"}, "facet": {"type": "nominal", "field": "country", "header": {"labelAlign": "center", "labelAnchor": "middle", "labelAngle": 0, "labelColor": "gray", "labelFontSize": 13, "labelFontWeight": "bolder", "labelOrient": "top", "labelPadding": -15}, "sort": {"field": "value", "op": "max", "order": "descending"}, "title": null}, "spec": {"layer": [{"mark": {"type": "bar", "color": "red", "opacity": 0.05, "size": 2}, "encoding": {"x": {"type": "temporal", "field": "date", "title": null}, "y": {"type": "quantitative", "field": "growth", "title": null}}, "height": 100, "transform": [{"filter": "(datum.growth >= 0)"}, {"filter": "(datum.value > 100)"}, {"window": [{"op": "mean", "field": "growth", "as": "rolling_mean"}], "frame": [-6, 0], "groupby": ["place"]}], "width": 90}, {"mark": {"type": "area", "fill": "red", "fillOpacity": 0.04}, "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "rolling_mean", "title": "cases"}}, "transform": [{"filter": "(datum.growth >= 0)"}, {"filter": "(datum.value > 100)"}, {"window": [{"op": "mean", "field": "growth", "as": "rolling_mean"}], "frame": [-6, 0], "groupby": ["place"]}]}, {"mark": {"type": "line", "color": "red", "opacity": 0.7, "strokeWidth": 2}, "encoding": {"x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "rolling_mean", "title": "cases"}}, "transform": [{"filter": "(datum.growth >= 0)"}, {"filter": "(datum.value > 100)"}, {"window": [{"op": "mean", "field": "growth", "as": "rolling_mean"}], "frame": [-6, 0], "groupby": ["place"]}]}]}, "align": "each", "columns": 7, "resolve": {"scale": {"x": "independent", "y": "independent"}}, "spacing": {"column": 5, "row": 70}, "title": "Countrywise Distribution of Growth, Averaged over 7 days", "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"}, {"actions": false, "mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Feel free to comment below if you didn't understand anything and I will try my best to answer</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="armsp/covidviz"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/covidviz/nyt/facet/2020/06/02/World-Map-growth.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/covidviz/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/covidviz/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/covidviz/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Making professional looking charts the likes of big media houses like NYT, Guardian and others using Python</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/armsp" title="armsp"><svg class="svg-icon grey"><use xlink:href="/covidviz/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/RajShantam" title="RajShantam"><svg class="svg-icon grey"><use xlink:href="/covidviz/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
