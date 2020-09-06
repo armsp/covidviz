@@ -304,11 +304,11 @@ table {
 //   // width: 800px;
 // }
 /////////////////////////////////////////////WORKS///////////////////////
-.output_wrapper {
-  margin: 0 -200px;
-  width: calc(100% + 400px);
+// .output_wrapper {
+//   margin: 0 -200px;
+//   width: calc(100% + 400px);
 
-}
+// }
 // .output{
 //   display: table;
 //   // margin: 0 -200px;
@@ -333,7 +333,33 @@ table {
 // }
 
 /////////////////////////////////////////////////////WORKS AS WELL//////////////////
-.output_wrapper{
+// .output_wrapper{
+//   margin: 0 -200px;
+//   width: calc(100% + 400px);
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   justify-content: center;
+//   align-items: center;
+//   // overflow: scroll; //It adds those bad rectangular scroll stuff that doesn't actually scroll
+// }
+/////////////////////////////////////////////////////ONLY THIS BLOCK NEEDED//////////////////
+
+.output_wrapper table {
+  margin: 0 auto;
+  width: 100%;
+  display: block;
+}
+
+.code_cell {
+  margin: 1.5rem 0px !important;
+}
+
+pre code {
+  font-size: 15px !important;
+}
+
+.output_wrapper .vega-embed {
   margin: 0 -200px;
   width: calc(100% + 400px);
   display: flex;
@@ -343,4 +369,14 @@ table {
   align-items: center;
   // overflow: scroll; //It adds those bad rectangular scroll stuff that doesn't actually scroll
 }
-/////////////////////////////////////////////////////ONLY THIS BLOCK NEEDED//////////////////
+
+// CSS class to use for keeping images side by side
+.side-images {
+  margin: 0 -200px;
+  width: calc(100% + 400px);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}

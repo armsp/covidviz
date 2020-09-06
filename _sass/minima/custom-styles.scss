@@ -100,3 +100,10 @@ center iframe {
 // .post-header h1{
 //     font-size: medium;
 // }
+
+// This increases width of the content area
+.wrapper {
+    max-width: calc(1000px - (30px * 2));
+    padding-right: 30px;
+    padding-left: 30px;
+}
