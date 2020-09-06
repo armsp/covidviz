@@ -429,9 +429,15 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 
 .svg-icon.orange { width: 30px; height: 23px; }
 
-.output_wrapper { margin: 0 -200px; width: calc(100% + 400px); }
+.output_wrapper table { margin: 0 auto; width: 100%; display: block; }
 
-.output_wrapper { margin: 0 -200px; width: calc(100% + 400px); display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; }
+.code_cell { margin: 1.5rem 0px !important; }
+
+pre code { font-size: 15px !important; }
+
+.output_wrapper .vega-embed { margin: 0 -200px; width: calc(100% + 400px); display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; }
+
+.side-images { margin: 0 -200px; width: calc(100% + 400px); display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; }
 
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
@@ -456,5 +462,7 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 center iframe { width: 100%; }
 
 .dataframe { margin-left: auto; margin-right: auto; max-width: 1000px; }
+
+.wrapper { max-width: calc(1000px - (30px * 2)); padding-right: 30px; padding-left: 30px; }
 
 /*# sourceMappingURL=style.css.map */
