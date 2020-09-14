@@ -411,7 +411,7 @@ h1:hover .anchor-link, h2:hover .anchor-link, h3:hover .anchor-link, h4:hover .a
 
 .search-result-highlight { color: #2e0137; font-weight: bold; }
 
-table { display: block !important; overflow-x: auto; white-space: nowrap; font-size: 75%; border: none; }
+table { overflow-x: auto; white-space: nowrap; font-size: 75%; border: none; }
 
 table th { text-align: center !important; }
 
@@ -435,9 +435,11 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 
 pre code { font-size: 15px !important; }
 
-.output_wrapper .vega-embed { margin: 0 -200px; width: calc(100% + 400px); display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; }
+.output_wrapper .vega-embed { width: calc(100% + 400px); display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; left: 50%; transform: translateX(-50%); }
 
-.side-images { margin: 0 -200px; width: calc(100% + 400px); display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; }
+.side-images { width: calc(100% + 400px); display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; left: 50%; transform: translateX(-50%); position: relative; }
+
+.vega-embed .chart-wrapper { width: auto; height: 100%; }
 
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
@@ -464,5 +466,7 @@ center iframe { width: 100%; }
 .dataframe { margin-left: auto; margin-right: auto; max-width: 1000px; }
 
 .wrapper { max-width: calc(1000px - (30px * 2)); padding-right: 30px; padding-left: 30px; }
+
+.trigger a { color: gray; }
 
 /*# sourceMappingURL=style.css.map */
