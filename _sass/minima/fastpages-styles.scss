@@ -199,7 +199,7 @@ h6:hover .anchor-link {
 // Handle Overflow With Table Output
 
 table {
-  display: block !important;
+  // display: block !important;
   overflow-x: auto;
   white-space: nowrap;
   font-size: 75%;
@@ -360,23 +360,34 @@ pre code {
 }
 
 .output_wrapper .vega-embed {
-  margin: 0 -200px;
+  // margin: 0 -200px;
   width: calc(100% + 400px);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
   // overflow: scroll; //It adds those bad rectangular scroll stuff that doesn't actually scroll
 }
 
 // CSS class to use for keeping images side by side
 .side-images {
-  margin: 0 -200px;
+  // margin: 0 -200px;
   width: calc(100% + 400px);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+}
+
+// When the action widget is ON this css helps in keeping the images centered
+.vega-embed .chart-wrapper {
+  width: auto;
+  height: 100%;
 }
