@@ -150,13 +150,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Today we will make a graph that I just love - <a href="https://www.data-to-viz.com/graph/ridgeline.html">Ridgeline Plots</a>. We will visualize the median mobility across US states as they appeared in the article by Axios : <a href="https://www.axios.com/coronavirus-mobility-habits-by-state-272d3405-4c6b-4cdb-9ee2-fe8074b657d3.html">How the coronavirus pandemic changed mobility habits, by state</a></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="/covidviz/images/copied_from_nb/images/mobility.gif" alt="" /></p>
+<p><img src="/covidviz/images/copied_from_nb/images/mobility.gif" alt="Mobility" /></p>
 
 </div>
 </div>
@@ -688,9 +682,12 @@ memory usage: 43.3+ MB
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">highlight</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;mouseover&#39;</span><span class="p">,</span> <span class="n">empty</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span> <span class="c1"># it looks like at present &quot;facet&quot; is not accepted as an encoding here even though it has been added as an encoding in a traditional sense of usage</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/armsp/covidviz/master/assets/2020-08-31_Mobility_Data.json&#39;</span> <span class="c1"># comment this when running locally</span>
+<span class="c1"># url = mobility_states # uncomment this when running locally</span>
 
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">mobility_states</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">()</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
+<span class="n">highlight</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;mouseover&#39;</span><span class="p">,</span> <span class="n">empty</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span> <span class="c1"># it looks like at present &quot;facet&quot; is not accepted as an encoding here even though it has been added as an encoding in a traditional sense of usage</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">()</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
     <span class="n">avg_m50</span> <span class="o">=</span><span class="s1">&#39;mean(m50_index)&#39;</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fips&#39;</span><span class="p">]</span>
 <span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%b&quot;</span><span class="p">,</span> <span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">)),</span>
@@ -701,7 +698,7 @@ memory usage: 43.3+ MB
         <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">170</span><span class="p">],</span><span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;yellowgreenblue&#39;</span><span class="p">)</span> <span class="c1">#setting up domain gives favourable colours</span>
     <span class="p">),</span>
-    <span class="n">facet</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Facet</span><span class="p">(</span><span class="s1">&#39;admin1&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Header</span><span class="p">(</span><span class="n">labelAngle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">labelOrient</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">labelAlign</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">labelAnchor</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">))</span>
+    <span class="n">facet</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Facet</span><span class="p">(</span><span class="s1">&#39;admin1:N&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Header</span><span class="p">(</span><span class="n">labelAngle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">labelOrient</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">labelAlign</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">labelAnchor</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">))</span>
 
 <span class="p">)</span><span class="o">.</span><span class="n">configure_facet</span><span class="p">(</span><span class="n">spacing</span><span class="o">=</span><span class="mi">0</span><span class="p">,)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">bounds</span><span class="o">=</span><span class="s1">&#39;flush&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Median Mobility&#39;</span><span class="p">,)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span><span class="n">stroke</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
     <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span>
@@ -720,12 +717,12 @@ memory usage: 43.3+ MB
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-c5f08aa694f142b8aaaa7e8107168838"></div>
+<div id="altair-viz-f08c8469f0c14acd9898013a19727660"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-c5f08aa694f142b8aaaa7e8107168838") {
-      outputDiv = document.getElementById("altair-viz-c5f08aa694f142b8aaaa7e8107168838");
+    if (outputDiv.id !== "altair-viz-f08c8469f0c14acd9898013a19727660") {
+      outputDiv = document.getElementById("altair-viz-f08c8469f0c14acd9898013a19727660");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -767,7 +764,7 @@ memory usage: 43.3+ MB
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "stroke": null}, "facet": {"spacing": 0}, "title": {"anchor": "middle"}}, "data": {"url": "altair-data-62d183dfb3d71ead026dfc50753b5752.json", "format": {"type": "json"}}, "mark": "area", "bounds": "flush", "encoding": {"facet": {"type": "nominal", "columns": 1, "field": "admin1", "header": {"labelAlign": "left", "labelAnchor": "middle", "labelAngle": 0, "labelOrient": "left"}, "title": null}, "fill": {"type": "quantitative", "aggregate": "median", "field": "avg_m50", "legend": null, "scale": {"domain": [0, 170], "scheme": "yellowgreenblue"}}, "fillOpacity": {"condition": {"value": 0.8, "selection": "selector002"}, "value": 0.4}, "x": {"type": "temporal", "axis": {"domain": true, "format": "%b", "labels": true, "tickCount": 5, "ticks": false}, "field": "date", "title": null}, "y": {"type": "quantitative", "axis": null, "field": "avg_m50", "scale": {"range": [50, -100], "zero": false}, "title": null}}, "height": 40, "selection": {"selector002": {"type": "single", "on": "mouseover", "empty": "all"}}, "title": "Median Mobility", "transform": [{"window": [{"op": "mean", "field": "m50_index", "as": "avg_m50"}], "frame": [-6, 0], "groupby": ["fips"]}], "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "stroke": null}, "facet": {"spacing": 0}, "title": {"anchor": "middle"}}, "data": {"url": "https://raw.githubusercontent.com/armsp/covidviz/master/assets/2020-08-31_Mobility_Data.json"}, "mark": "area", "bounds": "flush", "encoding": {"facet": {"type": "nominal", "columns": 1, "field": "admin1", "header": {"labelAlign": "left", "labelAnchor": "middle", "labelAngle": 0, "labelOrient": "left"}, "title": null}, "fill": {"type": "quantitative", "aggregate": "median", "field": "avg_m50", "legend": null, "scale": {"domain": [0, 170], "scheme": "yellowgreenblue"}}, "fillOpacity": {"condition": {"value": 0.8, "selection": "selector004"}, "value": 0.4}, "x": {"type": "temporal", "axis": {"domain": true, "format": "%b", "labels": true, "tickCount": 5, "ticks": false}, "field": "date", "title": null}, "y": {"type": "quantitative", "axis": null, "field": "avg_m50", "scale": {"range": [50, -100], "zero": false}, "title": null}}, "height": 40, "selection": {"selector004": {"type": "single", "on": "mouseover", "empty": "all"}}, "title": "Median Mobility", "transform": [{"window": [{"op": "mean", "field": "m50_index", "as": "avg_m50"}], "frame": [-6, 0], "groupby": ["fips"]}], "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"}, {"mode": "vega-lite"});
 </script>
 </div>
 
