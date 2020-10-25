@@ -4,34 +4,38 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Title | COVID-19 Viz</title>
+<title>Mobility across US | COVID-19 Viz</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Title" />
+<meta property="og:title" content="Mobility across US" />
+<meta name="author" content="Shantam Raj" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Making professional looking charts the likes of big media houses like NYT, Guardian and others using Python" />
-<meta property="og:description" content="Making professional looking charts the likes of big media houses like NYT, Guardian and others using Python" />
-<link rel="canonical" href="https://armsp.github.io/covidviz/2020/08/31/Mobility.html" />
-<meta property="og:url" content="https://armsp.github.io/covidviz/2020/08/31/Mobility.html" />
+<meta name="description" content="Faceted median mobility of states as a Ridgeline Plot" />
+<meta property="og:description" content="Faceted median mobility of states as a Ridgeline Plot" />
+<link rel="canonical" href="https://armsp.github.io/covidviz/mobility/axios/2020/08/31/Mobility.html" />
+<meta property="og:url" content="https://armsp.github.io/covidviz/mobility/axios/2020/08/31/Mobility.html" />
 <meta property="og:site_name" content="COVID-19 Viz" />
+<meta property="og:image" content="https://armsp.github.io/covidviz/images/mobility.gif" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-08-31T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"Making professional looking charts the likes of big media houses like NYT, Guardian and others using Python","@type":"BlogPosting","headline":"Title","dateModified":"2020-08-31T00:00:00-05:00","datePublished":"2020-08-31T00:00:00-05:00","url":"https://armsp.github.io/covidviz/2020/08/31/Mobility.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://armsp.github.io/covidviz/2020/08/31/Mobility.html"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"Shantam Raj"},"description":"Faceted median mobility of states as a Ridgeline Plot","@type":"BlogPosting","headline":"Mobility across US","dateModified":"2020-08-31T00:00:00-05:00","datePublished":"2020-08-31T00:00:00-05:00","url":"https://armsp.github.io/covidviz/mobility/axios/2020/08/31/Mobility.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://armsp.github.io/covidviz/mobility/axios/2020/08/31/Mobility.html"},"image":"https://armsp.github.io/covidviz/images/mobility.gif","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/covidviz/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://armsp.github.io/covidviz/feed.xml" title="COVID-19 Viz" /><link rel="shortcut icon" type="image/x-icon" href="/covidviz/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Title | COVID-19 Viz</title>
+<title>Mobility across US | COVID-19 Viz</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Title" />
+<meta property="og:title" content="Mobility across US" />
+<meta name="author" content="Shantam Raj" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Making professional looking charts the likes of big media houses like NYT, Guardian and others using Python" />
-<meta property="og:description" content="Making professional looking charts the likes of big media houses like NYT, Guardian and others using Python" />
-<link rel="canonical" href="https://armsp.github.io/covidviz/2020/08/31/Mobility.html" />
-<meta property="og:url" content="https://armsp.github.io/covidviz/2020/08/31/Mobility.html" />
+<meta name="description" content="Faceted median mobility of states as a Ridgeline Plot" />
+<meta property="og:description" content="Faceted median mobility of states as a Ridgeline Plot" />
+<link rel="canonical" href="https://armsp.github.io/covidviz/mobility/axios/2020/08/31/Mobility.html" />
+<meta property="og:url" content="https://armsp.github.io/covidviz/mobility/axios/2020/08/31/Mobility.html" />
 <meta property="og:site_name" content="COVID-19 Viz" />
+<meta property="og:image" content="https://armsp.github.io/covidviz/images/mobility.gif" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-08-31T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"Making professional looking charts the likes of big media houses like NYT, Guardian and others using Python","@type":"BlogPosting","headline":"Title","dateModified":"2020-08-31T00:00:00-05:00","datePublished":"2020-08-31T00:00:00-05:00","url":"https://armsp.github.io/covidviz/2020/08/31/Mobility.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://armsp.github.io/covidviz/2020/08/31/Mobility.html"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"Shantam Raj"},"description":"Faceted median mobility of states as a Ridgeline Plot","@type":"BlogPosting","headline":"Mobility across US","dateModified":"2020-08-31T00:00:00-05:00","datePublished":"2020-08-31T00:00:00-05:00","url":"https://armsp.github.io/covidviz/mobility/axios/2020/08/31/Mobility.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://armsp.github.io/covidviz/mobility/axios/2020/08/31/Mobility.html"},"image":"https://armsp.github.io/covidviz/images/mobility.gif","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -105,9 +109,11 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-08-31T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Mobility across US</h1><p class="page-description">Faceted median mobility of states as a Ridgeline Plot</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-08-31T00:00:00-05:00" itemprop="datePublished">
         Aug 31, 2020
-      </time>
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Shantam Raj</span></span>
        • <span class="read-time" title="Estimated read time">
     
     
@@ -115,6 +121,16 @@ window.onload = wrap_img;
     
 </span></p>
 
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/covidviz/categories/#mobility">mobility</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/covidviz/categories/#Axios">Axios</a>
+        
+      
+      </p>
     
 
     
@@ -173,9 +189,26 @@ window.onload = wrap_img;
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">mobility_uri</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/descarteslabs/DL-COVID-19/master/DL-us-mobility-daterow.csv&#39;</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">set_embed_options</span><span class="p">(</span><span class="n">actions</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>RendererRegistry.enable(&#39;default&#39;)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -717,12 +750,12 @@ memory usage: 43.3+ MB
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-f08c8469f0c14acd9898013a19727660"></div>
+<div id="altair-viz-4faa0d838adf4e5489beb350b6e1a5fc"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-f08c8469f0c14acd9898013a19727660") {
-      outputDiv = document.getElementById("altair-viz-f08c8469f0c14acd9898013a19727660");
+    if (outputDiv.id !== "altair-viz-4faa0d838adf4e5489beb350b6e1a5fc") {
+      outputDiv = document.getElementById("altair-viz-4faa0d838adf4e5489beb350b6e1a5fc");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -764,7 +797,7 @@ memory usage: 43.3+ MB
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "stroke": null}, "facet": {"spacing": 0}, "title": {"anchor": "middle"}}, "data": {"url": "https://raw.githubusercontent.com/armsp/covidviz/master/assets/2020-08-31_Mobility_Data.json"}, "mark": "area", "bounds": "flush", "encoding": {"facet": {"type": "nominal", "columns": 1, "field": "admin1", "header": {"labelAlign": "left", "labelAnchor": "middle", "labelAngle": 0, "labelOrient": "left"}, "title": null}, "fill": {"type": "quantitative", "aggregate": "median", "field": "avg_m50", "legend": null, "scale": {"domain": [0, 170], "scheme": "yellowgreenblue"}}, "fillOpacity": {"condition": {"value": 0.8, "selection": "selector004"}, "value": 0.4}, "x": {"type": "temporal", "axis": {"domain": true, "format": "%b", "labels": true, "tickCount": 5, "ticks": false}, "field": "date", "title": null}, "y": {"type": "quantitative", "axis": null, "field": "avg_m50", "scale": {"range": [50, -100], "zero": false}, "title": null}}, "height": 40, "selection": {"selector004": {"type": "single", "on": "mouseover", "empty": "all"}}, "title": "Median Mobility", "transform": [{"window": [{"op": "mean", "field": "m50_index", "as": "avg_m50"}], "frame": [-6, 0], "groupby": ["fips"]}], "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "stroke": null}, "facet": {"spacing": 0}, "title": {"anchor": "middle"}}, "data": {"url": "https://raw.githubusercontent.com/armsp/covidviz/master/assets/2020-08-31_Mobility_Data.json"}, "mark": "area", "bounds": "flush", "encoding": {"facet": {"type": "nominal", "columns": 1, "field": "admin1", "header": {"labelAlign": "left", "labelAnchor": "middle", "labelAngle": 0, "labelOrient": "left"}, "title": null}, "fill": {"type": "quantitative", "aggregate": "median", "field": "avg_m50", "legend": null, "scale": {"domain": [0, 170], "scheme": "yellowgreenblue"}}, "fillOpacity": {"condition": {"value": 0.8, "selection": "selector006"}, "value": 0.4}, "x": {"type": "temporal", "axis": {"domain": true, "format": "%b", "labels": true, "tickCount": 5, "ticks": false}, "field": "date", "title": null}, "y": {"type": "quantitative", "axis": null, "field": "avg_m50", "scale": {"range": [50, -100], "zero": false}, "title": null}}, "height": 40, "selection": {"selector006": {"type": "single", "on": "mouseover", "empty": "all"}}, "title": "Median Mobility", "transform": [{"window": [{"op": "mean", "field": "m50_index", "as": "avg_m50"}], "frame": [-6, 0], "groupby": ["fips"]}], "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"}, {"actions": false, "mode": "vega-lite"});
 </script>
 </div>
 
@@ -780,7 +813,15 @@ memory usage: 43.3+ MB
 
 
 
-  </div><a class="u-url" href="/covidviz/2020/08/31/Mobility.html" hidden></a>
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="armsp/covidviz"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/covidviz/mobility/axios/2020/08/31/Mobility.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
