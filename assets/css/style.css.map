@@ -3,11 +3,11 @@
 	"file": "style.css",
 	"sources": [
 		"style.scss",
-		"../../tmp/jekyll-remote-theme-20201026-1-qnqmuc/_sass/minima/skins/classic.scss",
-		"../../tmp/jekyll-remote-theme-20201026-1-qnqmuc/_sass/minima/initialize.scss",
-		"../../tmp/jekyll-remote-theme-20201026-1-qnqmuc/_sass/minima/custom-variables.scss",
-		"../../tmp/jekyll-remote-theme-20201026-1-qnqmuc/_sass/minima/_base.scss",
-		"../../tmp/jekyll-remote-theme-20201026-1-qnqmuc/_sass/minima/_layout.scss",
+		"../../tmp/jekyll-remote-theme-20201027-1-12cc2ix/_sass/minima/skins/classic.scss",
+		"../../tmp/jekyll-remote-theme-20201027-1-12cc2ix/_sass/minima/initialize.scss",
+		"../../tmp/jekyll-remote-theme-20201027-1-12cc2ix/_sass/minima/custom-variables.scss",
+		"../../tmp/jekyll-remote-theme-20201027-1-12cc2ix/_sass/minima/_base.scss",
+		"../../tmp/jekyll-remote-theme-20201027-1-12cc2ix/_sass/minima/_layout.scss",
 		"_sass/minima/custom-styles.scss",
 		"_sass/minima/fastpages-styles.scss"
 	],
