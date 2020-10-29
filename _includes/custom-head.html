@@ -66,3 +66,128 @@ window.onload = wrap_img;
 <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet"> 
+
+{% if page.virus_spread %}
+    <script>
+        window.addEventListener("load", function(){
+            {
+                // add color fill when drag
+                const sliderColors = {
+                    fill: "#CE4931",
+                    background: "#999",
+                };
+
+                const slider = document.getElementsByName("slider_date")[0];
+
+                slider.addEventListener("input", (event) => {
+                    applyFill(event.target);
+                });
+
+                function applyFill(slider) {
+                    const percentage =
+                        (100 * (slider.value - slider.min)) / (slider.max - slider.min);
+
+                    const bg = `linear-gradient(90deg, ${sliderColors.fill} ${percentage}%, ${sliderColors.background} ${percentage}%)`;
+                    slider.style.background = bg;
+                }
+
+                applyFill(slider);
+            }
+            //console.log("Start");
+            var hide = document.getElementsByClassName("vega-bind-name")[0];
+            hide.style.display = 'none';
+
+            slider_labels = document.getElementsByTagName("label")[1];
+            slider_input = slider_labels.getElementsByTagName("input")[0];
+            slider_date = slider_labels.getElementsByTagName("span")[1];
+            var temp_date = new Date(Number(slider_date.textContent));
+            slider_date.style.display = 'none';
+            // if (typeof dateSpan === 'undefined') {
+            //console.log("Date Span is undefined");
+            var dateSpan = document.createElement('span');
+            dateSpan.setAttribute("id", "my_date");
+            dateSpan.textContent = temp_date.getDate() + '-' + temp_date.toLocaleString('default', { month: 'long' });
+            slider_labels.appendChild(dateSpan);
+            //console.log("Appended Date Span");
+            // }
+            //console.log("before function");
+            slider_input.oninput = function () {
+                //console.log("inside function");
+                //slider_date.style.display = 'none';
+                var slider_value = new Date(Number(this.value));
+                dateSpan.textContent = slider_value.getDate() + '-' + slider_value.toLocaleString('default', { month: 'long' });
+                //console.log("end of function");
+            }
+            //console.log("the end");
+        });
+    </script>
+
+<style>
+    input:hover {
+        opacity: 1;
+    }
+
+    input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        background: red;
+        cursor: pointer;
+        border-radius: 0;
+        border: 0;
+        position: relative;
+        width: 4px;
+        height: 15px;
+        background-color: #595959;
+    }
+    input::-moz-range-thumb {
+        -moz-appearance: none;
+        appearance: none;
+        background: red;
+        cursor: pointer;
+        border-radius: 0;
+        border: 0;
+        position: relative;
+        width: 4px;
+        height: 15px;
+        background-color: #595959;
+    }
+    input {
+        background: rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(206, 73, 49) 0%, rgb(153, 153, 153) 0%) repeat scroll 0% 0%;
+        -webkit-appearance: none;
+        width: 50%;
+        border-radius: 3px;
+        margin: 0;
+        position: relative;
+        height: 3px;
+        cursor: pointer;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        transition: all ease-in 0.25s;
+    }
+
+    input:focus, button:focus {
+        outline: none;
+    }
+
+    iframe {
+        sandbox: allow-modals allow-forms allow-popups allow-scripts allow-same-origin;
+    }
+
+    #my_date {
+        display: block;
+        text-align: center;
+        font-size: xx-large;
+        font-weight: bold;
+    }
+
+    .vega-bind label{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+
+    .vega-bindings{
+        width: 100%;
+    }
+</style>
+{% endif %}
