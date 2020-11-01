@@ -112,3 +112,9 @@ kramdown:
   auto_ids: true
   hard_wrap: false
   syntax_highlighter: pygments
+
+# FEED
+author: RajShantam
+feed:
+  posts_limit: 5 #posts_limit: 20
+  excerpt_only: true
