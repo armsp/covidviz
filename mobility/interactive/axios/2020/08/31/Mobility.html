@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Mobility across US | COVID-19 Viz</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Mobility across US" />
+<meta name="author" content="Shantam Raj" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Faceted median mobility of states as a Ridgeline Plot" />
+<meta property="og:description" content="Faceted median mobility of states as a Ridgeline Plot" />
+<link rel="canonical" href="https://armsp.github.io/covidviz/mobility/interactive/axios/2020/08/31/Mobility.html" />
+<meta property="og:url" content="https://armsp.github.io/covidviz/mobility/interactive/axios/2020/08/31/Mobility.html" />
+<meta property="og:site_name" content="COVID-19 Viz" />
+<meta property="og:image" content="https://armsp.github.io/covidviz/images/mobility.gif" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-31T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Shantam Raj"},"description":"Faceted median mobility of states as a Ridgeline Plot","@type":"BlogPosting","headline":"Mobility across US","dateModified":"2020-08-31T00:00:00-05:00","datePublished":"2020-08-31T00:00:00-05:00","url":"https://armsp.github.io/covidviz/mobility/interactive/axios/2020/08/31/Mobility.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://armsp.github.io/covidviz/mobility/interactive/axios/2020/08/31/Mobility.html"},"image":"https://armsp.github.io/covidviz/images/mobility.gif","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/covidviz/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://armsp.github.io/covidviz/feed.xml" title="COVID-19 Viz" /><link rel="shortcut icon" type="image/x-icon" href="/covidviz/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Mobility across US | COVID-19 Viz</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Mobility across US" />
+<meta name="author" content="Shantam Raj" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Faceted median mobility of states as a Ridgeline Plot" />
+<meta property="og:description" content="Faceted median mobility of states as a Ridgeline Plot" />
+<link rel="canonical" href="https://armsp.github.io/covidviz/mobility/interactive/axios/2020/08/31/Mobility.html" />
+<meta property="og:url" content="https://armsp.github.io/covidviz/mobility/interactive/axios/2020/08/31/Mobility.html" />
+<meta property="og:site_name" content="COVID-19 Viz" />
+<meta property="og:image" content="https://armsp.github.io/covidviz/images/mobility.gif" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-31T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Shantam Raj"},"description":"Faceted median mobility of states as a Ridgeline Plot","@type":"BlogPosting","headline":"Mobility across US","dateModified":"2020-08-31T00:00:00-05:00","datePublished":"2020-08-31T00:00:00-05:00","url":"https://armsp.github.io/covidviz/mobility/interactive/axios/2020/08/31/Mobility.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://armsp.github.io/covidviz/mobility/interactive/axios/2020/08/31/Mobility.html"},"image":"https://armsp.github.io/covidviz/images/mobility.gif","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://armsp.github.io/covidviz/feed.xml" title="COVID-19 Viz" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+<!-- My additions -->
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet"> 
+
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/covidviz/">COVID-19 Viz</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/covidviz/about/">About Me</a><a class="page-link" href="/covidviz/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Mobility across US</h1><p class="page-description">Faceted median mobility of states as a Ridgeline Plot</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-08-31T00:00:00-05:00" itemprop="datePublished">
+        Aug 31, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Shantam Raj</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/covidviz/categories/#mobility">mobility</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/covidviz/categories/#interactive">interactive</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/covidviz/categories/#Axios">Axios</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/armsp/covidviz/blob/master/_notebooks/2020-08-31-Mobility.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/covidviz/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-08-31-Mobility.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Today we will make a graph that I just love - <a href="https://www.data-to-viz.com/graph/ridgeline.html">Ridgeline Plots</a>. We will visualize the median mobility across US states as they appeared in the article by Axios : <a href="https://www.axios.com/coronavirus-mobility-habits-by-state-272d3405-4c6b-4cdb-9ee2-fe8074b657d3.html">How the coronavirus pandemic changed mobility habits, by state</a></p>
+<p><img src="/covidviz/images/copied_from_nb/images/mobility.gif" alt="Mobility" /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The data comes from <a href="https://www.descarteslabs.com/mobility/">Descartes Lab's</a> <a href="https://github.com/descarteslabs/DL-COVID-19">GitHub Repository</a></p>
+<!-- https://www.descarteslabs.com/wp-content/uploads/2020/03/mobility-v097.pdf
+- https://static1.squarespace.com/static/56086d00e4b0fb7874bc2d42/t/5ebf201183c6f016ca3abd91/1589583893816/DemographicCovid.pdf -->
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">mobility_uri</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/descarteslabs/DL-COVID-19/master/DL-us-mobility-daterow.csv&#39;</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">set_embed_options</span><span class="p">(</span><span class="n">actions</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>RendererRegistry.enable(&#39;default&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mobility</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">mobility_uri</span><span class="p">)</span>
+<span class="n">mobility</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 631087 entries, 0 to 631086
+Data columns (total 9 columns):
+ #   Column        Non-Null Count   Dtype  
+---  ------        --------------   -----  
+ 0   date          631087 non-null  object 
+ 1   country_code  631087 non-null  object 
+ 2   admin_level   631087 non-null  int64  
+ 3   admin1        630854 non-null  object 
+ 4   admin2        618971 non-null  object 
+ 5   fips          630854 non-null  float64
+ 6   samples       631087 non-null  int64  
+ 7   m50           631087 non-null  float64
+ 8   m50_index     631087 non-null  int64  
+dtypes: float64(2), int64(3), object(4)
+memory usage: 43.3+ MB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mobility</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>country_code</th>
+      <th>admin_level</th>
+      <th>admin1</th>
+      <th>admin2</th>
+      <th>fips</th>
+      <th>samples</th>
+      <th>m50</th>
+      <th>m50_index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-03-01</td>
+      <td>US</td>
+      <td>1</td>
+      <td>Alabama</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>133826</td>
+      <td>8.331</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-03-02</td>
+      <td>US</td>
+      <td>1</td>
+      <td>Alabama</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>143632</td>
+      <td>10.398</td>
+      <td>98</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-03-03</td>
+      <td>US</td>
+      <td>1</td>
+      <td>Alabama</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>146009</td>
+      <td>10.538</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020-03-04</td>
+      <td>US</td>
+      <td>1</td>
+      <td>Alabama</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>149352</td>
+      <td>10.144</td>
+      <td>96</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2020-03-05</td>
+      <td>US</td>
+      <td>1</td>
+      <td>Alabama</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>144109</td>
+      <td>10.982</td>
+      <td>104</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mobility_states</span> <span class="o">=</span> <span class="n">mobility</span><span class="p">[</span><span class="n">mobility</span><span class="p">[</span><span class="s1">&#39;admin2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">mobility</span><span class="p">[</span><span class="s1">&#39;admin1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>
+<span class="n">mobility_states</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>country_code</th>
+      <th>admin_level</th>
+      <th>admin1</th>
+      <th>admin2</th>
+      <th>fips</th>
+      <th>samples</th>
+      <th>m50</th>
+      <th>m50_index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-03-01</td>
+      <td>US</td>
+      <td>1</td>
+      <td>Alabama</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>133826</td>
+      <td>8.331</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-03-02</td>
+      <td>US</td>
+      <td>1</td>
+      <td>Alabama</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>143632</td>
+      <td>10.398</td>
+      <td>98</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-03-03</td>
+      <td>US</td>
+      <td>1</td>
+      <td>Alabama</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>146009</td>
+      <td>10.538</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020-03-04</td>
+      <td>US</td>
+      <td>1</td>
+      <td>Alabama</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>149352</td>
+      <td>10.144</td>
+      <td>96</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2020-03-05</td>
+      <td>US</td>
+      <td>1</td>
+      <td>Alabama</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>144109</td>
+      <td>10.982</td>
+      <td>104</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The data also contains the aggreagted median mobility for US as a country. We will filter that for our chart as we want only states -</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#mobility_states.groupby(&#39;admin1&#39;)[&#39;m50_index&#39;].max()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">usa_mobility</span> <span class="o">=</span> <span class="n">mobility</span><span class="p">[</span><span class="n">mobility</span><span class="p">[</span><span class="s1">&#39;admin2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">mobility</span><span class="p">[</span><span class="s1">&#39;admin1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+<span class="n">usa_mobility</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>country_code</th>
+      <th>admin_level</th>
+      <th>admin1</th>
+      <th>admin2</th>
+      <th>fips</th>
+      <th>samples</th>
+      <th>m50</th>
+      <th>m50_index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>554459</th>
+      <td>2020-03-01</td>
+      <td>US</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5705566</td>
+      <td>5.320</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <th>554460</th>
+      <td>2020-03-02</td>
+      <td>US</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5970602</td>
+      <td>7.789</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>554461</th>
+      <td>2020-03-03</td>
+      <td>US</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6100493</td>
+      <td>7.821</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>554462</th>
+      <td>2020-03-04</td>
+      <td>US</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6274372</td>
+      <td>7.783</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>554463</th>
+      <td>2020-03-05</td>
+      <td>US</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6023240</td>
+      <td>8.288</td>
+      <td>105</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you are interested in USA's mobility as a whole then you can visualize the following dataframe -</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">data_transformers</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+<span class="c1">#alt.data_transformers.enable(&#39;data_server&#39;)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>DataTransformerRegistry.enable(&#39;json&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I have taken the liberty to also color the facets by the median of the mobility values. To get it exactly like the chart by Axios, just remove the <code>fill</code> encoding.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/armsp/covidviz/master/assets/2020-08-31_Mobility_Data.json&#39;</span> <span class="c1"># comment this when running locally</span>
+<span class="c1"># url = mobility_states # uncomment this when running locally</span>
+
+<span class="n">highlight</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;mouseover&#39;</span><span class="p">,</span> <span class="n">empty</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span> <span class="c1"># it looks like at present &quot;facet&quot; is not accepted as an encoding here even though it has been added as an encoding in a traditional sense of usage</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">()</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
+    <span class="n">avg_m50</span> <span class="o">=</span><span class="s1">&#39;mean(m50_index)&#39;</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fips&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;date:T&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%b&quot;</span><span class="p">,</span> <span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">)),</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;avg_m50:Q&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">),),</span><span class="c1">#zero=False is important because of how vega-lite handles the range of data internally. When we used the raw values without averaging then it did not think that we may have negative values etc so the graph was not expanded for that. But when we did the averaging, somehow it decided to have some space for negative values, that&#39;s why your graph was pulled up from x-axis. By mentioning that we will not show zero or below values you manually fixed that range and the graph was pulled down as it was earlier.</span>
+    <span class="n">fillOpacity</span><span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">highlight</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mf">0.8</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mf">0.4</span><span class="p">)),</span>
+    <span class="n">fill</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Fill</span><span class="p">(</span>
+        <span class="s1">&#39;median(avg_m50):Q&#39;</span><span class="p">,</span>
+        <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">170</span><span class="p">],</span><span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;yellowgreenblue&#39;</span><span class="p">)</span> <span class="c1">#setting up domain gives favourable colours</span>
+    <span class="p">),</span>
+    <span class="n">facet</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Facet</span><span class="p">(</span><span class="s1">&#39;admin1:N&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Header</span><span class="p">(</span><span class="n">labelAngle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">labelOrient</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">labelAlign</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">labelAnchor</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">))</span>
+
+<span class="p">)</span><span class="o">.</span><span class="n">configure_facet</span><span class="p">(</span><span class="n">spacing</span><span class="o">=</span><span class="mi">0</span><span class="p">,)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">bounds</span><span class="o">=</span><span class="s1">&#39;flush&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Median Mobility&#39;</span><span class="p">,)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span><span class="n">stroke</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
+    <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span><span class="n">highlight</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-4faa0d838adf4e5489beb350b6e1a5fc"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-4faa0d838adf4e5489beb350b6e1a5fc") {
+      outputDiv = document.getElementById("altair-viz-4faa0d838adf4e5489beb350b6e1a5fc");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "stroke": null}, "facet": {"spacing": 0}, "title": {"anchor": "middle"}}, "data": {"url": "https://raw.githubusercontent.com/armsp/covidviz/master/assets/2020-08-31_Mobility_Data.json"}, "mark": "area", "bounds": "flush", "encoding": {"facet": {"type": "nominal", "columns": 1, "field": "admin1", "header": {"labelAlign": "left", "labelAnchor": "middle", "labelAngle": 0, "labelOrient": "left"}, "title": null}, "fill": {"type": "quantitative", "aggregate": "median", "field": "avg_m50", "legend": null, "scale": {"domain": [0, 170], "scheme": "yellowgreenblue"}}, "fillOpacity": {"condition": {"value": 0.8, "selection": "selector006"}, "value": 0.4}, "x": {"type": "temporal", "axis": {"domain": true, "format": "%b", "labels": true, "tickCount": 5, "ticks": false}, "field": "date", "title": null}, "y": {"type": "quantitative", "axis": null, "field": "avg_m50", "scale": {"range": [50, -100], "zero": false}, "title": null}}, "height": 40, "selection": {"selector006": {"type": "single", "on": "mouseover", "empty": "all"}}, "title": "Median Mobility", "transform": [{"window": [{"op": "mean", "field": "m50_index", "as": "avg_m50"}], "frame": [-6, 0], "groupby": ["fips"]}], "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"}, {"actions": false, "mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="armsp/covidviz"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/covidviz/mobility/interactive/axios/2020/08/31/Mobility.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/covidviz/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/covidviz/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/covidviz/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Making professional looking charts the likes of big media houses like NYT, Guardian and others using Python</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/armsp" title="armsp"><svg class="svg-icon grey"><use xlink:href="/covidviz/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/RajShantam" title="RajShantam"><svg class="svg-icon grey"><use xlink:href="/covidviz/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
