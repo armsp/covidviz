@@ -7,7 +7,7 @@ Hi :wave:
 
 My name is **Shantam**. This blog will contain my attempts to replicate/emulate the visualizations at large media houses, related to COVID-19 pandemic, using open source data & tools.
 
-I am a driven **python** developer and **data scientist**. I have worked with **Machine Learning** and **Big Data** too. Did I tell you I am a published **poet** too?  
+I am a driven **python** developer and **data scientist**. I have experience with **Machine Learning** and **Big Data** as well. Did I tell you I am a published **poet** too?  
 
 I am available for **consulting**, **collaborations**, **part time** or **full time** jobs. Let me know if you want to talk.
 
