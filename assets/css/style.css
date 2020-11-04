@@ -435,11 +435,9 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 
 pre code { font-size: 15px !important; }
 
-.output_wrapper .vega-embed { width: calc(100% + 400px); display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; left: 50%; transform: translateX(-50%); }
+.output_wrapper .vega-embed { left: 50%; transform: translateX(-50%); }
 
 .side-images { width: calc(100% + 400px); display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; left: 50%; transform: translateX(-50%); position: relative; }
-
-.vega-embed .chart-wrapper { width: auto; height: 100%; }
 
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
@@ -468,5 +466,11 @@ center iframe { width: 100%; }
 .wrapper { max-width: calc(1000px - (30px * 2)); padding-right: 30px; padding-left: 30px; }
 
 .trigger a { color: gray; }
+
+canvas.marks { height: auto !important; display: block; }
+
+.vg-tooltip { border-collapse: collapse; padding: 0 !important; }
+
+.vg-tooltip table { border-collapse: collapse; padding: 0 !important; margin-bottom: 0px !important; padding-bottom: 0px !important; }
 
 /*# sourceMappingURL=style.css.map */
