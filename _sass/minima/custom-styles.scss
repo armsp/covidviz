@@ -111,3 +111,44 @@ center iframe {
 .trigger a {
     color: gray;
 }
+
+canvas.marks {
+    // max-width: 100%!important;
+    height: auto!important;
+    display: block;
+    // flex-grow: 1;
+}
+
+// canvas {
+//   width: auto !important;
+//   padding-left: 0;
+//   padding-right: 0;
+//   margin-left: auto;
+//   margin-right: auto;
+//   display: block;
+//   max-width: 100%;
+//   // width: 800px;
+// }
+
+// * {
+//     border: 1px solid black;
+// }
+
+.vg-tooltip {
+    border-collapse: collapse;
+    padding: 0 !important;
+}
+
+.vg-tooltip table {
+    border-collapse: collapse;
+    padding: 0 !important;
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+// window.onresize = function()
+// {var canvasElem = document.querySelectorAll('canvas')[2];
+// var w = document.getElementsByClassName("vega-embed")[2].clientWidth;
+// var h = document.getElementsByClassName("vega-embed")[2].clientHeight;
+// canvasElem.width = w;
+// canvasElem.height = h;}
