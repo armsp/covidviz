@@ -447,15 +447,15 @@ pre code { font-size: 15px !important; }
 
 .logos li { padding: 10px; flex-basis: 15%; }
 
-.site-title { font-family: 'Bungee Shade', cursive; font-size: 2rem; }
+.site-title { font-family: 'Bungee Shade', helvetica; font-size: 2rem; }
 
 .site-header { border-top: 0px solid #424242; border-bottom: 1px solid #e8e8e8; }
 
 .post-title { font-family: 'Roboto Condensed', sans-serif; }
 
-.page-link { font-family: 'Bungee', cursive; font-size: 16px; }
+.page-link { font-family: 'Bungee', helvetica; font-size: 16px; }
 
-.home #posts { font-family: 'Bungee', cursive; }
+.home #posts { font-family: 'Bungee', monospace; }
 
 .post-link { font-family: 'Roboto Condensed', sans-serif; }
 
