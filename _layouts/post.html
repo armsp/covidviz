@@ -37,8 +37,16 @@ layout: default
     {% if page.categories.size > 0 and site.show_tags %}
       <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
       {% for category in  page.categories  %}
+        {% if page.categories.first == category %}
+          <b>[</b>
+        {% endif %}
         <a class="category-tags-link" href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
-        {% unless forloop.last %}&nbsp;{% endunless %}
+        <!-- {% unless forloop.last %}&nbsp;{% endunless %} -->
+        {% if page.categories.last == category %}
+            <b>]</b>
+        {% else %}
+            ,
+        {% endif %}
       {% endfor %}
       </p>
     {% endif %}
