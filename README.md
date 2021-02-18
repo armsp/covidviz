@@ -9,7 +9,7 @@
 https://armsp.github.io/covidviz/  
 This a blog where I attempt to emulate the visualizations published by large media houses like The NYT, The Guardian, The Washington Post and others, related to COVID-19.
 
-If you like my work, do send in a tip to help me -
+If you like my work, then please consider donating so that I can **build a PC for my technical and techno-creative works** or buying me something from my [Amazon Wishlist](https://www.amazon.in/hz/wishlist/genericItemsPage/3KCSFW4DRG1RY):
 
 | Ko-Fi (5 $) | PayPal |
 | :---: | :---: |
@@ -17,11 +17,11 @@ If you like my work, do send in a tip to help me -
 
 All visualizations are done using Python and Altair using publicly available datasets.
 
-![Screenshot](/images/COVID-19_Viz.png)
+<!-- ![Screenshot](/images/COVID-19_Viz.png)
 
 ### Viz from Organizations
 - [x] New York Times
 - [ ] The Guardian
 - [ ] The Washington Post
 - [ ] Nat Geo
-- [ ] The Economist
+- [ ] The Economist -->
